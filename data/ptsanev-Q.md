@@ -1,0 +1,1 @@
+[L-01] - use ``abi.encodeCall`` instead of ``abi.encodeWithSelector`` for more type safety.
