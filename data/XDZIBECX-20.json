@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "XDZIBECX",
+  "risk": "2",
+  "title": "missisng safeguard in _performCall Function can lead to financial losses or instability in the system",
+  "issueId": 20,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/20"
+}
