@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "dd0x7e8",
+  "risk": "2",
+  "title": "Return value of low level `call` not checked.",
+  "issueId": 7,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/7"
+}
