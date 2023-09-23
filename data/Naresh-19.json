@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Naresh",
+  "risk": "3",
+  "title": "Malicious user can use an excessively large _destination in RootBridgeAgent.sol#function _performCall to break layerZero communication",
+  "issueId": 19,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/19"
+}
