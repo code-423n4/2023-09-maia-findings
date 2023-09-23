@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "kaveyjoe",
+  "risk": "2",
+  "title": " Potential Underflow Issue in _bridgeOut Function",
+  "issueId": 12,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/12"
+}
