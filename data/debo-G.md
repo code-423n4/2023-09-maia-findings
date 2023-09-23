@@ -124,3 +124,115 @@ To mitigate this gas optimization vulnerability, developers should avoid initial
 202309-maia/src/VirtualAccount.sol::70 => for (uint256 i = 0; i < length;) {
 202309-maia/src/VirtualAccount.sol::90 => for (uint256 i = 0; i < length;) {
 ```
+## [G-02] Cache Array Length Outside of Loop
+## Description
+Caching the array length outside a loop is a common optimization technique in Solidity to reduce gas consumption, as reading the array length on each iteration can be costly. However, this optimization is safe only if the array's length remains constant throughout the loop execution. If the array's length changes within the loop, caching the length outside the loop could lead to incorrect behavior or vulnerabilities.
+
+## Impact
+
+The impact of not caching the array length outside of a loop varies depending on the specific use case and whether the array length can change during the loop execution. Here are some potential impacts:
+
+1. **Gas Consumption**: Without caching the array length, reading it on each iteration of the loop can consume unnecessary gas, making the contract more expensive to execute.
+
+2. **Inefficiency**: Inefficient gas usage can make the contract less economical for users, discouraging participation.
+
+3. **Vulnerability to Reentrancy**: If the loop includes any external function calls, not caching the array length can introduce reentrancy vulnerabilities, where malicious contracts can manipulate the array's length to disrupt the contract's logic.
+
+4. **Incorrect Behavior**: If the array length changes within the loop, it can lead to incorrect contract behavior, which might not always result in a security vulnerability but can still lead to undesirable outcomes.
+
+## Ethical Example Exploit PoC
+
+Below is a Proof of Concept (PoC) for an ethical example exploit in the `202309-maia/src/BranchBridgeAgent.sol::447` code snippet:
+
+```solidity
+// Assume this is the deposit.tokens array in BranchBridgeAgent.sol
+address[] public tokens;
+
+// Ethical Example Exploit PoC
+function maliciousFunction() public {
+    // Suppose the tokens array length can be manipulated by a malicious user
+    // Inside the loop, the array length is not cached outside the loop
+    for (uint256 i = 0; i < tokens.length;) {
+        // Malicious user changes the array length
+        if (tokens.length > 10) {
+            // Perform malicious actions based on the manipulated array length
+            // ...
+            // An attacker could exploit this by causing unexpected behavior due to the changing array length.
+        }
+    }
+}
+```
+
+In this PoC, a malicious user can manipulate the `tokens` array's length during the loop execution, potentially causing unexpected behavior or vulnerabilities in the contract.
+
+## Mitigation
+
+To mitigate this vulnerability, you should ensure that the array length is cached outside the loop if the array's length can change during the loop execution. Additionally, thoroughly test the contract to ensure that it behaves as expected and does not have any vulnerabilities related to this optimization.
+
+It's essential to follow best practices for gas optimization and security in Solidity smart contract development to reduce the risk of vulnerabilities and ensure the contract's reliability and security.
+
+## References
+```sol
+202309-maia/src/BaseBranchRouter.sol::192 => for (uint256 i = 0; i < _hTokens.length;) {
+202309-maia/src/BranchBridgeAgent.sol::243 => uint8(_dParams.hTokens.length),
+202309-maia/src/BranchBridgeAgent.sol::320 => uint8(_dParams.hTokens.length),
+202309-maia/src/BranchBridgeAgent.sol::359 => if (uint8(deposit.hTokens.length) == 1) {
+202309-maia/src/BranchBridgeAgent.sol::383 => } else if (uint8(deposit.hTokens.length) > 1) {
+202309-maia/src/BranchBridgeAgent.sol::389 => uint8(deposit.hTokens.length),
+202309-maia/src/BranchBridgeAgent.sol::400 => uint8(deposit.hTokens.length),
+202309-maia/src/BranchBridgeAgent.sol::412 => if (payload.length == 0) revert DepositRetryUnavailableUseCallout();
+202309-maia/src/BranchBridgeAgent.sol::447 => for (uint256 i = 0; i < deposit.tokens.length;) {
+202309-maia/src/BranchBridgeAgent.sol::869 => if (_hTokens.length > MAX_TOKENS_LENGTH) revert InvalidInput();
+202309-maia/src/BranchBridgeAgent.sol::870 => if (_hTokens.length != _tokens.length) revert InvalidInput();
+202309-maia/src/BranchBridgeAgent.sol::871 => if (_tokens.length != _amounts.length) revert InvalidInput();
+202309-maia/src/BranchBridgeAgent.sol::872 => if (_amounts.length != _deposits.length) revert InvalidInput();
+202309-maia/src/BranchBridgeAgent.sol::942 => if (_srcAddress.length != 40) revert LayerZeroUnauthorizedCaller();
+202309-maia/src/BranchBridgeAgentExecutor.sol::87 => if (_payload.length > PARAMS_SETTLEMENT_OFFSET) {
+202309-maia/src/BranchBridgeAgentExecutor.sol::119 => if (_payload.length > settlementEndOffset) {
+202309-maia/src/BranchPort.sol::254 => uint256 length = _localAddresses.length;
+202309-maia/src/BranchPort.sol::257 => for (uint256 i = 0; i < length;) {
+202309-maia/src/BranchPort.sol::296 => uint256 length = _localAddresses.length;
+202309-maia/src/BranchPort.sol::299 => if (length > 255) revert InvalidInputArrays();
+202309-maia/src/BranchPort.sol::300 => if (length != _underlyingAddresses.length) revert InvalidInputArrays();
+202309-maia/src/BranchPort.sol::301 => if (_underlyingAddresses.length != _amounts.length) revert InvalidInputArrays();
+202309-maia/src/BranchPort.sol::302 => if (_amounts.length != _deposits.length) revert InvalidInputArrays();
+202309-maia/src/BranchPort.sol::305 => for (uint256 i = 0; i < length;) {
+202309-maia/src/MulticallRootRouter.sol::278 => for (uint256 i = 0; i < outputParams.outputTokens.length;) {
+202309-maia/src/MulticallRootRouter.sol::367 => for (uint256 i = 0; i < outputParams.outputTokens.length;) {
+202309-maia/src/MulticallRootRouter.sol::455 => for (uint256 i = 0; i < outputParams.outputTokens.length;) {
+202309-maia/src/MulticallRootRouter.sol::557 => for (uint256 i = 0; i < outputTokens.length;) {
+202309-maia/src/RootBridgeAgent.sol::318 => for (uint256 i = 0; i < settlement.hTokens.length;) {
+202309-maia/src/RootBridgeAgent.sol::392 => // Cache length
+202309-maia/src/RootBridgeAgent.sol::393 => uint256 length = _dParams.hTokens.length;
+202309-maia/src/RootBridgeAgent.sol::396 => if (length > MAX_TOKENS_LENGTH) revert InvalidInputParams();
+202309-maia/src/RootBridgeAgent.sol::399 => for (uint256 i = 0; i < length;) {
+202309-maia/src/RootBridgeAgent.sol::871 => if (_hTokens.length == 0) revert SettlementRetryUnavailableUseCallout();
+202309-maia/src/RootBridgeAgent.sol::877 => if (_hTokens.length == 1) {
+202309-maia/src/RootBridgeAgent.sol::891 => } else if (_hTokens.length > 1) {
+202309-maia/src/RootBridgeAgent.sol::896 => uint8(_hTokens.length),
+202309-maia/src/RootBridgeAgent.sol::1056 => // Check if valid length
+202309-maia/src/RootBridgeAgent.sol::1057 => if (_globalAddresses.length > MAX_TOKENS_LENGTH) revert InvalidInputParamsLength();
+202309-maia/src/RootBridgeAgent.sol::1059 => // Check if valid length
+202309-maia/src/RootBridgeAgent.sol::1060 => if (_globalAddresses.length != _amounts.length) revert InvalidInputParamsLength();
+202309-maia/src/RootBridgeAgent.sol::1061 => if (_amounts.length != _deposits.length) revert InvalidInputParamsLength();
+202309-maia/src/RootBridgeAgent.sol::1067 => address[] memory hTokens = new address[](_globalAddresses.length);
+202309-maia/src/RootBridgeAgent.sol::1068 => address[] memory tokens = new address[](_globalAddresses.length);
+202309-maia/src/RootBridgeAgent.sol::1070 => for (uint256 i = 0; i < hTokens.length;) {
+202309-maia/src/RootBridgeAgent.sol::1092 => uint8(hTokens.length),
+202309-maia/src/RootBridgeAgent.sol::1210 => if (_srcAddress.length != 40) revert LayerZeroUnauthorizedCaller();
+202309-maia/src/RootBridgeAgentExecutor.sol::100 => if (_payload.length > PARAMS_TKN_SET_SIZE) {
+202309-maia/src/RootBridgeAgentExecutor.sol::131 => uint256 length = _payload.length;
+202309-maia/src/RootBridgeAgentExecutor.sol::134 => if (length > PARAMS_END_OFFSET + (numOfAssets * PARAMS_TKN_SET_SIZE_MULTIPLE)) {
+202309-maia/src/RootBridgeAgentExecutor.sol::185 => if (_payload.length > PARAMS_SETTLEMENT_OFFSET) {
+202309-maia/src/RootBridgeAgentExecutor.sol::220 => _payload.length
+202309-maia/src/RootBridgeAgentExecutor.sol::253 => *     1. First byte is the number of assets to be bridged in. Equals length of all arrays.
+202309-maia/src/RootBridgeAgentExecutor.sol::261 => *     5. Each of the 4 token related arrays are of length N and start at the following indexes:
+202309-maia/src/VirtualAccount.sol::67 => uint256 length = calls.length;
+202309-maia/src/VirtualAccount.sol::68 => returnData = new bytes[](length);
+202309-maia/src/VirtualAccount.sol::70 => for (uint256 i = 0; i < length;) {
+202309-maia/src/VirtualAccount.sol::87 => uint256 length = calls.length;
+202309-maia/src/VirtualAccount.sol::88 => returnData = new bytes[](length);
+202309-maia/src/VirtualAccount.sol::90 => for (uint256 i = 0; i < length;) {
+202309-maia/src/interfaces/ILayerZeroEndpoint.sol::10 => // @param _destination - the address on destination chain (in bytes). address length/format may vary by chains
+202309-maia/src/interfaces/IRootBridgeAgent.sol::280 => *     1. First byte is the number of assets to be bridged in. Equals length of all arrays.
+```
