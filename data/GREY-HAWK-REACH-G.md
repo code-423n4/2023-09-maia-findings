@@ -1,4 +1,4 @@
-## G-01 Use `!= 0` instead of `> 0` for uints
+## [G-01] Use `!= 0` instead of `> 0` for uints
 [BaseBranchRouter.sol#L160-L177](https://github.com/code-423n4/2023-09-maia/blob/c0dc3550e0754571b82d7bfd8f0282ac8fa5e42f/src/BaseBranchRouter.sol#L160-L177)
 ```diff
     function _transferAndApproveToken(address _hToken, address _token, uint256 _amount, uint256 _deposit) internal {
