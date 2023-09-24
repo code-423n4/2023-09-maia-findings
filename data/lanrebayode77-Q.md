@@ -39,3 +39,7 @@ require(length == _underlyingAddresses.length, "mis-match");
 require(length == _amounts.length, "mis-match");
 require(length == _deposits.length, "mis-match");
 ```
+
+### 3. No Initialize modifier in initializtion function
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreRootRouter.sol#L83
+Consider adding initialize modifier to ensure the function is not called again after setting it once.
