@@ -43,3 +43,16 @@ require(length == _deposits.length, "mis-match");
 ### 3. No Initialize modifier in initializtion function
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreRootRouter.sol#L83
 Consider adding initialize modifier to ensure the function is not called again after setting it once.
+
+### 4. Incorrect natspec comment
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L60-L61
+The code indicates a mapping from a uint256 to a bool, to show if a particular chainId is active or not, but the comment states a difference description which is mis-leading.
+``` solidity
+ /// @notice Mapping from address to Bridge Agent.
+    mapping(uint256 chainId => bool isActive) public isChainId;
+```
+Consider changing to the correct comment. 
+``` solidity
+ /// @notice Mapping from chainId(uint256) to bool(indicating activeness).
+    mapping(uint256 chainId => bool isActive) public isChainId;
+```
