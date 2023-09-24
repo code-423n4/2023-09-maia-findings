@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "perseverancesuccess",
+  "risk": "3",
+  "title": "The attackers can steal all users's assets by calling the payableCall of the VirtualAccount contract for the users",
+  "issueId": 27,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/27"
+}
