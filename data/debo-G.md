@@ -236,3 +236,211 @@ It's essential to follow best practices for gas optimization and security in Sol
 202309-maia/src/interfaces/ILayerZeroEndpoint.sol::10 => // @param _destination - the address on destination chain (in bytes). address length/format may vary by chains
 202309-maia/src/interfaces/IRootBridgeAgent.sol::280 => *     1. First byte is the number of assets to be bridged in. Equals length of all arrays.
 ```
+## [G-03] Use != 0 instead of > 0 for Unsigned Integer Comparison
+## Description
+While using != 0 for unsigned integer comparison can provide gas optimizations and code readability benefits, it should be applied judiciously. 
+
+**Benefits**
+Using != 0 for unsigned integer comparisons offers several potential benefits:
+
+Gas Optimization: It can reduce gas costs since the EVM (Ethereum Virtual Machine) can optimize the comparison operation more efficiently.
+Code Readability: It can make the code more concise and readable, especially when checking if a value is non-zero.
+
+**Bad**
+```sol
+if (_hTokenAmount > 0)
+```
+**Good**
+```
+if (_hTokenAmount != 0)
+```
+## References
+```sol
+202309-maia/src/ArbitrumBranchPort.sol::127 => if (_deposit > 0) {
+202309-maia/src/ArbitrumBranchPort.sol::132 => if (_amount - _deposit > 0) {
+202309-maia/src/BaseBranchRouter.sol::165 => if (_amount - _deposit > 0) {
+202309-maia/src/BaseBranchRouter.sol::173 => if (_deposit > 0) {
+202309-maia/src/BranchBridgeAgent.sol::906 => if (_amount - _deposit > 0) {
+202309-maia/src/BranchBridgeAgent.sol::912 => if (_deposit > 0) {
+202309-maia/src/BranchPort.sol::259 => if (_amounts[i] - _deposits[i] > 0) {
+202309-maia/src/BranchPort.sol::266 => if (_deposits[i] > 0) {
+202309-maia/src/BranchPort.sol::525 => if (_hTokenAmount > 0) {
+202309-maia/src/BranchPort.sol::531 => if (_deposit > 0) {
+202309-maia/src/RootBridgeAgent.sol::363 => if (_dParams.amount > 0) {
+202309-maia/src/RootBridgeAgent.sol::370 => if (_dParams.deposit > 0) {
+202309-maia/src/RootBridgeAgent.sol::1146 => if (_underlyingAddress == address(0)) if (_deposit > 0) revert UnrecognizedUnderlyingAddress();
+202309-maia/src/RootBridgeAgent.sol::1149 => if (_amount - _deposit > 0) {
+202309-maia/src/RootBridgeAgent.sol::1156 => if (_deposit > 0) {
+202309-maia/src/RootPort.sol::284 => if (_amount - _deposit > 0) {
+202309-maia/src/RootPort.sol::290 => if (_deposit > 0) if (!ERC20hTokenRoot(_hToken).mint(_recipient, _deposit, _srcChainId)) revert UnableToMint();
+202309-maia/src/VirtualAccount.sol::152 => return size > 0;
+```
+## [G-04] Long Revert Strings
+### Code Snippet
+```solidity
+require(_bridgeAgentFactory != address(0), "Bridge Agent Factory cannot be 0 address.");
+```
+
+### Analysis
+The code snippet checks if a `_bridgeAgentFactory` variable is not equal to the zero address before allowing further execution. This is a common pattern used to prevent certain critical functions or operations from being executed with uninitialized or invalid contract addresses. However, the error message associated with this check, "Bridge Agent Factory cannot be 0 address," is not ideal for security reasons.
+
+### Security Impact
+#### Gas Optimization for Long Revert Strings
+The impact of using a long error message string like "Bridge Agent Factory cannot be 0 address" can lead to increased gas costs when the condition fails. Solidity reverts with an error message by consuming additional gas, and the longer the error message, the more gas is consumed. In Ethereum and other blockchain networks, gas is a valuable resource, and optimizing gas usage is crucial for efficient smart contract execution.
+
+#### Ethical Example Exploit
+Let's consider an ethical example exploit scenario:
+
+**Scenario**: An attacker deploys a malicious smart contract that repeatedly calls the function containing the vulnerable check with a valid `_bridgeAgentFactory` address.
+
+**Exploit Steps**:
+1. The attacker deploys a malicious contract and provides it with a legitimate `_bridgeAgentFactory` address.
+
+```solidity
+contract MaliciousContract {
+    address private _bridgeAgentFactory;
+    
+    constructor(address factoryAddress) {
+        _bridgeAgentFactory = factoryAddress;
+    }
+    
+    function maliciousFunction() public {
+        // Repeatedly call the vulnerable function
+        while (true) {
+            // This consumes gas due to the revert, but the attacker can afford it
+            require(_bridgeAgentFactory != address(0), "Bridge Agent Factory cannot be 0 address");
+        }
+    }
+}
+```
+
+2. The attacker deploys the `MaliciousContract` and calls the `maliciousFunction()`.
+
+```solidity
+MaliciousContract malicious = new MaliciousContract(validFactoryAddress);
+malicious.maliciousFunction();
+```
+
+**Exploit Impact**:
+- The malicious contract consumes a significant amount of gas with each execution of `require`, leading to increased costs for other users of the blockchain.
+- It could potentially cause a denial-of-service (DoS) attack by congesting the network and making it expensive for legitimate transactions to execute.
+
+### Proof of Concept (PoC)
+```solidity
+pragma solidity ^0.8.0;
+
+contract MaliciousContract {
+    address private _bridgeAgentFactory;
+    
+    constructor(address factoryAddress) {
+        _bridgeAgentFactory = factoryAddress;
+    }
+    
+    function maliciousFunction() public {
+        // Repeatedly call the vulnerable function
+        while (true) {
+            require(_bridgeAgentFactory != address(0), "Bridge Agent Factory cannot be 0 address");
+        }
+    }
+}
+
+contract TargetContract {
+    address public factoryAddress;
+    
+    constructor() {
+        factoryAddress = address(0); // Initialize factoryAddress to the zero address
+    }
+    
+    function setFactoryAddress(address newAddress) public {
+        factoryAddress = newAddress;
+    }
+}
+```
+
+In this PoC, we have two contracts: `MaliciousContract` and `TargetContract`. The `MaliciousContract` repeatedly calls the vulnerable function, while the `TargetContract` allows setting the `_bridgeAgentFactory` address. An attacker can deploy the `MaliciousContract` and set the `TargetContract`'s `factoryAddress` to exploit the vulnerability.
+
+### Mitigation
+To optimize gas usage and mitigate the potential exploit described above, it is advisable to use shorter and more generic error messages like "Invalid input" or "Operation failed." Additionally, consider implementing access control mechanisms to prevent unauthorized access to critical functions.
+
+```solidity
+require(_bridgeAgentFactory != address(0), "Invalid input");
+```
+
+Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and gas costs when the revert condition has been met.
+If the contract(s) in scope allow using Solidity >=0.8.4, consider using Custom Errors as they are more gas efficient while allowing developers to describe the error in detail using NatSpec.
+**Bad**
+```sol
+require(_bridgeAgentFactory != address(0), "Bridge Agent Factory cannot be 0 address.");
+```
+**Good**
+```sol
+require(_bridgeAgentFactory != address(0), "BAF cannot be 0 address");
+```
+**References**
+```sol
+02309-maia/src/ArbitrumBranchBridgeAgent.sol::4 => import {IArbitrumBranchPort as IArbPort} from "./interfaces/IArbitrumBranchPort.sol";
+202309-maia/src/ArbitrumBranchBridgeAgent.sol::5 => import {IRootBridgeAgent} from "./interfaces/IRootBridgeAgent.sol";
+202309-maia/src/ArbitrumBranchBridgeAgent.sol::6 => import {GasParams, IBranchBridgeAgent} from "./interfaces/IBranchBridgeAgent.sol";
+202309-maia/src/ArbitrumBranchPort.sol::7 => import {IArbitrumBranchPort} from "./interfaces/IArbitrumBranchPort.sol";
+202309-maia/src/ArbitrumCoreBranchRouter.sol::6 => import {IBranchBridgeAgent as IBridgeAgent, GasParams} from "./interfaces/IBranchBridgeAgent.sol";
+202309-maia/src/ArbitrumCoreBranchRouter.sol::7 => import {IBranchBridgeAgentFactory as IBridgeAgentFactory} from "./interfaces/IBranchBridgeAgentFactory.sol";
+202309-maia/src/ArbitrumCoreBranchRouter.sol::8 => import {IArbitrumBranchPort as IPort} from "./interfaces/IArbitrumBranchPort.sol";
+202309-maia/src/BaseBranchRouter.sol::21 => } from "./interfaces/IBranchBridgeAgent.sol";
+202309-maia/src/BranchBridgeAgent.sol::8 => import {BridgeAgentConstants} from "./interfaces/BridgeAgentConstants.sol";
+202309-maia/src/BranchBridgeAgent.sol::17 => } from "./interfaces/IBranchBridgeAgent.sol";
+202309-maia/src/BranchBridgeAgent.sol::18 => import {ILayerZeroEndpoint} from "./interfaces/ILayerZeroEndpoint.sol";
+202309-maia/src/BranchBridgeAgent.sol::125 => require(_rootBridgeAgentAddress != address(0), "Root Bridge Agent Address cannot be the zero address.");
+202309-maia/src/BranchBridgeAgent.sol::128 => "Layerzero Endpoint Address cannot be the zero address."
+202309-maia/src/BranchBridgeAgent.sol::130 => require(_localRouterAddress != address(0), "Local Router Address cannot be the zero address.");
+202309-maia/src/BranchBridgeAgent.sol::131 => require(_localPortAddress != address(0), "Local Port Address cannot be the zero address.");
+202309-maia/src/BranchBridgeAgentExecutor.sol::11 => import {BridgeAgentConstants} from "./interfaces/BridgeAgentConstants.sol";
+202309-maia/src/BranchBridgeAgentExecutor.sol::12 => import {SettlementParams, SettlementMultipleParams} from "./interfaces/IBranchBridgeAgent.sol";
+202309-maia/src/BranchPort.sol::127 => require(_bridgeAgentFactory != address(0), "BridgeAgentFactory is zero address");
+202309-maia/src/CoreBranchRouter.sol::7 => import {IBranchBridgeAgent as IBridgeAgent, GasParams} from "./interfaces/IBranchBridgeAgent.sol";
+202309-maia/src/CoreBranchRouter.sol::8 => import {IBranchBridgeAgentFactory as IBridgeAgentFactory} from "./interfaces/IBranchBridgeAgentFactory.sol";
+202309-maia/src/CoreBranchRouter.sol::10 => import {ICoreBranchRouter} from "./interfaces/ICoreBranchRouter.sol";
+202309-maia/src/CoreBranchRouter.sol::11 => import {IERC20hTokenBranchFactory as ITokenFactory} from "./interfaces/IERC20hTokenBranchFactory.sol";
+202309-maia/src/CoreRootRouter.sol::8 => import {IERC20hTokenRootFactory as IFactory} from "./interfaces/IERC20hTokenRootFactory.sol";
+202309-maia/src/CoreRootRouter.sol::15 => } from "./interfaces/IRootBridgeAgent.sol";
+202309-maia/src/MulticallRootRouter.sol::13 => } from "./interfaces/IRootBridgeAgent.sol";
+202309-maia/src/RootBridgeAgent.sol::8 => import {ILayerZeroEndpoint} from "./interfaces/ILayerZeroEndpoint.sol";
+202309-maia/src/RootBridgeAgent.sol::10 => import {IBranchBridgeAgent} from "./interfaces/IBranchBridgeAgent.sol";
+202309-maia/src/RootBridgeAgent.sol::11 => import {IERC20hTokenRoot} from "./interfaces/IERC20hTokenRoot.sol";
+202309-maia/src/RootBridgeAgent.sol::13 => import {BridgeAgentConstants} from "./interfaces/BridgeAgentConstants.sol";
+202309-maia/src/RootBridgeAgent.sol::23 => } from "./interfaces/IRootBridgeAgent.sol";
+202309-maia/src/RootBridgeAgent.sol::111 => require(_lzEndpointAddress != address(0), "Layerzero Enpoint Address cannot be zero address");
+202309-maia/src/RootBridgeAgent.sol::112 => require(_localPortAddress != address(0), "Port Address cannot be zero address");
+202309-maia/src/RootBridgeAgent.sol::113 => require(_localRouterAddress != address(0), "Router Address cannot be zero address");
+202309-maia/src/RootBridgeAgentExecutor.sol::7 => import {IRootBridgeAgent} from "./interfaces/IRootBridgeAgent.sol";
+202309-maia/src/RootBridgeAgentExecutor.sol::9 => import {BridgeAgentConstants} from "./interfaces/BridgeAgentConstants.sol";
+202309-maia/src/RootPort.sol::8 => import {IERC20hTokenRootFactory} from "./interfaces/IERC20hTokenRootFactory.sol";
+202309-maia/src/RootPort.sol::9 => import {IRootBridgeAgent as IBridgeAgent} from "./interfaces/IRootBridgeAgent.sol";
+202309-maia/src/RootPort.sol::130 => require(_bridgeAgentFactory != address(0), "Bridge Agent Factory cannot be 0 address.");
+202309-maia/src/RootPort.sol::131 => require(_coreRootRouter != address(0), "Core Root Router cannot be 0 address.");
+202309-maia/src/RootPort.sol::152 => require(_coreRootBridgeAgent != address(0), "Core Root Bridge Agent cannot be 0 address.");
+202309-maia/src/RootPort.sol::153 => require(_coreLocalBranchBridgeAgent != address(0), "Core Local Branch Bridge Agent cannot be 0 address.");
+202309-maia/src/RootPort.sol::154 => require(_localBranchPortAddress != address(0), "Local Branch Port Address cannot be 0 address.");
+202309-maia/src/VirtualAccount.sol::9 => import {ERC1155Receiver} from "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol";
+202309-maia/src/VirtualAccount.sol::10 => import {IERC1155Receiver} from "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
+202309-maia/src/VirtualAccount.sol::11 => import {IERC721Receiver} from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+202309-maia/src/factories/ArbitrumBranchBridgeAgentFactory.sol::4 => import {IArbitrumBranchPort as IPort} from "../interfaces/IArbitrumBranchPort.sol";
+202309-maia/src/factories/ArbitrumBranchBridgeAgentFactory.sol::57 => require(_coreRootBridgeAgent != address(0), "Core Root Bridge Agent Address cannot be 0");
+202309-maia/src/factories/ArbitrumBranchBridgeAgentFactory.sol::85 => msg.sender == localCoreBranchRouterAddress, "Only the Core Branch Router can create a new Bridge Agent."
+202309-maia/src/factories/ArbitrumBranchBridgeAgentFactory.sol::89 => "Root Bridge Agent Factory Address does not match."
+202309-maia/src/factories/BranchBridgeAgentFactory.sol::9 => import {IBranchBridgeAgentFactory} from "../interfaces/IBranchBridgeAgentFactory.sol";
+202309-maia/src/factories/BranchBridgeAgentFactory.sol::61 => require(_rootBridgeAgentFactoryAddress != address(0), "Root Bridge Agent Factory Address cannot be 0");
+202309-maia/src/factories/BranchBridgeAgentFactory.sol::64 => "Layerzero Endpoint Address cannot be the zero address."
+202309-maia/src/factories/BranchBridgeAgentFactory.sol::66 => require(_localCoreBranchRouterAddress != address(0), "Core Branch Router Address cannot be 0");
+202309-maia/src/factories/BranchBridgeAgentFactory.sol::88 => require(_coreRootBridgeAgent != address(0), "Core Root Bridge Agent cannot be 0");
+202309-maia/src/factories/BranchBridgeAgentFactory.sol::121 => msg.sender == localCoreBranchRouterAddress, "Only the Core Branch Router can create a new Bridge Agent."
+202309-maia/src/factories/BranchBridgeAgentFactory.sol::125 => "Root Bridge Agent Factory Address does not match."
+202309-maia/src/factories/ERC20hTokenBranchFactory.sol::8 => import {IERC20hTokenBranchFactory, ERC20hTokenBranch} from "../interfaces/IERC20hTokenBranchFactory.sol";
+202309-maia/src/factories/ERC20hTokenRootFactory.sol::8 => import {IERC20hTokenRootFactory, ERC20hTokenRoot} from "../interfaces/IERC20hTokenRootFactory.sol";
+202309-maia/src/factories/RootBridgeAgentFactory.sol::4 => import {IRootBridgeAgentFactory} from "../interfaces/IRootBridgeAgentFactory.sol";
+202309-maia/src/interfaces/ILayerZeroEndpoint.sol::5 => import "./ILayerZeroUserApplicationConfig.sol";
+202309-maia/src/interfaces/IRootPort.sol::5 => import {GasParams} from "../interfaces/IRootBridgeAgent.sol";
+202309-maia/src/interfaces/IRootRouter.sol::4 => import {DepositParams, DepositMultipleParams} from "../interfaces/IRootBridgeAgent.sol";
+202309-maia/src/interfaces/IVirtualAccount.sol::4 => import {IERC721Receiver} from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+202309-maia/src/token/ERC20hTokenBranch.sol::8 => import {IERC20hTokenBranch} from "../interfaces/IERC20hTokenBranch.sol";
+202309-maia/src/token/ERC20hTokenRoot.sol::8 => import {IERC20hTokenRoot} from "../interfaces/IERC20hTokenRoot.sol";
+```
