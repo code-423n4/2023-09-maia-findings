@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "DavylVinyl",
+  "risk": "2",
+  "title": " there is no validation on the input addresses _bridgeAgentAddress and _hTokenFactory. Malicious or incorrect addresses could lead to unexpected behavior",
+  "issueId": 50,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/50"
+}
