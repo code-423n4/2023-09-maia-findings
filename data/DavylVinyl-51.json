@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "DavylVinyl",
+  "risk": "2",
+  "title": "The executeWithDepositMultiple function in the provided code is designed to bridge multiple assets from a remote chain to the root omnichain environment. However, if the input _payload contains a large number of assets to bridge, the gas cost of executing this function may exceed the Ethereum block gas limit",
+  "issueId": 51,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/51"
+}
