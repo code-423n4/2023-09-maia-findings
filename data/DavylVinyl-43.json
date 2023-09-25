@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "DavylVinyl",
+  "risk": "2",
+  "title": "reentrancy check lock not being correctly reset after executing the `lock` modifier can potentially expose the contract to reentrancy attacks",
+  "issueId": 43,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/43"
+}
