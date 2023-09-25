@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "LowK",
+  "risk": "2",
+  "title": "a isGlobalAddress state of RootPort contract, just add and enable, but it is not removed or disabled.",
+  "issueId": 49,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/49"
+}
