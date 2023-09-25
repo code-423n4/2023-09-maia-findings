@@ -1,10 +1,10 @@
-### [L-01] Missing zero address checks
+### [L-01] Missing zero address checks on constructor
 - CoreRootRouter.sol:72
 - CoreBranchRouter.sol:31
 - VirtualAccount.sol:36
-### [L-02] Missing requiresApprovedCaller modifier
+### [L-02] Missing requiresApprovedCaller modifier on function payableCall
 - VirtualAccount.sol:86
-### [N-01] Parameter isnt used
+### [N-01] Parameter isnt used on functions
 - CoreRootRouter.sol:333
 - CoreRootRouter.sol:352
 - CoreRootRouter.sol:363
