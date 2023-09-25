@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "DavylVinyl",
+  "risk": "3",
+  "title": "Potentially lead to a malicious tranfer and gas draining attack. In specific functions like toggleBranchBridgeAgentFactory and removeBranchBridgeAgent, there is a transfer of Ether (msg.value) to an _refundee address. Without proper access control",
+  "issueId": 47,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/47"
+}
