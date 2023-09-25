@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "debo",
+  "risk": "2",
+  "title": "[M-06] Multiple calls are executed in the same transaction within the BranchBridgeAgentExecutor Contract",
+  "issueId": 63,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/63"
+}
