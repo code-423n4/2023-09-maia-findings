@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "DavylVinyl",
+  "risk": "2",
+  "title": "Potential  \"Stack too deep\" error leading to unexpected failures during the execution of functions. Too many local variables are declared within a single function, causing the Ethereum Virtual Machine (EVM) to run out of stack space, resulting in a runtime error.",
+  "issueId": 53,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/53"
+}
