@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "DavylVinyl",
+  "risk": "2",
+  "title": "The executeWithDeposit and executeSignedWithDeposit functions in the contract read the amount value from the _payload, which is expected to be a uint256 value.  Integer Underflow",
+  "issueId": 52,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/52"
+}
