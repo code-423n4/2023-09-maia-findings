@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "DavylVinyl",
+  "risk": "2",
+  "title": "Lack of access control checks in the Ownable contract, important functions, such as execute, executeSigned, and others, do not have access control checks",
+  "issueId": 44,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/44"
+}
