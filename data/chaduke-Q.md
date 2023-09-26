@@ -27,6 +27,8 @@ QA2. ``updatePortStrategy()`` fails to check whether the input PortStrategy has 
 
 Mitigation: we need to check whether the input PortStrategy has been added or not. 
 
+QA3. ``BranchBridgeAgent.retryDeposit()`` fails to check ``deposit.status == STATUS_FAILED`` before retrying deposit. As a result, even when ``deposit.status == STATUS_SUCCESS``, one still might be able to call ``retryDeposit()``.   
 
+[https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L343C14-L409](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L343C14-L409)
 
 
