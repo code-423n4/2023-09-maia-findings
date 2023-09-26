@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Dinesh11G",
+  "risk": "2",
+  "title": "Missing Return Value Checks in ERC20hTokenBranch Contract Functions",
+  "issueId": 84,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/84"
+}
