@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Naresh",
+  "risk": "2",
+  "title": "ERC20(token).approve revert if the underlying ERC20 token approve does not return boolean",
+  "issueId": 78,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/78"
+}
