@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Naresh",
+  "risk": "2",
+  "title": "Use safeTransferFrom() instead of transferFrom() for outgoing erc721 transfers",
+  "issueId": 74,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/74"
+}
