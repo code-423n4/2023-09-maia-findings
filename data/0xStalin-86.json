@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xStalin",
+  "risk": "3",
+  "title": "Incorrectly decoding the source address that called the LayerZero endpoint in the requiresEndpoint() modifer on the BridgeAgent contracts, instead of reading the bytes of the `srcAddr`, the current offset is actually reading the bytes of the `destAddr`",
+  "issueId": 86,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/86"
+}
