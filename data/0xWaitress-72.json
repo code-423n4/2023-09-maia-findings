@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "payableCall in virtualAccount is not protected by `requiresApprovedCaller` as call",
+  "issueId": 72,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/72"
+}
