@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0x180db",
+  "risk": "3",
+  "title": "Missing access control for the `payableCall` public function in the `VirtualAccount` contract",
+  "issueId": 75,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/75"
+}
