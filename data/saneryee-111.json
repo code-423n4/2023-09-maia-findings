@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "saneryee",
+  "risk": "2",
+  "title": "Simultaneous transactions that try to use the same settlementNonce can lead to unexpected behavior or errors",
+  "issueId": 111,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/111"
+}
