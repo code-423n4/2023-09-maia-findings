@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "V1235816",
+  "risk": "3",
+  "title": "replenishReserves should update getPortStrategyTokenDebt and getStrategyTokenDebt after require() and IPortStrategy(msg.sender).withdraw",
+  "issueId": 107,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/107"
+}
