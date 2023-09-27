@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "no way for portStrategy to report gain to the BranchPort, leading to a permanent inability to utilize the yield/profit from the investment to improve reserve efficiency",
+  "issueId": 92,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/92"
+}
