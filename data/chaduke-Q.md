@@ -68,6 +68,10 @@ Mitigation:
 QA4. ``RootPort.setLocalAddress()`` fails to reset the old mapping for ``_globalAddress`` and ``_localAddress``. For example, suppose we had L1 <-> G1, but now we need to revise it to L2 <-> G1, then it is important to delete  getLocalTokenFromGlobal[L1][_srcChainId] so that L1 will not linked to G1.
 In the same way, if we had L1 <-> G1, but we need to change it to L1 <-> G2, then it is important to delete getGlobalTokenFromLocal[G1][_srcChainId] so that G1 will not be linked to L1 anymore.  
 
+Moreover, it fails to set the oldG to false and the new ``_globalAddress`` to true in ``isGlobalAddress``:
+
+Similar unlinking needs to be done for function ``setAddresses()`` as well.
+
 [https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L259C14-L270](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L259C14-L270)
 
 Mitigation: we need to unlink the existing mapping first before setting the new mapping: 
@@ -84,6 +88,9 @@ function setLocalAddress(address _globalAddress, address _localAddress, uint256 
 +        address oldL = getLocalTokenFromGlobal[_globalAddress][_srcChainId];
 +        delete getGlobalTokenFromLocal[oldL][_srcChainId]; 
 +        delete getLocalTokenFromGlobal[oldG][_srcChainId];
+
++        delete isGlobalAddress[olG];
++        isGlobalAddress[_globalAddress]  = true;
 
         getGlobalTokenFromLocal[_localAddress][_srcChainId] = _globalAddress;
         getLocalTokenFromGlobal[_globalAddress][_srcChainId] = _localAddress;
