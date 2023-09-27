@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "gumgumzum",
+  "risk": "3",
+  "title": "VirtualAccount@payableCall does not require the caller to be approved",
+  "issueId": 98,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/98"
+}
