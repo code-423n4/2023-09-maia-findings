@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "perseverancesuccess",
+  "risk": "3",
+  "title": "Users underpay the fee cost of the transactions in the case of using _hasFallbackToggled that is set to true when using the Branch Bridge Agent and Root Bridge Agent",
+  "issueId": 97,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/97"
+}
