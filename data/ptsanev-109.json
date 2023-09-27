@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ptsanev",
+  "risk": "3",
+  "title": "RootBridgeAgent.sol - ``callOut`` functions are uncallable in the context of the repo",
+  "issueId": 109,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/109"
+}
