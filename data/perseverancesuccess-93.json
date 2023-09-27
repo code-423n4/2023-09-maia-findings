@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "perseverancesuccess",
+  "risk": "3",
+  "title": "Users can loose money due to gas spent on the transactions that failed because of not enough fees paid to the Layerzero endpoint ",
+  "issueId": 93,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/93"
+}
