@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "perseverancesuccess",
+  "risk": "3",
+  "title": "The attacker can steal all the native coin (ETH) balance of the Root Bridge Agent and the Branch Bridge contracts using the Fallback mechanism",
+  "issueId": 95,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/95"
+}
