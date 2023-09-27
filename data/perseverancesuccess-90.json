@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "perseverancesuccess",
+  "risk": "2",
+  "title": "The contracts  (Bridge Agents, Root Agents) do not have functions to implement UA Configuration Lock versioning can cause vulnerabilities and security issues with upgrades of Layerzero library contracts",
+  "issueId": 90,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/90"
+}
