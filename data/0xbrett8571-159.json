@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "Lack of Input Validation for `_globalAddress` in ArbitrumBranchPort.",
+  "issueId": 159,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/159"
+}
