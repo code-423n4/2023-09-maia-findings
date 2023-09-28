@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "saneryee",
+  "risk": "2",
+  "title": "The use of abi.encodePacked for data encoding can potentially introduce ambiguity in how the encoded data should be decoded",
+  "issueId": 116,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/116"
+}
