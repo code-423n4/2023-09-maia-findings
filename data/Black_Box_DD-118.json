@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Black_Box_DD",
+  "risk": "3",
+  "title": "Virtual Account contract's `payableCall()` missing `requiresApprovedCaller` Access control",
+  "issueId": 118,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/118"
+}
