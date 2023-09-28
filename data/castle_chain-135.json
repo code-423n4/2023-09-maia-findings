@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "castle_chain",
+  "risk": "3",
+  "title": "fee-on-transfer tokens will make the CoreBranchRouter contract insolvent , and will lead to freeze all the functionality of the Router .  ",
+  "issueId": 135,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/135"
+}
