@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xbrett8571",
+  "risk": "3",
+  "title": "A malicious user could send a lower amount of Ether than expected, causing the function to revert.",
+  "issueId": 164,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/164"
+}
