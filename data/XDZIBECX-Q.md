@@ -1,0 +1,3 @@
+## details of the issue N°1 :
+- https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumBranchBridgeAgent.sol#L86C1-L90C1
+- the retrySettlement function it accepts various parameters but does not seem to use them. it can called an  unused functionality. If this function is intended to be called by external actors without proper validation and safeguards, it could potentially be exploited, and  if external actors can call retrySettlement without appropriate checks, they might trigger unnecessary or unintended actions, potentially leading to unexpected behavior or misuse of the contract.
