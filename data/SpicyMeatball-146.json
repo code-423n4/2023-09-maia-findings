@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "SpicyMeatball",
+  "risk": "3",
+  "title": "Making an unsigned deposits into the root agent that uses the MultiRouter.sol router can lead to a funds loss",
+  "issueId": 146,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/146"
+}
