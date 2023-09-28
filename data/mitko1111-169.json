@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "mitko1111",
+  "risk": "2",
+  "title": "Solmate safetransfer and safetransferfrom does not check the code size of the token address, which may lead to funding loss",
+  "issueId": 169,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/169"
+}
