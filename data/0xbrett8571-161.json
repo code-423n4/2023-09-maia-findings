@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xbrett8571",
+  "risk": "3",
+  "title": "An attacker can change the value of `_rootBridgeAgentAddress` to point to their malicious contract address.",
+  "issueId": 161,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/161"
+}
