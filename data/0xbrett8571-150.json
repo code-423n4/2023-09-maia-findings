@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "Failing to handle the potential failure of the `safeTransfer` could result in unexpected behavior and disruptions in the intended flow of the contract, potentially causing inconvenience for users.",
+  "issueId": 150,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/150"
+}
