@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "debo",
+  "risk": "2",
+  "title": "[M-10] Unchecked return value from low-level external call in RootBridgeAgent contract within the _performRetrySettlementCall function",
+  "issueId": 128,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/128"
+}
