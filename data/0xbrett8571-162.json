@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "If the `safeTransferFrom` or `approve` calls fail, it could result in tokens being stuck in the contract.",
+  "issueId": 162,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/162"
+}
