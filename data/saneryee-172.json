@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "saneryee",
+  "risk": "2",
+  "title": "Inconsistent State Management in retrySettlement Function",
+  "issueId": 172,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/172"
+}
