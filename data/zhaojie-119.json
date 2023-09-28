@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "zhaojie",
+  "risk": "3",
+  "title": "uint32 is too small for depositNonce",
+  "issueId": 119,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/119"
+}
