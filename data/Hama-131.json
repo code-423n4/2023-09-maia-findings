@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Hama",
+  "risk": "3",
+  "title": "Tokens Can Be Lost or Stuck on the Same Chain Due to Inadequate _dstChainId Validation",
+  "issueId": 131,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/131"
+}
