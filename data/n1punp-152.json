@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "n1punp",
+  "risk": "3",
+  "title": "Some tokens may require approve(0) before actual approve(...)",
+  "issueId": 152,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/152"
+}
