@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Daniel526",
+  "risk": "2",
+  "title": "Incomplete Asset Clearing in `MulticallRootRouter` Contract",
+  "issueId": 137,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/137"
+}
