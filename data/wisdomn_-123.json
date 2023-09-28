@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "Unchecked return value in function withdrawNative leads to loss of funds.",
+  "issueId": 123,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/123"
+}
