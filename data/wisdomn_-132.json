@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "Unchecked return in function withdrawERC721 leads to loss of funds.",
+  "issueId": 132,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/132"
+}
