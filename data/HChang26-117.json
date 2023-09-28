@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "HChang26",
+  "risk": "3",
+  "title": "Missing `requiresApprovedCaller` modifier in `payableCall()`",
+  "issueId": 117,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/117"
+}
