@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "The absence of an event or notification mechanism in case of an attempt to add an already existing bridge agent is an error in the contract's behavior.",
+  "issueId": 151,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/151"
+}
