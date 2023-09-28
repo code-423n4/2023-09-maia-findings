@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xbrett8571",
+  "risk": "3",
+  "title": "Lack of Input Validation in `lzReceiveNonBlocking` function of **BranchBridgeAgent.sol.**",
+  "issueId": 154,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/154"
+}
