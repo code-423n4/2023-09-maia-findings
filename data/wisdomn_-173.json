@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "function withdrawERC20 is vulnerable to reentrancy which can lead to loss of funds.",
+  "issueId": 173,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/173"
+}
