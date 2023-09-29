@@ -14,8 +14,11 @@ D. Codebase quality analysis
 E. Centralization risks
     
 F. Mechanism review
+   1) ``CoreRootRouter`` should focus on the functionality of "routing". Since the functionality of ``_addLocalToken``,  ``_setLocalToken``, ``_syncBranchBridgeAgent`` are implemented in ``BranchBridgeAgent.sol``, these internal functions should be moved to ``c.sol``. Currently, these internal functions just unwrap the payload and then wrap another payload to call ``BranchBridgeAgent.sol`` - a waste of time and only make the code harder to manage. Simplicity is the key for security. 
    
 G. Systemic risks
+
+
 
 ### Time spent:
 100 hours
