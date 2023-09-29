@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "function.withdrawERC721 has a token transfer error which can lead to loss of funds.",
+  "issueId": 192,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/192"
+}
