@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "ArbitrumCoreBranchRouter.executeNoSettlement can't handle 0x07 function ",
+  "issueId": 187,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/187"
+}
