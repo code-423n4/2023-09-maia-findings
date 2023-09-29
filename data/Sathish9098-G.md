@@ -144,17 +144,15 @@ FILE: Breadcrumbs2023-09-maia/src/BaseBranchRouter.sol
 
 
 ```
-																						
+##
 
+## [G-] Multiple accesses of a mapping/array should use a local variable cache	
 
-Using storage instead of memory for structs/arrays saves gas	
-
-When fetching data from a storage location, assigning the data to a memory variable causes all fields of the struct/array to be read from storage, which incurs a Gcoldsload (2100 gas) for each field of the struct/array. If the fields are read from the new memory variable, they incur an additional MLOAD rather than a cheap stack read. Instead of declearing the variable with the memory keyword, declaring the variable with the storage keyword and caching any fields that need to be re-read in stack variables, will be much cheaper, only incuring the Gcoldsload for the fields actually read. The only time it makes sense to read the whole struct/array into a memory variable, is if the full struct/array is being returned by the function, is being passed to a function that requires memory, or if the array/struct is being read from another memory array/struct	
+The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping's value in a local storage or calldata variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key's keccak256 hash (Gkeccak256 - 30 gas) and that calculation's associated stack operations. Caching an array's struct avoids recalculating the array offsets into memory/calldata	
 
 																							
-			File: tapioca-bar-audit/contracts/markets/bigBang/BigBang.sol																							
-			513:          IBigBang.AccrueInfo memory _accrueInfo = accrueInfo;																							
-			525:          Rebase memory _totalBorrow = totalBorrow;	
+
+																					
 
 
 FALSE	<x> += <y> costs more gas than <x> = <x> + <y> for state variables	
@@ -257,19 +255,8 @@ By using a uint32 rather than a larger type for variables that track timestamps,
 
 
 																					
-Multiple accesses of a mapping/array should use a local variable cache	
-
-The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping's value in a local storage or calldata variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key's keccak256 hash (Gkeccak256 - 30 gas) and that calculation's associated stack operations. Caching an array's struct avoids recalculating the array offsets into memory/calldata																								
-																										
-			/// @audit activeSingularities[_singularity] on line 180																							
-			187:          activeSingularities[_singularity].totalDeposited += _amount;																							
-			/// @audit activeSingularities[_singularity] on line 221																							
-			247:          activeSingularities[_singularity].totalDeposited -= lockPosition.amount;																							
-			/// @audit activeSingularities[singularity] on line 264																							
-			267:          activeSingularities[singularity].poolWeight = weight;																							
-			/// @audit activeSingularities[singularity] on line 283																							
-			287:          activeSingularities[singularity].sglAssetID = assetID;																							
-			/// @audit activeSingularities[singularity] on line 287	
+																						
+		
 
 
 keccak256() should only need to be called on a specific string literal once	
