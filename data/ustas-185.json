@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ustas",
+  "risk": "3",
+  "title": "Drain of funds due to the lack of access control on `VirtualAccount.payableCall()`",
+  "issueId": 185,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/185"
+}
