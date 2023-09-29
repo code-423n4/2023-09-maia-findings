@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ustas",
+  "risk": "2",
+  "title": "No possibility of upgrade because of the lack of `ArbitrumBranchPort.setCoreBranchRouter()` call in `ArbitrumCoreBranchRouter/executeNoSettlement()` (no `0x07` route)",
+  "issueId": 186,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/186"
+}
