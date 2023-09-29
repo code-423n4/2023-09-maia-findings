@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "JP_Courses",
+  "risk": "3",
+  "title": "The revert() statement in RootPort::renounceOwnership() & BranchPort::renounceOwnership() will cause all affected initialize() functions to revert, preventing initializations of many state variables and resulting in permanent DoS of critical protocol functionalities.",
+  "issueId": 193,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/193"
+}
