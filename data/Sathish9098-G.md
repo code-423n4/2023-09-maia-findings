@@ -1,20 +1,150 @@
-FALSE	Remove or replace unused state variables	
+# GAS OPTIMIZATIONS
 
-Saves a storage slot. If the variable is assigned a non-zero value, saves Gsset (20000 gas). If it's assigned a zero value, saves Gsreset (2900 gas). If the variable remains unassigned, there is no gas savings unless the variable is public, in which case the compiler-generated non-payable getter deployment cost is saved. If the state variable is overriding an interface's public function, mark the variable as constant or immutable so that it does not use a storage slot	
+## [G-] State variables can be packed into fewer storage slots	
+
+If variables occupying the same slot are both written the same function or by the constructor, avoids a separate Gsset (20000 gas). Reads of the variables can also be cheaper
+
+### ``_unlocked`` , ``bridgeAgentExecutorAddress`` can be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L73-L80
+
+``_unlocked`` variable only stores the values ``1`` and ``2`` . So this can be declared as uint96 instead of uint256 to save one storage slot .
 
 
-45:       bytes32 private _PERMIT_TYPEHASH_DEPRECATED_SLOT;																							
-			112:      string private baseURI;	
+```diff
+FILE: 2023-09-maia/src/MulticallRootRouter.sol
+
+73:   /// @notice Bridge Agent to manage communications and cross-chain assets.
+74:    address payable public bridgeAgentAddress;
+75:
+76:    /// @notice Bridge Agent Executor Address.
+77:    address public bridgeAgentExecutorAddress;
+78:
+79:    /// @notice Re-entrancy lock modifier state.
++ 80:    uint96 internal _unlocked = 1;
+- 80:    uint256 internal _unlocked = 1;
+
+```	
+
+### ``settlementNonce`` and ``_unlocked `` can be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L75-L92
+
+``_unlocked`` variable only stores the values ``1`` and ``2`` . So this can be declared as uint96 instead of uint256 to save one storage slot .
+
+```diff
+FILE: 2023-09-maia/src/RootBridgeAgent.sol
+
+  /// @notice Deposit nonce used for identifying transaction.
+-    uint32 public settlementNonce;
+
+    /// @notice Mapping from Settlement nonce to Settlement Struct.
+    mapping(uint256 nonce => Settlement settlementInfo) public getSettlement;
+
+    /*///////////////////////////////////////////////////////////////
+                            EXECUTOR STATE
+    //////////////////////////////////////////////////////////////*/
+
+    /// @notice If true, bridge agent has already served a request with this nonce from  a given chain. Chain -> Nonce -> Bool
+    mapping(uint256 chainId => mapping(uint256 nonce => uint256 state)) public executionState;
+
+    /*///////////////////////////////////////////////////////////////
+                            REENTRANCY STATE
+    //////////////////////////////////////////////////////////////*/
+
+    /// @notice Re-entrancy lock modifier state.
++    uint32 public settlementNonce;
+-    uint256 internal _unlocked = 1;
++    uint96 internal _unlocked = 1;
+
+```	
+
+### ``coreBranchRouterAddress`` , ``_unlocked `` can be packed with same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L91
+
+``_unlocked`` variable only stores the values ``1`` and ``2`` . So this can be declared as uint96 instead of uint256 to save one storage slot .
+
+Some of the lines trimmed for better undertandings
+
+```diff
+FILE: Breadcrumbs2023-09-maia/src/BranchPort.sol
+
+/// @notice Local Core Branch Router Address.
+25:     address public coreBranchRouterAddress;
++ 91:     uint96 internal _unlocked = 1;
+/// @notice Mapping returns the amount of a Strategy Token a given Port Strategy can manage.
+    mapping(address strategy => mapping(address token => uint256 dailyLimitRemaining)) public
+        strategyDailyLimitRemaining;
+
+    /*///////////////////////////////////////////////////////////////
+                            REENTRANCY STATE
+    //////////////////////////////////////////////////////////////*/
+
+    /// @notice Reentrancy lock guard state.
+- 91:     uint256 internal _unlocked = 1;
+
+```
+
+### ``depositNonce`` and ``_unlocked``  should be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L84-L101
+
+``_unlocked`` variable only stores the values ``1`` and ``2`` . So this can be declared as uint96 instead of uint256 to save one storage slot .
+
+```diff
+FILE: 2023-09-maia/src/BranchBridgeAgent.sol
+
+ /// @notice Deposit nonce used for identifying the transaction.
+- 84:    uint32 public depositNonce;
+
+    /// @notice Mapping from Pending deposits hash to Deposit Struct.
+87:    mapping(uint256 depositNonce => Deposit depositInfo) public getDeposit;
+
+    /*///////////////////////////////////////////////////////////////
+                        SETTLEMENT EXECUTION STATE
+    //////////////////////////////////////////////////////////////*/
+
+    /// @notice If true, the bridge agent has already served a request with this nonce from a given chain.
+94:    mapping(uint256 settlementNonce => uint256 state) public executionState;
+
+    /*///////////////////////////////////////////////////////////////
+                           REENTRANCY STATE
+    //////////////////////////////////////////////////////////////*/
+
+    /// @notice Re-entrancy lock modifier state.
++ 84:    uint32 public depositNonce;
+- 101:    uint256 internal _unlocked = 1;
++ 101:    uint96 internal _unlocked = 1;
+
+```
+
+###  localPortAddress and _unlocked  can be packed with same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L32-L42
+
+``_unlocked`` variable only stores the values ``1`` and ``2`` . So this can be declared as uint96 instead of uint256 to save one storage slot .
+
+```diff
+FILE: Breadcrumbs2023-09-maia/src/BaseBranchRouter.sol
+
+ /// @inheritdoc IBranchRouter
+- 33:    address public localPortAddress;
+
+    /// @inheritdoc IBranchRouter
+36:    address public override localBridgeAgentAddress;
+
+    /// @inheritdoc IBranchRouter
+39:    address public override bridgeAgentExecutorAddress;
+
+    /// @notice Re-entrancy lock modifier state.
++ 33:    address public localPortAddress;
+- 42:    uint256 internal _unlocked = 1;
++ 42:    uint96 internal _unlocked = 1;
 
 
-FALSE	State variables can be packed into fewer storage slots	
-
-If variables occupying the same slot are both written the same function or by the constructor, avoids a separate Gsset (20000 gas). Reads of the variables can also be cheaper		
-
+```
 																						
-			/// @audit Variable ordering with 7 slots instead of the current 8:																							
-			///           mapping(32):operators, uint256(32):totalFees, uint256(32):maxDebtRate, uint256(32):minDebtRate, uint256(32):debtRateAgainstEthMarket, uint256(32):debtStartPoint, user-defined(20):accrueInfo, bool(1):_isEthMarket																							
-			46:       mapping(address => mapping(address => bool)) public operators;
 
 
 Using storage instead of memory for structs/arrays saves gas	
