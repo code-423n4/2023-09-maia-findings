@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "Token transfer error in function withdrawERC20 leads to loss of tokens",
+  "issueId": 188,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/188"
+}
