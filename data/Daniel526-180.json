@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Daniel526",
+  "risk": "2",
+  "title": "Missing Exception Handling in Root Bridge Agent Executor Contract",
+  "issueId": 180,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/180"
+}
