@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "User can lose deposit in case if it will fail and _refundee is not eoa",
+  "issueId": 177,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/177"
+}
