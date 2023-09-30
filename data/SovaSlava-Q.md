@@ -30,4 +30,13 @@ if user's address(which deposited tokens to port) was included in blacklist, use
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumBranchBridgeAgent.sol#L79
 
 
-
+Q5 - Token contracts are not protected for the ERC20 approval race condition.
+A known race condition exists within the present implementation of the ERC20 standard. 
+Example scenario :
+1.Alice calls approve(Bob, 1000), allocating 1000 tokens for Bob to spend
+2.Alice opts to change the amount approved for Bob to spend to a lesser amount via approve(Bob, 500). 3. Once mined, this decreases the number of tokens that Bob can spend to 500.
+3.Bob sees the transaction and calls transferFrom(Alice, X, 1000) before approve(Bob, 500) has been mined.
+4.If Bob’s transaction is mined prior to Alice’s, 1000 tokens will be transferred by Bob.
+However, once Alice’s transaction is mined, Bob can call transferFrom(Alice, X, 500), transferring a total of 1500 tokens despite Alice attempting to limit the total token allowance to 500.
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenBranch.sol#L12
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenRoot.sol#L12
