@@ -44,12 +44,54 @@ if (_underlyingAddress == address(0)) {
 
 ```
 The vulnerability lies in the inner `if (_deposit > 0)` condition. This condition should not be present here because it causes a revert when `_deposit` is greater than zero, regardless of whether the `_underlyingAddress` is valid or not. This behavior is not aligned with the intended purpose of the code, where a valid deposit should not trigger a revert.
-## Impact
+## Impact:
 The impact of this issue is that it can lead to unnecessary transaction failures and user inconvenience. When a user attempts to bridge tokens with a valid deposit, the transaction will fail due to this unnecessary condition, even though the deposit is legitimate. This can result in confusion and frustration for users of the smart contract.
-## Recommended Mitigation Steps
+## Recommended Mitigation Steps:
 To address this issue, the unnecessary condition `if (_deposit > 0)` should be removed from the code. Here's the corrected code snippet:
 ```solidity
 if (_underlyingAddress == address(0)) {
     revert UnrecognizedUnderlyingAddress();
 }
+```
+## D. Duplicate Strategy Tokens in addStrategyToken Function:
+[Link](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L362-L372)
+The `addStrategyToken` function is designed to add a strategy token to a list called `strategyTokens`. However, it lacks a check to prevent the addition of duplicate tokens. Without this check, the same token address can be added multiple times to the list, leading to inefficiencies and potential issues when interacting with the contract.
+```solidity
+  /// @inheritdoc IBranchPort
+    function addStrategyToken(address _token, uint256 _minimumReservesRatio) external override requiresCoreRouter {
+        if (_minimumReservesRatio >= DIVISIONER || _minimumReservesRatio < MIN_RESERVE_RATIO) {
+            revert InvalidMinimumReservesRatio();
+        }
+
+        strategyTokens.push(_token);
+        getMinimumTokenReserveRatio[_token] = _minimumReservesRatio;
+        isStrategyToken[_token] = true;
+
+        emit StrategyTokenAdded(_token, _minimumReservesRatio);// @audit-ok duplicate stratergy tokens additions
+    }
+```
+## Impact:
+The impact of allowing duplicate strategy tokens in the strategyTokens list is that it can lead to inefficient use of resources and potential confusion when querying or interacting with the contract. It can also disrupt the intended functionality of the contract if it relies on distinct strategy tokens.
+## Mitigation:
+```solidity
+/// @inheritdoc IBranchPort
+function addStrategyToken(address _token, uint256 _minimumReservesRatio) external override requiresCoreRouter {
+    if (_minimumReservesRatio >= DIVISIONER || _minimumReservesRatio < MIN_RESERVE_RATIO) {
+        revert InvalidMinimumReservesRatio();
+    }
+
+    // Check if the token is already in the list
+    for (uint256 i = 0; i < strategyTokens.length; i++) {
+        if (strategyTokens[i] == _token) {
+            revert DuplicateStrategyToken();
+        }
+    }
+
+    strategyTokens.push(_token);
+    getMinimumTokenReserveRatio[_token] = _minimumReservesRatio;
+    isStrategyToken[_token] = true;
+
+    emit StrategyTokenAdded(_token, _minimumReservesRatio);
+}
+
 ```
