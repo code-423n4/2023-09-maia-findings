@@ -32,3 +32,24 @@ if (settlement.hTokens.length != settlement.amounts.length) {
     revert("Array length mismatch");
 }
 ```
+## C. 
+[Link]()
+The `_updateStateOnBridgeOut` function is designed to facilitate the bridging of tokens from the root omnichain environment to a branch chain. It performs several checks and transfers tokens accordingly. However, a specific section of the code has an issue:
+```solidity
+if (_underlyingAddress == address(0)) {
+    if (_deposit > 0) {
+        revert UnrecognizedUnderlyingAddress();
+    }
+}
+
+```
+The vulnerability lies in the inner `if (_deposit > 0)` condition. This condition should not be present here because it causes a revert when `_deposit` is greater than zero, regardless of whether the `_underlyingAddress` is valid or not. This behavior is not aligned with the intended purpose of the code, where a valid deposit should not trigger a revert.
+## Impact
+The impact of this issue is that it can lead to unnecessary transaction failures and user inconvenience. When a user attempts to bridge tokens with a valid deposit, the transaction will fail due to this unnecessary condition, even though the deposit is legitimate. This can result in confusion and frustration for users of the smart contract.
+## Recommended Mitigation Steps
+To address this issue, the unnecessary condition `if (_deposit > 0)` should be removed from the code. Here's the corrected code snippet:
+```solidity
+if (_underlyingAddress == address(0)) {
+    revert UnrecognizedUnderlyingAddress();
+}
+```
