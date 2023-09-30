@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ustas",
+  "risk": "3",
+  "title": "Any ETH sent to `ArbitrumBranchBridgeAgent.callOut*()` functions will be lost",
+  "issueId": 226,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/226"
+}
