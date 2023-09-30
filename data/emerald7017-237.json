@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "Missing Balance Check in `_updateStateOnBridgeOut`.",
+  "issueId": 237,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/237"
+}
