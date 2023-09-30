@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ziyou-",
+  "risk": "2",
+  "title": "The value of the '_depositNonce' parameter in the 'payload' is incorrect.",
+  "issueId": 220,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/220"
+}
