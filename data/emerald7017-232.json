@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "An attacker could pass in arrays of different lengths in **`_dParams.hTokens`,** **`_dParams.tokens`,** **`_dParams.amounts`,** and **`_dParams.deposits`** of `bridgeInMultiple()` Function.",
+  "issueId": 232,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/232"
+}
