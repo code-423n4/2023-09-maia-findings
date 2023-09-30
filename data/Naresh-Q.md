@@ -1,0 +1,1 @@
+LayerZero is used to transport messages cross-chain. If a compromise of LayerZero take place, the worst case scenario may include forgeries of  messages, causing havoc and possibly loss of funds.
