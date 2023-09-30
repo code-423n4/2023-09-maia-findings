@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Unintended reverts could happen if the owner has been revoked, even if the sender of the message is the actual owner of the settlement.",
+  "issueId": 233,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/233"
+}
