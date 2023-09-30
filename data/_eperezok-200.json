@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "_eperezok",
+  "risk": "3",
+  "title": "Missing access control in `VirtualAccount.payableCall`",
+  "issueId": 200,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/200"
+}
