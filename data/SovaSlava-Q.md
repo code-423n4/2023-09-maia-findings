@@ -25,4 +25,9 @@ Q3 - Function do not allow send bytes to EOA.
 The user may want to send bytes to the EOA address(text message), but the function only allows it to be sent if the address is a contract. So, variable `success` always will have default value (false) and it cause revert.
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L74
 
+Q4 - User can not specify other address for withdrawing from port, if his main address in token's blacklist.
+if user's address(which deposited tokens to port) was included in blacklist, user will not withdraw tokens to own address, because tx will revert. User should have opportunity specify address for receiving tokens. 
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumBranchBridgeAgent.sol#L79
+
+
 
