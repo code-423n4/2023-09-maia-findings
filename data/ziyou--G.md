@@ -20,6 +20,8 @@
 |[G-15]|Use mappings instead of arrays|6|
 |[G-16]|Use Short-Circuiting rules to your advantage|1|
 |[G-17]|Use ERC721A instead ERC721|-|
+|[G-18]|Add unchecked {} for subtractions where the operands cannot underflow because of a previous require() or if-statement|1|
+
 
 
 Total 11 issues
@@ -731,3 +733,18 @@ https://github.com/code-423n4/2023-09-maia/blob/main/src/BranchPort.sol#L363
 The ERC721A is an improvement standard for ERC721 tokens. It was proposed by the Azuki team and used for developing their NFT collection. Compared with ERC721, ERC721A is a more gas-efficient standard to mint a lot of NFTs simultaneously. It allows developers to mint multiple NFTs at the same gas price. This has been a great improvement due to Ethereum’s sky-rocketing gas fee.
 
 https://nextrope.com/erc721-vs-erc721a-2/
+
+
+
+## [G‑18]  Add unchecked {} for subtractions where the operands cannot underflow because of a previous require() or if-statement
+
+require(a <= b); x = b - a => require(a <= b); unchecked { x = b - a }.
+
+```solidity
+173        if (_deposit > 0) {
+174            _token.safeTransferFrom(msg.sender, address(this), _deposit);
+175            ERC20(_token).approve(_localPortAddress, _deposit);
+176        }
+```
+
+https://github.com/code-423n4/2023-09-maia/blob/main/src/BaseBranchRouter.sol#L173
