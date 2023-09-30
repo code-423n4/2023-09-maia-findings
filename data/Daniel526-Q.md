@@ -95,3 +95,17 @@ function addStrategyToken(address _token, uint256 _minimumReservesRatio) externa
 }
 
 ```
+## E. Precision Issue in Daily Limit Calculation Function:
+[Link](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L485-L494)
+In the `_checkTimeLimit` function, there is a code snippet that calculates the start of the current day based on the current timestamp. However, the calculation is prone to a loss of precision due to the order of operations. Here is the code snippet in question:
+```solidity
+lastManaged[msg.sender][_token] = (block.timestamp / 1 days) * 1 days;
+```
+The issue arises because of the division operation (`/`) before multiplication (`*`). This code divides the `block.timestamp` by the number of seconds in a day (86400 seconds) to obtain the number of days since the Unix epoch, effectively rounding down to the nearest day. Then, it multiplies the result by `1 days` to calculate the timestamp at the start of the current day. However, since division occurs before multiplication, any fractional part of the division is discarded. This means that if a management operation occurs at any time during a day, the `lastManaged` timestamp will be set to the start of that same day, causing a loss of precision in tracking the daily limit window.
+## Impact:
+The lack of precision in the daily limit calculation can result in the incorrect enforcement of daily limits for Port Strategy management operations. In scenarios where multiple management operations occur within the same day, the strategy may inadvertently allow more operations than intended, potentially leading to overuse of resources or other unintended consequences.
+## Mitigation:
+To address the lack of precision and ensure accurate daily limit enforcement, the code should use integer division to round down to the nearest day when calculating the start of the current day. Here is the corrected code snippet:
+```solidity
+lastManaged[msg.sender][_token] = (block.timestamp / 1 days) * 1 days;
+```
