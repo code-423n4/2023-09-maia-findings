@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "If the input arrays are empty, the function will iterate over an empty array and create an empty settlement object for each iteration.",
+  "issueId": 236,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/236"
+}
