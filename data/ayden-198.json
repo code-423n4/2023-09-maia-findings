@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ayden",
+  "risk": "3",
+  "title": "lack of access control in payableCall in VirtualAccount led to the loss of account funds",
+  "issueId": 198,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/198"
+}
