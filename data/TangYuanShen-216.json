@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "TangYuanShen",
+  "risk": "3",
+  "title": "VirtualAccount assets can be stolen due to missing access control",
+  "issueId": 216,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/216"
+}
