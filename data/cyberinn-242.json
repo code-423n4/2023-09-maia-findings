@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "cyberinn",
+  "risk": "2",
+  "title": " Lack of Parameter Validation in `callOut` Function Can Lead to Unauthorized Access",
+  "issueId": 242,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/242"
+}
