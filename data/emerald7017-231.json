@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "No check whether the length of the `_params` array is sufficient for the operation it intends to perform.",
+  "issueId": 231,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/231"
+}
