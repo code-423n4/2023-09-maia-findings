@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Dinesh11G",
+  "risk": "2",
+  "title": "Lack of Validation for `_coreRouter` , Lack of Validation for `_wrappedNativeTokenAddress` , Renouncing Ownership Before Ensuring Successful Token Deployment  &  Lack of Validation for `_name`, `_symbol`, and `_decimals` in `createToken`",
+  "issueId": 207,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/207"
+}
