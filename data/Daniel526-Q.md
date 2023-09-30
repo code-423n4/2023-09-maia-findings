@@ -32,8 +32,8 @@ if (settlement.hTokens.length != settlement.amounts.length) {
     revert("Array length mismatch");
 }
 ```
-## C. 
-[Link]()
+## C. Users will experience a transaction failure when bridging tokens with a valid deposit
+[Link](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L1131-L1146)
 The `_updateStateOnBridgeOut` function is designed to facilitate the bridging of tokens from the root omnichain environment to a branch chain. It performs several checks and transfers tokens accordingly. However, a specific section of the code has an issue:
 ```solidity
 if (_underlyingAddress == address(0)) {
