@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ayden",
+  "risk": "2",
+  "title": "`callOutAndBridgeMultiple` and `callOutSignedAndBridgeMultiple` not check if length is greater than 1",
+  "issueId": 204,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/204"
+}
