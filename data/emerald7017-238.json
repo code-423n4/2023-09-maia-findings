@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Address Conversion Assumption in `requiresEndpoint` Modifier.",
+  "issueId": 238,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/238"
+}
