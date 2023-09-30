@@ -1,4 +1,5 @@
 A. Any comments for the judge to contextualize your findings
+   I have focused on to ensure 1) the state transition of each component is properly performed; 2) funds have been transferred properly from one component to another without messing up. 
    
 
 B. Approach taken in evaluating the codebase
@@ -61,6 +62,8 @@ F. Mechanism review
    1) ``CoreRootRouter`` should focus on the functionality of "routing". Since the functionality of ``_addLocalToken``,  ``_setLocalToken``, ``_syncBranchBridgeAgent`` are implemented in ``BranchBridgeAgent.sol``, these internal functions should be moved to ``c.sol``. Currently, these internal functions just unwrap the payload and then wrap another payload to call ``BranchBridgeAgent.sol`` - a waste of time and only make the code harder to manage. Simplicity is the key for security. 
    
 G. Systemic risks
+
+
 
 
 
