@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "Malicious actors can create deposits with negative or invalid values for **`_dParams.amount`,** effectively generating tokens out of thin air.",
+  "issueId": 240,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/240"
+}
