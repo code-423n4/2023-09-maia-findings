@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "zambody",
+  "risk": "3",
+  "title": "No access control for VirtualAccount's payableCall",
+  "issueId": 225,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/225"
+}
