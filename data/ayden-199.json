@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ayden",
+  "risk": "2",
+  "title": "globalAddress not checked and arbitrary address can add to system which will lead to system DOS",
+  "issueId": 199,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/199"
+}
