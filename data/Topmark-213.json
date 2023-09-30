@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Topmark",
+  "risk": "3",
+  "title": "Using msg.value inside a conditional statement without fund return implementation when false Opens Risk of Fund Loss",
+  "issueId": 213,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/213"
+}
