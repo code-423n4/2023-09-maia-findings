@@ -1932,16 +1932,11 @@ Optimize to the following in order to decrease a total of $\textcolor{green}{\te
 
 <details><summary>Contains 8 gas optimization instances</summary>
 
-Summary: Overall gas change: -161 (-0.000\%)
-
 ```solidity
 require(_rootBridgeAgentAddress != address(0), "shortString");
 ```
 
 https://github.com/code-423n4/2023-09-maia/tree/main/src/BranchBridgeAgent.sol#L125
-
-
-Summary: Overall gas change: -13841 (-0.002\%)
 
 ```solidity
 require(_setup, "shortString");
@@ -1949,15 +1944,11 @@ require(_setup, "shortString");
 
 https://github.com/code-423n4/2023-09-maia/tree/main/src/CoreRootRouter.sol#L84
 
-Summary: Overall gas change: -78660 (-0.011\%)
-
 ```solidity
 require(_bridgeAgentAddress != address(0), "shortString");
 ```
 
 https://github.com/code-423n4/2023-09-maia/tree/main/src/MulticallRootRouter.sol#L110
-
-Summary: Overall gas change: -79610 (-0.011\%)
 
 ```solidity
 require(ERC20(_token).balanceOf(address(this)) - currBalance == _amount, "shortString");
@@ -1965,15 +1956,11 @@ require(ERC20(_token).balanceOf(address(this)) - currBalance == _amount, "shortS
 
 https://github.com/code-423n4/2023-09-maia/tree/main/src/BranchPort.sol#L181
 
-Summary: Overall gas change: -120506 (-0.017\%)
-
 ```solidity
 require(_localBridgeAgentAddress != address(0), "shortString");
 ```
 
 https://github.com/code-423n4/2023-09-maia/tree/main/src/BaseBranchRouter.sol#L61
-
-Summary: Overall gas change: -178604 (-0.025\%)
 
 ```solidity
 require(_coreRootBridgeAgent != address(0), "shortString");
@@ -1981,15 +1968,11 @@ require(_coreRootBridgeAgent != address(0), "shortString");
 
 https://github.com/code-423n4/2023-09-maia/tree/main/src/factories/BranchBridgeAgentFactory.sol#L88
 
-Summary: Overall gas change: -193044 (-0.027\%)
-
 ```solidity
 require(_coreRouter != address(0), "shortString");
 ```
 
 https://github.com/code-423n4/2023-09-maia/tree/main/src/factories/ERC20hTokenBranchFactory.sol#L61
-
-Summary: Overall gas change: -207456 (-0.029\%)
 
 ```solidity
 require(_coreRouter != address(0), "shortString");
