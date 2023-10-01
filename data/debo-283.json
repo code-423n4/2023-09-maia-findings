@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "debo",
+  "risk": "3",
+  "title": "[H-05] Unchecked transfer in the VirtualAccount contract",
+  "issueId": 283,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/283"
+}
