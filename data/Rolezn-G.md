@@ -13,7 +13,7 @@ Disclaimer: Several Gas findings now contain an <b>[Enhanced]</b> tag which indi
 | [GAS&#x2011;6](#GAS&#x2011;6) | `address(this)` can be stored in `state variable` that will ultimately cost less, than every time calculating this, specifically when it used multiple times in a `contract` | 32 | - |
 | [GAS&#x2011;7](#GAS&#x2011;7) | Gas savings can be achieved by changing the model for assigning value to the structure | 5 | 650 |
 | [GAS&#x2011;8](#GAS&#x2011;8) | Using `unchecked` blocks to save gas <b>[Enhanced]</b> | 2 | 1159 |
-| [GAS&#x2011;9](#GAS&#x2011;9) | `require()`/`revert()` Strings Longer Than 32 Bytes Cost Extra Gas <b>[Enhanced]</b> | 10 | 207456 |
+| [GAS&#x2011;9](#GAS&#x2011;9) | `require()`/`revert()` Strings Longer Than 32 Bytes Cost Extra Gas <b>[Enhanced]</b> | 8 | 207456 |
 | [GAS&#x2011;10](#GAS&#x2011;10) | Counting down in `for` statements is more gas efficient | 15 | 3855 |
 | [GAS&#x2011;11](#GAS&#x2011;11) | Hash using `assembly` instead of solidity | 1 | 80 |
 
@@ -587,6 +587,8 @@ calldata arrays use CALLDATALOAD (3 gas)
 Caching the length changes each of these to a DUP<N> (3 gas), and gets rid of the extra DUP<N> needed to store the stack offset
 
 #### <ins>Proof Of Concept</ins>
+
+Note: While the instances may be present in the automated findings, it is important to note that the automated findings also contain instances that will <b>increase</b> that gas cost. Hence, in order to provide actual valid instances, these are the only findings that will specifically <b>decrease</b> the gas usage
 
 Optimize to the following in order to decrease a total of $\textcolor{green}{\textsf{-210040}}$ gas usage (includes proof of forge test runs):
 
@@ -1924,10 +1926,11 @@ Overall gas change: $\textcolor{green}{\textsf{-1159}}$ (-0.000\%)
 
 #### <ins>Proof Of Concept</ins>
 
+Note: While the instances may be present in the automated findings, it is important to note that the automated findings also contain instances that will <b>increase</b> that gas cost. Hence, in order to provide actual valid instances, these are the only findings that will specifically <b>decrease</b> the gas usage
 
 Optimize to the following in order to decrease a total of $\textcolor{green}{\textsf{-207456}}$ gas usage (includes proof of forge test runs):
 
-<details><summary>Contains 10 gas optimization instances</summary>
+<details><summary>Contains 8 gas optimization instances</summary>
 
 Summary: Overall gas change: -161 (-0.000\%)
 
@@ -1937,21 +1940,6 @@ require(_rootBridgeAgentAddress != address(0), "shortString");
 
 https://github.com/code-423n4/2023-09-maia/tree/main/src/BranchBridgeAgent.sol#L125
 
-Summary: Overall gas change: 453 (0.000\%)
-
-```solidity
-require(_localRouterAddress != address(0), "shortString");
-```
-
-https://github.com/code-423n4/2023-09-maia/tree/main/src/BranchBridgeAgent.sol#L130
-
-Summary: Overall gas change: 587 (0.000\%)
-
-```solidity
-require(_localPortAddress != address(0), "shortString");
-```
-
-https://github.com/code-423n4/2023-09-maia/tree/main/src/BranchBridgeAgent.sol#L131
 
 Summary: Overall gas change: -13841 (-0.002\%)
 
