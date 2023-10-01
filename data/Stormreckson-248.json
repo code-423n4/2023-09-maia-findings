@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Stormreckson",
+  "risk": "2",
+  "title": "Missing interface implementation in `Rootport.sol` might lead to port contract not being able to receive deposits ",
+  "issueId": 248,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/248"
+}
