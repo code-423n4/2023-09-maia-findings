@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Stormreckson",
+  "risk": "2",
+  "title": "Settlement nonce can be replayed leading to draining of contract balance when users withdraw their deposits",
+  "issueId": 252,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/252"
+}
