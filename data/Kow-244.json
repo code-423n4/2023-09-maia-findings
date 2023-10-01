@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Kow",
+  "risk": "3",
+  "title": "Unrestricted access to `VirtualAccount`'s `payableCall`",
+  "issueId": 244,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/244"
+}
