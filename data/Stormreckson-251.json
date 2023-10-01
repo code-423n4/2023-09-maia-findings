@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Stormreckson",
+  "risk": "3",
+  "title": "Using non-contract address as destination blocks future messages which can lead to loss of funds for users",
+  "issueId": 251,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/251"
+}
