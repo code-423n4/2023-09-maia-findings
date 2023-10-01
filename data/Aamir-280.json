@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Aamir",
+  "risk": "3",
+  "title": "Lack of modifier on `VirtualAccount::payableCall()` function will enable anyone to take out any amount of tokens from the `VirtaulAccount`",
+  "issueId": 280,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/280"
+}
