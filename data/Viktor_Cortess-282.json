@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Viktor_Cortess",
+  "risk": "3",
+  "title": "VirtualAccount can receive ERC1155 tokens, but can't withdraw them",
+  "issueId": 282,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/282"
+}
