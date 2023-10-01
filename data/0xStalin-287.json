@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xStalin",
+  "risk": "2",
+  "title": "The process to deposit/bridgeOut Tokens from a Branch to Root is broken and will always revert when depositing any hToken",
+  "issueId": 287,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/287"
+}
