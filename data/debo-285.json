@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "debo",
+  "risk": "3",
+  "title": "[H-07] Reentrancy in the ArbitrumBranchPort contract",
+  "issueId": 285,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/285"
+}
