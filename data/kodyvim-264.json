@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "kodyvim",
+  "risk": "3",
+  "title": "Anyone can block LayerZero channel due to missing check for minimum gas passed",
+  "issueId": 264,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/264"
+}
