@@ -40,3 +40,7 @@ Example scenario :
 However, once Alice’s transaction is mined, Bob can call transferFrom(Alice, X, 500), transferring a total of 1500 tokens despite Alice attempting to limit the total token allowance to 500.
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenBranch.sol#L12
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenRoot.sol#L12
+
+Q6 - When exchanging tokens from one network to another, it does not take into account that the same token can have different decimals in different networks. This means that the user can receive more or less than he sent. The 1:1 ratio will be broken. For example: USDT on ethereum - 6 decimals, on BSC - 18.
+https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7#readContract#F6
+https://bscscan.com/address/0x55d398326f99059ff775485246999027b3197955#readContract#F6
