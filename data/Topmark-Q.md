@@ -8,7 +8,7 @@ The comment Description: https://github.com/code-423n4/2023-09-maia/blob/main/sr
 54. +++ *       0x08 | Call to `retrieveDeposit()´. (clears a deposit that has not been executed yet, triggering `_fallback`)
 ```
 ###  Report 2:
-Maia Protocol should consider adding a return value for burn function call just as it is done for the mint function to help in validation to avoid unecessary failure of implemenation which could affect proper functionality of protocol
+Maia Protocol should consider adding a return value for burn function call just as it is done for the mint function to help in validation to avoid unnecessary failure of implemenation which could affect proper functionality of protocol
 https://github.com/code-423n4/2023-09-maia/blob/main/src/token/ERC20hTokenRoot.sol#L69-L73
 ```solidity
  --- function burn(address from, uint256 amount, uint256 chainId) external onlyOwner {
@@ -44,6 +44,14 @@ https://github.com/code-423n4/2023-09-maia/blob/main/src/RootPort.sol#L342
     }
 ```
 ###  Report 4:
+Wrong Comment description [l48](https://github.com/code-423n4/2023-09-maia/blob/main/src/BranchPort.sol#L148) of BranchPort.sol contract. The word "surpass" in this context could be misinterpreted to something else, a better way would be to use the word "affect", i.e "Check if request would affect the tokens minimum reserves"
+https://github.com/code-423n4/2023-09-maia/blob/main/src/BranchPort.sol#L148
+```solidity
+  ---      // Check if request would surpass the tokens minimum reserves
+  +++      // Check if request would affect the tokens minimum reserves
+        if (_amount > _excessReserves(_strategyTokenDebt, _token)) revert InsufficientReserves();
+```
+###  Report 5:
 A better way to write the two conditions from the code snippet below is to use the "||" operator, it makes it more cleaner, efficient and readable
 https://github.com/code-423n4/2023-09-maia/blob/main/src/RootBridgeAgent.sol#L1060-L1061
 ```solidity
