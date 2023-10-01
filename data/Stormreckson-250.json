@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Stormreckson",
+  "risk": "2",
+  "title": "Missing interface implementation in RootPort might lead to loss of assset and impact system functionality ",
+  "issueId": 250,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/250"
+}
