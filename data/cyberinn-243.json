@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "cyberinn",
+  "risk": "2",
+  "title": "Race Condition from Shared `settlementNonce` Can Lead to Bugs",
+  "issueId": 243,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/243"
+}
