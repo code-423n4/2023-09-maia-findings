@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Stormreckson",
+  "risk": "2",
+  "title": "Massages sent to an unchecked chainId will remain in flight mode forever ",
+  "issueId": 247,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/247"
+}
