@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Viktor_Cortess",
+  "risk": "2",
+  "title": "Several mappings from the RootPort contract are set incorrectly",
+  "issueId": 277,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/277"
+}
