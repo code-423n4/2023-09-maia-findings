@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "BaseBranchRouter#_transferAndApproveToken revert if the underlying ERC20 token approve does not return boolean",
+  "issueId": 270,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/270"
+}
