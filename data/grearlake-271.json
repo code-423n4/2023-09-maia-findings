@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "grearlake",
+  "risk": "3",
+  "title": "Malicious user can use an excessively large _params in BranchBridgeAgent#callOut to break layerZero communication",
+  "issueId": 271,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/271"
+}
