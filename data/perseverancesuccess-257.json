@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "perseverancesuccess",
+  "risk": "3",
+  "title": "Native coin (ETH) can be stuck in the MulticallRootRouter and MulticallRootRouterLibZip contract ",
+  "issueId": 257,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/257"
+}
