@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": "All deposits to be redeemed that's attached to a specific `depositNonce` could get stuck in protocol and not be redeemable due to the current implementation of `redeemDeposit()`",
+  "issueId": 322,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/322"
+}
