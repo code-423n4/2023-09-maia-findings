@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "The owner can renounce ownership since the override on renounceOwnership() just reverts instead of preventing the function call. This would lock the contract permanently. ",
+  "issueId": 312,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/312"
+}
