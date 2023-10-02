@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "xuwinnie",
+  "risk": "3",
+  "title": "Nonce of `payload` and `getDeposit` does not match",
+  "issueId": 305,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/305"
+}
