@@ -1,3 +1,44 @@
+# QA FINDINGS
+
+##
+
+## [L-1] ``_minimumReserves`` always returns 0 if the ``getMinimumTokenReserveRatio[_token]`` mapping not set MinimumTokenReserveRatio  
+
+### Impact
+_minimumReserves() always returns return value as zero and the over all calculations are unwanted and waste of gas  
+
+### POC
+
+```solidity
+FILE: 2023-09-maia/src/BranchPort.sol
+
+468: function _minimumReserves(uint256 _strategyTokenDebt, uint256 _currBalance, address _token)
+469:        internal
+470:        view
+471:        returns (uint256)
+472:    {
+473:        return ((_currBalance + _strategyTokenDebt) * getMinimumTokenReserveRatio[_token]) / DIVISIONER;
+474:    }
+
+```
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L468-L474
+
+### Recommended Mitigation
+
+Add if condition to check getMinimumTokenReserveRatio[_token] . If the value is 0 then directly return 0
+
+```diff
+
++ if(getMinimumTokenReserveRatio[_token] ==0){
++ return 0;
++ }
+
+```
+
+
+
+
+
 Excess funds sent via msg.value not refunded	
 
 The code below allows the caller to provide Ether, but does not refund the amount in excess of what's required, leaving funds stranded in the contract. The condition should be changed to check for equality, or the code should refund the excess.	
