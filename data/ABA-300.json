@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ABA",
+  "risk": "3",
+  "title": "Deposit owner is incorrectly set to _address to pay refunds to_ when depositing via `BranchBridgeAgent` instead of caller or this behavior is not specified",
+  "issueId": 300,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/300"
+}
