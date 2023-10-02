@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Stormreckson",
+  "risk": "2",
+  "title": "The same hToken can be mistakenly set to represent multiple chain",
+  "issueId": 324,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/324"
+}
