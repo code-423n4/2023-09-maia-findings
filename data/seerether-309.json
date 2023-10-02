@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "The redeemDeposit function does not check if the deposit is still open for redemption by verifying the execution state.",
+  "issueId": 309,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/309"
+}
