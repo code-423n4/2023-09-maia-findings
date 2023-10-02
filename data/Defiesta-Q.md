@@ -1,0 +1,1 @@
+ILayerZeroEndpoint functions can be called by another contract using a 0.5.0 solidity version which could cause revert output to users calling the payable function.
