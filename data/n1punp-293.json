@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "n1punp",
+  "risk": "3",
+  "title": "VirtualAccount can get drained due to missing `requiresApprovedCaller` modifier",
+  "issueId": 293,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/293"
+}
