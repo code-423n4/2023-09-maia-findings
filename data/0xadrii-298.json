@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xadrii",
+  "risk": "3",
+  "title": "DoS receiving cross-chain messages due to mistakenly validating `_srcAddress`",
+  "issueId": 298,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/298"
+}
