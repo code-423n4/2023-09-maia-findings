@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "The _requiresEndpoint modifier doesn't actually validate the source address, only the endpoint. This could allow an unauthorized contract to emulate the endpoint",
+  "issueId": 304,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/304"
+}
