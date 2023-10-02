@@ -55,13 +55,33 @@ C. Architecture recommendations
    2) The communication between between CoreRootRouter and RootBridgeAgent can be direct instead of via RootPort. For example, consider the flow CoreRootRouter._syncBranchBridgeAgent() -> rootPortAddress.syncBranchBridgeAgentWithRoot() -> _rootBridgeAgent.syncBranchBridgeAgent(_newBranchBridgeAgent, _branchChainId). The complexity can be reduced if CoreRootRouter._syncBranchBridgeAgent() calls _rootBridgeAgent.syncBranchBridgeAgent(_newBranchBridgeAgent, _branchChainId) directly. 
 
 D. Codebase quality analysis
+Consider optimize the following five flows by removing RootBridgeAgentExector in the path. The RootBridgeAgentExecutor should call CoreRootRouter directly instead of through RootBridgeAgentExecutor. 
+
+
+1) BranchBridgeAgent.calloutAndBridge() -> _performCall() -> lzEndpointAddress).send() -> RootBridgeAgent.lzreceive() -> excessivelySafeCall() -> lzReceiveNonBlocking() -> RootBridgeAgentExecutor.executeWithDeposit() -> CoreRootRouter.executeDepositSingle() -> revert()
+
+2) BranchBridgeAgent.calloutAndBridgeMultiple() -> _performCall() -> lzEndpointAddress).send() -> RootBridgeAgent.lzreceive() -> excessivelySafeCall() -> lzReceiveNonBlocking() -> RootBridgeAgentExecutor.executeWithDepositMultiple() -> CoreRootRouter.executeDepositMultiple() -> revert()
+
+3) BranchBridgeAgent.calloutSigned() -> _performCall() -> lzEndpointAddress).send() -> RootBridgeAgent.lzreceive() -> excessivelySafeCall() -> lzReceiveNonBlocking() -> RootBridgeAgentExecutor.executeSignedNoDeposit() -> CoreRootRouter.executeSigned() -> revert()
+
+4) BranchBridgeAgent.calloutSignedAndBridge() -> _performCall() -> lzEndpointAddress).send() -> RootBridgeAgent.lzreceive() -> excessivelySafeCall() -> lzReceiveNonBlocking() -> RootBridgeAgentExecutor.executeSignedWithDeposit() -> CoreRootRouter.executeSignedDepositSingle() -> revert()
+
+4) BranchBridgeAgent.calloutSignedAndBridgeMultple() -> _performCall() -> lzEndpointAddress).send() -> RootBridgeAgent.lzreceive() -> excessivelySafeCall() -> lzReceiveNonBlocking() -> RootBridgeAgentExecutor.executeSignedWithDepositMultiple() -> CoreRootRouter.executeSignedDepositMultiple() -> revert()
+
     
 E. Centralization risks
+
     
 F. Mechanism review
    1) ``CoreRootRouter`` should focus on the functionality of "routing". Since the functionality of ``_addLocalToken``,  ``_setLocalToken``, ``_syncBranchBridgeAgent`` are implemented in ``BranchBridgeAgent.sol``, these internal functions should be moved to ``c.sol``. Currently, these internal functions just unwrap the payload and then wrap another payload to call ``BranchBridgeAgent.sol`` - a waste of time and only make the code harder to manage. Simplicity is the key for security. 
    
 G. Systemic risks
+
+1) BranchBridgeAgent_performFallbackCall() will send the whole balance of the native token in the contract back to the refundee.This amount might be more than what the refundee sent. One should keep track of the amount sent by the refundee so that we will only send back what we owe to the refundee. Otherwise, it is possible for the refundee to steal funds from the contract. 
+
+2) Similarly, RootBridgeAgent. _performFallbackCall() will send the whole balance of the native token in the contract back to the refundee.This amount might be more than what the refundee sent. One should keep track of the amount sent by the refundee so that we will only send back what we owe to the refundee. Otherwise, it is possible for the refundee to steal funds from the contract. 
+
+
 
 
 
