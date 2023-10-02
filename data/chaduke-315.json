@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "chaduke",
+  "risk": "3",
+  "title": "BranchBridgeAgent.calloutAndBridge(), calloutAndBridgeMultiple(), calloutSigned(), calloutSignedAndBridge(), calloutSignedAndBridgeMultple() will all always fail. ",
+  "issueId": 315,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/315"
+}
