@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xSmartContract",
+  "risk": "3",
+  "title": "ERC1155 tokens coming to the 'VirtualAccount.sol' contract are stuck in the contract because there is no withdraw function",
+  "issueId": 323,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/323"
+}
