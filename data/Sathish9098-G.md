@@ -145,6 +145,59 @@ FILE: Breadcrumbs2023-09-maia/src/BaseBranchRouter.sol
 ```
 
 ##
+
+## [G-2] Function _minimumReserves() can be more optimized
+
+Saves 800 GAS as per tests . Gas increases as per complexity 
+
+The case where the ``getMinimumTokenReserveRatio[_token]`` is not checked can be optimized to save gas. If the getMinimumTokenReserveRatio[_token] is 0, then the expression (_currBalance + _strategyTokenDebt) * getMinimumTokenReserveRatio[_token]) / DIVISIONER will always return 0.
+
+To avoid this unnecessary computation, we can check the value of getMinimumTokenReserveRatio[_token] before performing the calculation. If the getMinimumTokenReserveRatio[_token] is 0, then we can simply return 0
+
+```diff
+FILE: 2023-09-maia/src/BranchPort.sol
+
+468: function _minimumReserves(uint256 _strategyTokenDebt, uint256 _currBalance, address _token)
+468:        internal
+469:        view
+470:        returns (uint256)
++      if(getMinimumTokenReserveRatio[_token] == 0){
++       return 0;
++       }
+
+471:    {
+472:        return ((_currBalance + _strategyTokenDebt) * getMinimumTokenReserveRatio[_token]) / DIVISIONER;
+473:    }
+
+```
+
+##
+
+## [G-] Removing Redundant Cache for strategyDailyLimitRemaining[msg.sender][_token] saves gas 
+
+Saves 100 Gas
+
+The ``dailyLimit`` value is not utilized within the ``_checkTimeLimit`` ``IF`` block. The cache strategyDailyLimitRemaining[msg.sender][_token] is redundant.
+
+```diff
+FILE: Breadcrumbs2023-09-maia/src/BranchPort.sol
+
+ function _checkTimeLimit(address _token, uint256 _amount) internal {
+        uint256 dailyLimit = strategyDailyLimitRemaining[msg.sender][_token];
+        if (block.timestamp - lastManaged[msg.sender][_token] >= 1 days) {
+-            dailyLimit = strategyDailyLimitAmount[msg.sender][_token];
+            unchecked {
+                lastManaged[msg.sender][_token] = (block.timestamp / 1 days) * 1 days;
+            }
+        }
+        strategyDailyLimitRemaining[msg.sender][_token] = dailyLimit - _amount;
+    }
+
+```
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L485-L494
+
+
+##
 																															
 ## [G-] <x> += <y> costs more gas than <x> = <x> + <y> for state variables
 
@@ -292,5 +345,40 @@ Combine events
 
 use assembly for loops 
 
-[G-] Modifiers only called once can be inlined																																																																																														
+[G-] Modifiers only called once can be inlined	
+
+
+
+Only read state if we are going to execute the entire logic(Saves ~2000 gas for the state read)
+
+
+The function above, only mints if threshold is met. Before checking the status of whether the threshold is met or not, we making a state read(Transaction memory txn = txnHashToTransaction[txnHash];) which is quite expensive. we then proceed to check if threshold is met and execute the function if threshold is indeed met. If not met, we would not execute anything but we would still have made the state read, as it's being read before the check
+
+We can refactor the function to have the check before to avoid wasting gas in case threshold is not met.
+
+
+File: /contracts/bridge/DestinationBridge.sol
+337:  function _mintIfThresholdMet(bytes32 txnHash) internal {
+338:    bool thresholdMet = _checkThresholdMet(txnHash);
+339:    Transaction memory txn = txnHashToTransaction[txnHash];
+340:    if (thresholdMet) {
+341:      _checkAndUpdateInstantMintLimit(txn.amount);
+342:      if (!ALLOWLIST.isAllowed(txn.sender)) {
+343:        ALLOWLIST.setAccountStatus(
+344:          txn.sender,
+345:          ALLOWLIST.getValidTermIndexes()[0],
+346:          true
+347:        );
+348:      }
+349:      TOKEN.mint(txn.sender, txn.amount);
+350:      delete txnHashToTransaction[txnHash];
+351:      emit BridgeCompleted(txn.sender, txn.amount);
+352:    }
+353:  }	
+
+The function should first verify if msg.value > 0 before performing any other operation(Save 7146 Gas)
+
+In case of a revert on msg.value == 0 we save 7146 gas on average from the protocol gas tests(to simulate the sad path ie msg.value == 0 see the test modification)	
+
+																																																																																											
 																																																																																																																	
