@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "kodyvim",
+  "risk": "3",
+  "title": "Missing Access Control on virtualAccount.payableCall allows anyone to drain tokens held by Virtual accounts.",
+  "issueId": 308,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/308"
+}
