@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xsurena",
+  "risk": "3",
+  "title": "The Endpoint Addresses for Layerzero is hardcoded to address 0",
+  "issueId": 301,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/301"
+}
