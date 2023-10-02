@@ -359,3 +359,35 @@ https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff5949969
 ```
 * @dev Internal function sync a Root Bridge Agent with a newly created BRanch Bridge Agent.
 ```
+13- https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenBranchFactory.sol#L101-L105
+
+
+During token creation in `ERC20hTokenFactory` the `_name`, `_symbol`, `_decimal` for the new token being created aren't checked if they are acceptable by the Ominichain in the case of the ownership of `RootPort` random tokens will be created with different decimals which might harm system functionality
+
+```
+newToken = new ERC20hTokenRoot(
+            localChainId,
+            address(this),
+            rootPortAddress,
+            _name,
+            _symbol,
+            _decimals
+        );
+        hTokens.push(newToken);
+    }
+ ```
+ Add sanity checks on the new token parameters and revert before pushing it
+
+14- https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L1176-L1180
+
+One `BranchBridgeAgent` might represent multiple chains 
+
+ `BranchBridgeAgent` represents a specific chain allowing communication between other Bridges of other chains. If a `BranchBridgeAgent` can represent multiple chain there might be situations where the `BranchBridgeAgent` sends requests to the wrong chain Bridge, 
+This will inconvenience users and night lead to loss of funds 
+
+```
+getBranchBridgeAgent[_branchChainId] = _newBranchBridgeAgent;
+        getBranchBridgeAgentPath[_branchChainId] = abi.encodePacked(_newBranchBridgeAgent, address(this));
+    }
+```
+Include checks if a `BranchBridgeAgent` have been synced to a chain before syncing.
