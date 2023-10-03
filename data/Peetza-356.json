@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Peetza",
+  "risk": "2",
+  "title": "Will not increment if inputted values cause revert",
+  "issueId": 356,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/356"
+}
