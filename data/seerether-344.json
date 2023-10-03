@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "The reentrancy guard unlocked is a simple boolean rather than a incrementing counter. This leaves it vulnerable to reentrancy if unlocked gets reset to 1 prematurely",
+  "issueId": 344,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/344"
+}
