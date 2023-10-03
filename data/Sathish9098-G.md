@@ -219,41 +219,7 @@ https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff5949969
 
 ## 
 
-## [G-] Use assembly to check address(0)
-
-```solidity
-FILE: 2023-09-maia/src/RootPort.sol
-
-130: require(_bridgeAgentFactory != address(0), "Bridge Agent Factory cannot be 0 address.");
-131: require(_coreRootRouter != address(0), "Core Root Router cannot be 0 address.");
-245: if (_globalAddress == address(0)) revert InvalidGlobalAddress();
-246: if (_localAddress == address(0)) revert InvalidLocalAddress();
-247: if (_underlyingAddress == address(0)) revert InvalidUnderlyingAddress();
-352: if (address(account) == address(0)) account = addVirtualAccount(_user);
-360: if (_user == address(0)) revert InvalidUserAddress();
-510: if (_coreRootRouter == address(0)) revert InvalidCoreRootRouter();
-511: if (_coreRootBridgeAgent == address(0)) revert InvalidCoreRootBridgeAgent();
-528: if (_coreBranchRouter == address(0)) revert InvalidCoreBranchRouter();
-529: if (_coreBranchBridgeAgent == address(0)) revert InvalidCoreBrancBridgeAgent();
-544: if (_coreBranchRouter == address(0)) revert InvalidCoreBranchRouter();
-545: if (_coreBranchBridgeAgent == address(0)) revert InvalidCoreBrancBridgeAgent();
-
-```
-https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L130-L131
-
-```solidity
-FILE:2023-09-maia/src/RootBridgeAgent.sol
-
-111: require(_lzEndpointAddress != address(0), "Layerzero Enpoint Address cannot be zero address");
-112: require(_localPortAddress != address(0), "Port Address cannot be zero address");
-113: require(_localRouterAddress != address(0), "Router Address cannot be zero address");
-282: if (settlementOwner == address(0)) revert SettlementRetrieveUnavailable();
-308: if (settlementOwner == address(0)) revert SettlementRedeemUnavailable();
-
-```
-https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L111-L113
-
-##
+## [G-] 
 
 			
 
