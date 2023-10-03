@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "marqymarq10",
+  "risk": "3",
+  "title": "VirtualAccount.payableCall() function does not have access control.",
+  "issueId": 376,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/376"
+}
