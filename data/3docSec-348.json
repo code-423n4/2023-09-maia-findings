@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "3docSec",
+  "risk": "3",
+  "title": "Incorrect source address decoding in RootBridgeAgent and BranchBridgeAgent's _requiresEndpoint breaks LayerZero communication",
+  "issueId": 348,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/348"
+}
