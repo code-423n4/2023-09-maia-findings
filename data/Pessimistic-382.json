@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Pessimistic",
+  "risk": "3",
+  "title": "A malicious user is able to steal funds from any virtual account ",
+  "issueId": 382,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/382"
+}
