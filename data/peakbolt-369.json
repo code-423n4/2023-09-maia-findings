@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "peakbolt",
+  "risk": "2",
+  "title": "`RootBridgeAgent` and `BranchBridgeAgent` not be able to recover from permanently blocked message queue due to missing `forceResumeReceive()` ",
+  "issueId": 369,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/369"
+}
