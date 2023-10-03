@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xgrbr",
+  "risk": "2",
+  "title": "Solmate ERC20(_token).approve revert if the underlying ERC20 token approve does not return boolean",
+  "issueId": 375,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/375"
+}
