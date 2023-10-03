@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "The initialize function is unprotected after setup. An attacker could re-initialize and take ownership of the contract. ",
+  "issueId": 340,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/340"
+}
