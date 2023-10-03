@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xgrbr",
+  "risk": "3",
+  "title": "Solady SafeTransferLib does not check for token contract's existence, which opens up possibility for a honeypot attack",
+  "issueId": 374,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/374"
+}
