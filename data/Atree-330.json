@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Atree",
+  "risk": "3",
+  "title": "Mix use of i=i+1 and i++ makes deposit nonce mismatch",
+  "issueId": 330,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/330"
+}
