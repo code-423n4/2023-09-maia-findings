@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Viktor_Cortess",
+  "risk": "2",
+  "title": "The transmission of messages to Layer Zero does not conform to Best Practices.",
+  "issueId": 377,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/377"
+}
