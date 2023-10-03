@@ -215,7 +215,15 @@ FILE: 2023-09-maia/src/BranchPort.sol
 172: getStrategyTokenDebt[_token] -= _amount;
 
 ```	
-https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L157		
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L157
+
+##
+
+## [G-] Avoid initializing default values for state and parameters to avoid gas
+
+Ethereum smart contracts and gas efficiency, initializing default values can indeed result in unnecessary gas costs. Gas is a limited resource on the Ethereum network, and minimizing gas consumption is crucial to keeping transaction costs low.
+
+ 		
 
 ## 
 
