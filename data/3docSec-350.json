@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "3docSec",
+  "risk": "3",
+  "title": "Unused native tokens airdropped to RootBridgeAgent and BranchBridgeAgent are exposed to theft",
+  "issueId": 350,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/350"
+}
