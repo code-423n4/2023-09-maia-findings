@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": " Improper input validation error in function withdrawNative. Funds can be transferred to the zero address.",
+  "issueId": 370,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/370"
+}
