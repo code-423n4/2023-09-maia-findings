@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "BLOS",
+  "risk": "3",
+  "title": "Attacker can exploit nonce misplacement to drain the port",
+  "issueId": 331,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/331"
+}
