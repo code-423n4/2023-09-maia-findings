@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "zhaojie",
+  "risk": "3",
+  "title": "The source chain id was not verified in BranchBridgeAgent#lzReceive. ",
+  "issueId": 328,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/328"
+}
