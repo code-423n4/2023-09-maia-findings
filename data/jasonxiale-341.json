@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "jasonxiale",
+  "risk": "2",
+  "title": "`BaseBranchRouter.callOutAndBridge` and `BaseBranchRouter.callOutAndBridgeMultiple` might not work on ArbitrumCoreBranchRouter ",
+  "issueId": 341,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/341"
+}
