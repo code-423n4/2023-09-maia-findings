@@ -223,7 +223,29 @@ https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff5949969
 
 Ethereum smart contracts and gas efficiency, initializing default values can indeed result in unnecessary gas costs. Gas is a limited resource on the Ethereum network, and minimizing gas consumption is crucial to keeping transaction costs low.
 
- 		
+```diff
+FILE: 2023-09-maia/src/MulticallRootRouter.sol
+
+278: for (uint256 i = 0; i < outputParams.outputTokens.length;) {
+
+367: for (uint256 i = 0; i < outputParams.outputTokens.length;) {
+
+455: for (uint256 i = 0; i < outputParams.outputTokens.length;) {
+
+557: for (uint256 i = 0; i < outputTokens.length;) {
+
+```
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L278
+
+```solidity
+FILE: 2023-09-maia/src/RootBridgeAgentExecutor.sol
+
+281: for (uint256 i = 0; i < uint256(uint8(numOfAssets));) {
+
+
+
+```
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L281 		
 
 ## 
 
