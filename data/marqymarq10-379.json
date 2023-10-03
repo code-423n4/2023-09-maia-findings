@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "marqymarq10",
+  "risk": "3",
+  "title": "RootBridgeAgentFactory.createBridgeAgent() lacks access control.",
+  "issueId": 379,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/379"
+}
