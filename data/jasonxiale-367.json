@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "jasonxiale",
+  "risk": "3",
+  "title": "`BranchBridgeAgent._requiresEndpoint` and `RootBridgeAgent._requiresEndpoint` check the srcAddress incorrectly",
+  "issueId": 367,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/367"
+}
