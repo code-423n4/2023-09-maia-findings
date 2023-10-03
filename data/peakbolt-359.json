@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "peakbolt",
+  "risk": "3",
+  "title": "Unconsumed native tokens will be stuck in `RootBridgeAgentExecutor` contract",
+  "issueId": 359,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/359"
+}
