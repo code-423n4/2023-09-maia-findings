@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "3docSec",
+  "risk": "3",
+  "title": "Several instances of assumptions on LayerZero refundee can lead to refunded tokens being permanently locked",
+  "issueId": 351,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/351"
+}
