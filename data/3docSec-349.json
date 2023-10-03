@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "3docSec",
+  "risk": "3",
+  "title": "Permissionless VirtualAccount.payableCall enables direct theft of assets",
+  "issueId": 349,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/349"
+}
