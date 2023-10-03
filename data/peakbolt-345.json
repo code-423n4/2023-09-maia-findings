@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "peakbolt",
+  "risk": "2",
+  "title": "`CoreBranchRouter.executeNoSettlement()` fails to refund the unconsumed gas after completion of execution",
+  "issueId": 345,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/345"
+}
