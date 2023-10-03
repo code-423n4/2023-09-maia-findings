@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xStalin",
+  "risk": "3",
+  "title": "An attacker can steal all the assets deposited by the users in all the Branches",
+  "issueId": 332,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/332"
+}
