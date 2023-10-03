@@ -2,7 +2,7 @@
 
 ##
 
-## [L-1] ``_minimumReserves`` always returns 0 if the ``getMinimumTokenReserveRatio[_token]`` mapping not set MinimumTokenReserveRatio  
+## [L-1] ``_minimumReserves`` always returns 0 if the ``getMinimumTokenReserveRatio[_token]`` mapping not set 
 
 ### Impact
 _minimumReserves() always returns return value as zero and the over all calculations are unwanted and waste of gas  
