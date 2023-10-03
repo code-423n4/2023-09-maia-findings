@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xadrii",
+  "risk": "3",
+  "title": "LayerZero channel can be blocked by setting low gas parameters in the relayer adapter params",
+  "issueId": 333,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/333"
+}
