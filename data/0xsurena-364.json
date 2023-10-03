@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xsurena",
+  "risk": "3",
+  "title": "The owner of deposit in the BranchBridgeAgent.sol can be different than the value of _refundee address",
+  "issueId": 364,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/364"
+}
