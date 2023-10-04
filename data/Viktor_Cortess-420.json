@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Viktor_Cortess",
+  "risk": "2",
+  "title": "Different refundee and depositor in _createDeposit function can cause loss of control over deposit.",
+  "issueId": 420,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/420"
+}
