@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "Due to lack of input validation, the refunded-excess gas amount of the native token would be lost",
+  "issueId": 387,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/387"
+}
