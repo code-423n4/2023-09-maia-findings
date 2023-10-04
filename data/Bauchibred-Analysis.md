@@ -1,4 +1,4 @@
-# Bauchibred's # Analysis of the Maia DAO - Ulysses Codebase
+# Analysis of the Maia DAO - Ulysses Codebase
 
 ## Approach
 
@@ -70,6 +70,8 @@ Additionally, I submitted two potentially _Medium-worthy_ findings:
 
 - One involves the current MulticallRootRouter, which could revert when a correct integration is made by a 3rd party dApp passing the supported function IDs, namely _0x04, 0x05, 0x06_.
 - The second pertains to the potential for an attacker to block the LayerZero channel. This vulnerability arises from missing access control on the `callOut` prefixed functions and an absence of a minimum gas pass check when the execution reaches _performCall()_.
+
+
 
 
 
