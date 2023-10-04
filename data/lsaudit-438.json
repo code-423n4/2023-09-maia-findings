@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "getFeeEstimate() returns overpaid message costs",
+  "issueId": 438,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/438"
+}
