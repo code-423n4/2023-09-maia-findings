@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Sentry",
+  "risk": "2",
+  "title": "Denial of service of callOutAndBridge on default default protocol routers",
+  "issueId": 457,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/457"
+}
