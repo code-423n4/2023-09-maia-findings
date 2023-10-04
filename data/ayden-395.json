@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ayden",
+  "risk": "3",
+  "title": "user can bypass requiresEndpoint if message send from local chain",
+  "issueId": 395,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/395"
+}
