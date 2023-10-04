@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Protocol does not provide any method to unblock potentially blocked messages' queue",
+  "issueId": 440,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/440"
+}
