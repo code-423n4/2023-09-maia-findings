@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "hals",
+  "risk": "2",
+  "title": "The user will lose his assets when making a signed call to the root chain with an account abstraction wallet",
+  "issueId": 441,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/441"
+}
