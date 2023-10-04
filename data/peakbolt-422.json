@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "peakbolt",
+  "risk": "2",
+  "title": "Fallback can be DoS by dApps that consumes all gas during multicall",
+  "issueId": 422,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/422"
+}
