@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "DanielArmstrong",
+  "risk": "3",
+  "title": "Invalid use of `getUnderlyingTokenFromLocal()` produces unexpected behavior.",
+  "issueId": 411,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/411"
+}
