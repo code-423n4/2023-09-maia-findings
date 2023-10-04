@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "catellatech",
+  "risk": "2",
+  "title": "Many create methods are suspicious of the reorg attack",
+  "issueId": 447,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/447"
+}
