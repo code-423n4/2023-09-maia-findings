@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Local Token can be added with address of Global Token",
+  "issueId": 432,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/432"
+}
