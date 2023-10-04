@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xfuje",
+  "risk": "3",
+  "title": "Failed settlements can be claimed by malicious actor on RootBridgeAgent",
+  "issueId": 405,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/405"
+}
