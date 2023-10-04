@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Burn access control can be bypassed",
+  "issueId": 431,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/431"
+}
