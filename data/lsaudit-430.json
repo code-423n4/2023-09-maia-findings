@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Improper usage of `excessivelySafeCall` does not prevent high gas cost",
+  "issueId": 430,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/430"
+}
