@@ -196,6 +196,18 @@ FILE: Breadcrumbs2023-09-maia/src/BranchPort.sol
 ```
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L485-L494
 
+##
+
+## [G-] State variables should be cached in stack variables rather than re-reading them from storage
+
+The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
+
+### 
+
+
+
+
+
 
 ##
 																															
@@ -241,8 +253,6 @@ https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff5949969
 FILE: 2023-09-maia/src/RootBridgeAgentExecutor.sol
 
 281: for (uint256 i = 0; i < uint256(uint8(numOfAssets));) {
-
-
 
 ```
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L281 		
