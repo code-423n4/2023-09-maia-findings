@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "hals",
+  "risk": "2",
+  "title": "`BranchPort.bridgeOut` function allows bridging out any inconsistent underlying and hToken pairs",
+  "issueId": 433,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/433"
+}
