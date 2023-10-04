@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "jasonxiale",
+  "risk": "2",
+  "title": "RootBridgeAgentFactory.createBridgeAgent doesn't validate its parameter `_newRootRouterAddress`",
+  "issueId": 393,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/393"
+}
