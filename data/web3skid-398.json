@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "web3skid",
+  "risk": "3",
+  "title": "Mishandling of settlement operations in MulticallRootRouter leads to complete user fund theft by an attacker",
+  "issueId": 398,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/398"
+}
