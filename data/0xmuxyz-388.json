@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xmuxyz",
+  "risk": "3",
+  "title": "Due to lack of an estimation of the exact gas fee on the destination chain, the transaction of the LayerZeroEndpoint#`send()` called via the BranchBridgeAgent#`_performCall()` would be reverted",
+  "issueId": 388,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/388"
+}
