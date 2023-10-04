@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Should not hardcode chain id because chain id can change on layerzero side",
+  "issueId": 415,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/415"
+}
