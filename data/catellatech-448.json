@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "catellatech",
+  "risk": "2",
+  "title": "The `withdrawERC721` use transferFrom instead of safeTransferFrom to transfer ERC721 token",
+  "issueId": 448,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/448"
+}
