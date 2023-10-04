@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xfuje",
+  "risk": "2",
+  "title": "Issues with gas payments to LayerZero, gas refunds can be lost",
+  "issueId": 418,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/418"
+}
