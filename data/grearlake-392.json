@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "RootBridgeAgent#_performCall and RootBridgeAgent#_performRetrySettlementCall always revert when _dstChainId == localChainId",
+  "issueId": 392,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/392"
+}
