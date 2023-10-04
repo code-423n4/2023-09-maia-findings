@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xStalin",
+  "risk": "2",
+  "title": "Depositors could lost all their depositted tokens (including the hTokens) if their address is blacklisted in one of all the depositted underlyingTokens",
+  "issueId": 423,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/423"
+}
