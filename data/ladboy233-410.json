@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ladboy233",
+  "risk": "3",
+  "title": "All asset can be stolen from VirtualAccount# payableCall because lack of access control",
+  "issueId": 410,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/410"
+}
