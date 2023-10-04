@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Aamir",
+  "risk": "3",
+  "title": "User will lost all of his tokens when bridging out tokens from Branch chain to Root chain and `CoreRootRouter` is used on Root chain.",
+  "issueId": 426,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/426"
+}
