@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "klau5",
+  "risk": "3",
+  "title": "Anyone can call payableCall at VirtualAccount, and steal assets",
+  "issueId": 450,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/450"
+}
