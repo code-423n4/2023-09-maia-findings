@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "33BYTEZZZ",
+  "risk": "2",
+  "title": "Denial Of Service(Dos) due to ChainID Overflow Vulnerability",
+  "issueId": 442,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/442"
+}
