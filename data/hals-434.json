@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "hals",
+  "risk": "3",
+  "title": "`VirtualAccount.payableCall` function is missing access modifier",
+  "issueId": 434,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/434"
+}
