@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xfuje",
+  "risk": "2",
+  "title": "Deposit on `BranchBridgeAgent` should send funds to sender on `Root`, not the router",
+  "issueId": 406,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/406"
+}
