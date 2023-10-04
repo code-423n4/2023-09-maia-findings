@@ -19,13 +19,9 @@
 | QA-13 | `ERC20hTokenBranch & ERC20hTokenRoot` could have compatibility issues with tokens that purely comply with EIP-20              |
 | QA-14 | Owner currently can't execute any extra calldata that's needed in the case where `_payload.length > PARAMS_SETTLEMENT_OFFSET` |
 
-(Note: You've listed QA-09 twice, so I've assumed it was a mistake and included it only once.)
 
 ## QA-01 Multiple issues with how chain Ids are being used in protocol
 
-issue with using uint16 for local chain id, it's not consistent and could lead to issues
-
-Where as layerZero currently uses uint16
 
 ### Impact
 
@@ -76,7 +72,7 @@ Layer Zero chain Ids could be changed in the future
 
 > Impact of this is also low, info since this would only mean that they would be a DOS (`revertions of any cross chain messaging to/fro the deprecated chain Id`) until the chainId gets updated via migratig the `root` or `BranchBridgeAgentFactory`
 
-Nevertheless multiple contracts within protocol are going to hardcoded with their respective chain Ids, with them being stored as immutable variables, for example see here: https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L119
+Nevertheless multiple contracts within protocol are going to hardcoded with their respective chain Ids, with them being stored as immutable variables, for example see [here:](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L119)
 
 The ethereum mainnet's chain Id used to be 1 and now it's 101
 
@@ -325,7 +321,7 @@ VirtualAccount's `withdrawERC721()` is used to transfer ERC721 tokens, but when 
 
 ### Proof Of Concept
 
-Take a look at []()
+Take a look at [VirtualAccount.sol#L61-L63](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L61-L63)
 
 Now do note that if `transferFrom()` is used for transferring an ERC721 token, there is no way of checking if the recipient address has capability to handle incoming ERC721 token. If there is no checking, the transaction will push through and the ERC721 token will be locked in the recipient contract address.
 
@@ -373,7 +369,7 @@ According to https://github.com/d-xo/weird-erc20#revert-on-zero-value-transfers
 
 The above would revert if the _token_ does not support 0 value transfer
 Another case that could be attached to this is while minting,
-Using this search command: https://github.com/search?q=repo%3Acode-423n4%2F2023-09-maia+mint%28&type=code, one can see that based on current implementation there is a whooping sum of 14 instances _(with a few being Out-of-Scope being that they are in test contracts)_ wherre tokens could get minted to the zero address.
+Using this search command: https://github.com/search?q=repo%3Acode-423n4%2F2023-09-maia+mint%28&type=code, one can see that based on current implementation there is a whooping sum of 14 instances _(with a few being Out-of-Scope being that they are in test contracts)_ where tokens could get minted to the zero address.
 
 ### Recommended Mitigation Steps
 
@@ -381,7 +377,7 @@ Introduce a requirement that the amount should not be 0
 
 > NB: The above is just two instances on how applying 0 checks could help improve code structure.
 
-## QA-10 Inconsitencies between sister function implementations
+## QA-10 Inconsistencies between sister function implementations
 
 ### Impact
 
@@ -389,7 +385,7 @@ Low, inconsistency in implementing sister functions and in this case it's a secu
 
 ### Proof Of Concept
 
-Take a look at
+Take a look at `bridgeInMultiple()`
 
 ```solidity
   function bridgeInMultiple(
@@ -401,7 +397,7 @@ Take a look at
   ) external override requiresBridgeAgent {
       // Cache Length
       uint256 length = _localAddresses.length;
-//@audit Question: why are  the sanity checks applied in `bridgeOutMultiple()` is not applied here, also why isnt't this locked
+//@audit Question: why are  the sanity checks applied in `bridgeOutMultiple()` is not applied here, also why isn't this locked
       // Loop through token inputs
       for (uint256 i = 0; i < length;) {
           // Check if hTokens are being bridged in
@@ -423,7 +419,7 @@ Take a look at
   }
 ```
 
-From the above one can see that while bridging in multiple tokens, multiple checks are applied from cehcking array lenghts and what not, but looking below at the `bridgeOutMultiple()` function one can see that these checks have not been applied which could lead to unforseen issues
+From the above one can see that while bridging in multiple tokens, multiple checks are applied from checking array lengths and what not, but looking below at the `bridgeOutMultiple()` function one can see that these checks have not been applied which could lead to unforeseen issues
 
 ```solidity
     /// @inheritdoc IBranchPort
@@ -484,7 +480,7 @@ Low, this is cause this seems to be intended behaviour, but at current the docs 
 
 ### Proof of Concept
 
-Take a look at
+Take a look at `_decode()`
 
 ```solidity
     function _decode(bytes calldata data) internal pure virtual returns (bytes memory) {
@@ -507,7 +503,7 @@ But all 11 attempts to decode data in the `MultiCallRootRouter.sol` contract wou
 
 Correctly document this behaviour if intended or use the right implementation to decode data
 
-## QA-13 `ERC20hTokenBranch & ERC20hTokenRoot` could have compatbility issues with tokems that purely comply with EIP-20
+## QA-13 `ERC20hTokenBranch & ERC20hTokenRoot` could have compatibility issues with tokens that purely comply with EIP-20
 
 ### Impact
 
@@ -523,7 +519,7 @@ Using these 3 search commands:
 - https://github.com/search?q=repo%3Acode-423n4%2F2023-09-maia+.name%28&type=code
 - https://github.com/search?q=repo%3Acode-423n4%2F2023-09-maia+.symbol&type=code
 
-From the abive we can see that there are 12 instances of attempts to query protperties that re not generic to the EIP 20 specification.
+From the above we can see that there are 12 instances of attempts to query protperties that re not generic to the EIP 20 specification.
 
 Additionally, note that [this section of the contest's ReadME](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/README.md#is-any-part-of-your-implementation-intended-to-conform-to-any-eips-if-yes-please-list-the-contracts-in-this-format) iterates the fact that some contracts must be in compliance with EIP 20: `ERC20hTokenBranch & ERC20hTokenRoot` but as explainred below this is not the case.
 
@@ -532,13 +528,13 @@ Additionally, note that [this section of the contest's ReadME](https://github.co
 
 ### Recommended Mitigation Steps
 
-Either correctly mitigate this, or clearly document that tokens that are purely following the standard might have compatibility issues while integrating the sytem in the case that they do not include this external integrations.
+Either correctly mitigate this, or clearly document that tokens that are purely following the standard might have compatibility issues while integrating the system in the case that they do not include this external integrations.
 
 ## QA-14 Owner currently can't execute any extra calldata that's needed in the case where `_payload.length > PARAMS_SETTLEMENT_OFFSET`
 
 ### Impact
 
-Low.. contract curretly not working as specified
+Low.. contract currently not working as specified
 
 ### Proof Of Concept
 
@@ -601,4 +597,4 @@ As seen at the core end of the function, in a case where `_payload.length > PARA
 
 ### Recommended Mitigation Steps
 
-Implement the `executeSettlement()` fucntion or cleardly document that for this to be accessble it needs to be properly implemented.
+Implement the `executeSettlement()` function or clearly document that for this to be accessible it needs to be properly implemented.
