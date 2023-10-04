@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ladboy233",
+  "risk": "3",
+  "title": "Does not validate the remote caller address when lzReceive is triggered",
+  "issueId": 419,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/419"
+}
