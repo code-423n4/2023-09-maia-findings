@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "LokiThe5th",
+  "risk": "3",
+  "title": "Message channels can be blocked resulting in DoS",
+  "issueId": 399,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/399"
+}
