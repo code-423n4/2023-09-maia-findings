@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xfuje",
+  "risk": "2",
+  "title": "DoS attack on settlementNonce and depositNonce",
+  "issueId": 403,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/403"
+}
