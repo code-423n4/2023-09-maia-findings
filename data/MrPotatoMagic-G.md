@@ -1,8 +1,37 @@
 # Gas Optimizations Report
 
+| Gas Optimizations | Issue                                                                                        | Instances |
+|-------------------|----------------------------------------------------------------------------------------------|-----------|
+| [G-01]            | `<x> += <y>` costs more gas than `<x> = <x> + <y>` for state variables                       | 1         |
+| [G-02]            | Keep variable declaration outside for loop to avoid creating new instances on each iteration | 2         |
+| [G-03]            | Cache `_amount - _deposit` to save gas                                                       | 1         |
+| [G-04]            | `dParams.amount > 0` check is not required                                                   | 1         |
+| [G-05]            | Use do-while loop instead of for-loop to save gas on `executeSigned()` function execution    | 1         |
+| [G-06]            | Use `++i` instead of `i++` in unchecked block of for loop                                    | 1         |
+| [G-07]            | Zeroing out owner `deposit.owner = address(0);` not required                                 | 1         |
+| [G-08]            | Cache out `deposit.owner` from if conditions to save gas                                     | 1         |
+
+### Total issues: 9 instances across 8 issues
+
+### Total deployment cost saved: 41308 gas
+
+### Total function execution cost saved (per call):  21045 gas
+
+### Total gas saved: 62353 gas
+
+(Note: **Finding [G-05]** in this report costs alot of deployment gas, thus it is at the discretion of the sponsor whether to include or ignore the finding)
+
+### Total deployment cost saved (excluding [G-05]): 52522 gas saved
+
+### Total function execution cost saved (excluding [G-05]): 21030 gas saved
+
+### Total gas saved (excluding [G-05]): 73552 gas
+
 ## [G-01] `<x> += <y>` costs more gas than `<x> = <x> + <y>` for state variables
 
-There are _ instances of this:
+**Total gas saved: 43875 gas**
+
+There is 1 instance of this:
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenRoot.sol#L58
 
@@ -16,7 +45,9 @@ File: src/token/ERC20hTokenRoot.sol
 
 ## [G-02] Keep variable declaration outside for loop to avoid creating new instances on each iteration
 
-There is _ instances of this issue:
+**Total gas saved: 2200 gas**
+
+There are 2 instances of this issue:
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L71
 
@@ -37,7 +68,9 @@ File: src/VirtualAccount.sol
 
 ## [G-03] Cache `_amount - _deposit` to save gas
 
-There are _ instances of this:
+**Total gas saved: -308 gas**
+
+There are 1 instance of this:
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L284C1-L286C70
 
@@ -66,6 +99,8 @@ File: src/RootPort.sol
 ```
 
 ## [G-04] `dParams.amount > 0` check is not required 
+
+**Total gas saved: 2240 gas**
 
 There is 1 instance of this:
 
@@ -124,6 +159,8 @@ File: src/RootBridgeAgent.sol
 
 ## [G-05] Use do-while loop instead of for-loop to save gas on `executeSigned()` function execution
 
+**Total gas saved: -11199 gas**
+
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L557C8-L563C10
 
 Deployment cost: 1790955 - 1802169 = -11214 gas extra (including this if team is fine with bearing this little cost during deployment to optimize the code below)
@@ -150,4 +187,67 @@ File: src/MulticallRootRouter.sol
 570:                 ++i;
 571:             }
 572:         } while (i < outputTokens.length);
+```
+
+## [G-06] Use `++i` instead of `i++` in unchecked block of for loop
+
+**Note: This instance is not included in the [[G-10] bot finding](https://gist.github.com/itsmetechjay/9bcacd6e8beea0abaf9590abc6b1d10e#g10-i-costs-less-gas-than-i-especially-when-its-used-in-for-loops---ii---too) and saves more gas per call than what is mentioned in the bot finding.**
+
+**Total gas saved: 20722 gas**
+
+There is 1 instance of this:
+
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L309
+
+Function execution cost: 97465 - 76743 = 20722 gas saved (per call)
+```solidity
+File: src/BranchPort.sol
+308:          unchecked {
+309:              i++;
+310:          }
+```
+
+## [G-07] Zeroing out owner `deposit.owner = address(0);` not required
+
+**Total gas saved: 3118 gas**
+
+There is 1 instance of this:
+
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L444
+
+Deployment cost: 3993024 - 3990027 = 2997 gas saved
+
+Function execution cost: 26245 - 26124 = 121 gas saved per call (For higher gas prices, more gas is saved per call)
+
+Line 444 below is not required since in the same function on Line 456, we delete the deposit token info at _depositNonce, which by default deletes `deposit.owner`
+```solidity
+File: src/BranchBridgeAgent.sol
+444: deposit.owner = address(0);
+456: delete getDeposit[_depositNonce];
+```
+
+## [G-08] Cache out `deposit.owner` from if conditions to save gas
+
+**Total gas saved: 1705 gas**
+
+There is 1 instance of this:
+
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L440C1-L442C1
+
+Deployment cost: 3993024 - 3991427 = 1597 gas saved
+
+Function execution cost: 26245 - 26137 = 108 gas saved per call (For higher gas prices, more gas is saved per call)
+
+Instead of this:
+```solidity
+File: src/BranchBridgeAgent.sol
+440:       if (deposit.owner == address(0)) revert DepositRedeemUnavailable();
+441:       if (deposit.owner != msg.sender) revert NotDepositOwner();
+```
+Use this:
+```solidity
+File: src/BranchBridgeAgent.sol
+439:       address depositOwner = deposit.owner;
+440:       if (depositOwner == address(0)) revert DepositRedeemUnavailable();
+441:       if (depositOwner != msg.sender) revert NotDepositOwner();
 ```
