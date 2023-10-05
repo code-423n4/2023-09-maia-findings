@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "invitedtea",
+  "risk": "3",
+  "title": "`addGlobalToken`, `addLocalToken`, and `_receiveAddGlobalToken` function is missing a require statement to check if the `_globalAddress` is a valid ERC20 token",
+  "issueId": 482,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/482"
+}
