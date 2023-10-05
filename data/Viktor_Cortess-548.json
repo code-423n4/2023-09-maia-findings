@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Viktor_Cortess",
+  "risk": "2",
+  "title": "The check if (callee == address(0)) revert UnrecognizedBridgeAgent(); in RootBridgeAgent.sol and lack of data synchronization permits the sending of messages to removed branch bridge agents.",
+  "issueId": 548,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/548"
+}
