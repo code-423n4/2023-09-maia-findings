@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "audityourcontracts",
+  "risk": "2",
+  "title": "`getMinimumTokenReserveRatio` can only be set once per underlying leaving the protocol unable to react to significant events",
+  "issueId": 508,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/508"
+}
