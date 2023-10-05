@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Vagner",
+  "risk": "3",
+  "title": "`payableCall` in `VirtualAccount.sol` does not have any modifier protection, which can cause loss of funds for every user since arbitrary calls can be made by anyone",
+  "issueId": 527,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/527"
+}
