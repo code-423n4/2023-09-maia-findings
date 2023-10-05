@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Vagner",
+  "risk": "3",
+  "title": "`BranchBridgeAgent.sol` is not implementing the Non-Blocking method of Layer-Zero right, which will make the communication between `RootBridgeAgent.sol` and any `BranchBridgeAgent.sol` on other chains default to blocking behavior",
+  "issueId": 530,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/530"
+}
