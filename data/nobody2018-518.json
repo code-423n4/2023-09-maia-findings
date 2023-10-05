@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "nobody2018",
+  "risk": "2",
+  "title": "If RootBridgeAgent.lzReceiveNonBlocking reverts internally, the native token sent by relayer to RootBridgeAgent is left in RootBridgeAgent",
+  "issueId": 518,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/518"
+}
