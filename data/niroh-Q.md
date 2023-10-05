@@ -1,0 +1,3 @@
+# documentation comments for IBranchBridgeAgent::redeemDeposit and IBranchBridgeAgent::retrieveDeposit are reveresed
+
+the comment line above [redeemDeposit](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/interfaces/IBranchBridgeAgent.sol#L270C19-L270C19) describes what [retrieveDeposit](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L422) actually does (which is to retry a deposit), and vise versa - the line above [retrieveDeposit](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/interfaces/IBranchBridgeAgent.sol#L263) describes the functionality of redeem deposit, which is to get refunded for a failed deposit.
