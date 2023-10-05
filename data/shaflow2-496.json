@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "shaflow2",
+  "risk": "2",
+  "title": "redeemDeposit at Branch don't change the Root State.",
+  "issueId": 496,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/496"
+}
