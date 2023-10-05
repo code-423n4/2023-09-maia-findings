@@ -1,7 +1,7 @@
+L-01
 # Lines of code
 
 https://github.com/code-423n4/2023-09-maia/blob/main/src/BranchPort.sol#L490
-
 
 # Vulnerability details
 
@@ -12,3 +12,18 @@ When port strategy calls `manage` method in branch port to get funds transferred
 Foundry
 ## Recommended Mitigation Steps
 `lastManaged` should just be `block.timestamp`
+
+
+L-02
+# Lines of code
+https://github.com/code-423n4/2023-09-maia/blob/main/src/RootPort.sol#L259C38-L259C52
+
+# Vulnerability details
+
+## Impact
+The local and global token addresses in root port are set by the owner by calling https://github.com/code-423n4/2023-09-maia/blob/main/src/RootBridgeAgentExecutor.sol#L50 but in the `setLocalAddress` there is no zero address check for `_globalAddress` which can mess up the local and global token accounting
+
+## Tools Used
+Foundry
+## Recommended Mitigation Steps
+add zero address check for __globalAddress`
