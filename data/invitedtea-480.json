@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "invitedtea",
+  "risk": "3",
+  "title": "_requiresEndpoint modifier should be applied to the retrySettlement function",
+  "issueId": 480,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/480"
+}
