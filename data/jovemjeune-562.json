@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "jovemjeune",
+  "risk": "3",
+  "title": "ArbitrumBranchPort Transfers Used hTokens to RootPort Instead Of Burning Them",
+  "issueId": 562,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/562"
+}
