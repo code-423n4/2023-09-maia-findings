@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "nobody2018",
+  "risk": "2",
+  "title": "In RootBridgeAgent._createSettlementMultiple, Incorrectly encoding message type causes fallback to never be triggered",
+  "issueId": 519,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/519"
+}
