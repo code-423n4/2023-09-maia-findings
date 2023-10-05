@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "terrancrypt",
+  "risk": "2",
+  "title": "Do not check `address(0)` and `amount > 0` in function `bridgeToLocalBranchFromRoot` in contract `RootPort.sol`",
+  "issueId": 523,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/523"
+}
