@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xDING99YA",
+  "risk": "2",
+  "title": "In BranchPort().sol, after updatePortStrategy(), a strategy may still get amount of tokens with old DailyLimitAmount.",
+  "issueId": 461,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/461"
+}
