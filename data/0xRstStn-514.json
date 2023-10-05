@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xRstStn",
+  "risk": "3",
+  "title": "Attacker can drain user's funds within ``VirtualAccount.sol`` through function ``payableCall``",
+  "issueId": 514,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/514"
+}
