@@ -141,7 +141,7 @@ During the analysis, we focused on thoroughly understanding the codebase and pro
 
 
 ## Architecture Description and Diagram 
-**Architecture of the key contracts that are part of the Good Entry protocol**: 
+**Architecture of the key contracts**: 
 
 The ecosystem appears to be designed around the concept of bridging tokens and data across multiple chains, with a particular focus on the Arbitrum chain:
 
@@ -263,6 +263,8 @@ The audit was conducted over a span of 5 days, distributed as follows:
 
 **Time spent:**
 40 hours
+
+
 
 
 
