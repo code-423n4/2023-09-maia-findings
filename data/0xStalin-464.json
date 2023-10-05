@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xStalin",
+  "risk": "3",
+  "title": "The native token use to pay for the LayerZero fees will get stuck in the contracts if txs are reverted in the RootBridgeAgent contract.",
+  "issueId": 464,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/464"
+}
