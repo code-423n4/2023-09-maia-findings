@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ABA",
+  "risk": "2",
+  "title": "`hToken` burn restrictions can be bypassed at the expense of the attacker and the protocol",
+  "issueId": 556,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/556"
+}
