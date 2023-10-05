@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "peakbolt",
+  "risk": "3",
+  "title": "Cross chain messaging layer can be repeatedly DoS using a callout with low gas limit",
+  "issueId": 491,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/491"
+}
