@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "MrPotatoMagic",
+  "risk": "2",
+  "title": "lastManaged is not updated when managing a strategy token for the ongoing day",
+  "issueId": 522,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/522"
+}
