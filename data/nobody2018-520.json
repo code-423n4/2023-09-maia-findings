@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "nobody2018",
+  "risk": "2",
+  "title": "BaseBranchRouter._transferAndApproveToken may revert in some cases",
+  "issueId": 520,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/520"
+}
