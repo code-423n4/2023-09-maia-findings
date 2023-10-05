@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xDING99YA",
+  "risk": "2",
+  "title": "In BranchPort.sol a strategy can get token amount daily twice as the actual dailyLimit",
+  "issueId": 460,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/460"
+}
