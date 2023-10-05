@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Kek",
+  "risk": "2",
+  "title": "BranchPort does not keep accurate track of multiple public state variables: `bridgeAgents`, `strategyTokens`, `portStrategies`",
+  "issueId": 468,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/468"
+}
