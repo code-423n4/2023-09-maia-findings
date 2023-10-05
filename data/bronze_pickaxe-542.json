@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "bronze_pickaxe",
+  "risk": "3",
+  "title": "Hardcoded LayerZero ChainId can break the functionality of the project",
+  "issueId": 542,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/542"
+}
