@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Jorgect",
+  "risk": "2",
+  "title": "Mising requiresRouter modifier in BranchBridgeAgent.sol contract",
+  "issueId": 539,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/539"
+}
