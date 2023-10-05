@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "MrPotatoMagic",
+  "risk": "2",
+  "title": "Missing requiresApprovedCaller() modifier check on function payableCall() allows attacker to drain all tokens from user's VirtualAccount",
+  "issueId": 552,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/552"
+}
