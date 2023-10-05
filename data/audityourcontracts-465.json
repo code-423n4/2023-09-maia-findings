@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "audityourcontracts",
+  "risk": "2",
+  "title": "`setCoreBranchRouter` can set any address as a branch bridge agent which can then `withdraw()`",
+  "issueId": 465,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/465"
+}
