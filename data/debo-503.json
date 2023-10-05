@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "debo",
+  "risk": "3",
+  "title": "[H-09] Incorrect Access Control in the MulticallRootRouter contract",
+  "issueId": 503,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/503"
+}
