@@ -15,13 +15,13 @@
 | [L-05] | Leave some degree of configurability for extra parameters in `_adapterParams` to allow for feature extensions                                                                  | 2         |
 | [L-06] | Do not hardcode LayerZero's proprietary chainIds                                                                                                                               | 2         |
 | [L-07] | Array entry not deleted when removing bridge agent                                                                                                                             | 1         |
-| [L-08] | Double entries in `strategyTokens`, `portStrategies` and `bridgeAgents` arrays are not prevented                                                                               | 3         |
+| [L-08] | Double entries in `strategyTokens`, `portStrategies`, `bridgeAgents` and `bridgeAgentFactories` arrays are not prevented                                                       | 4         |
 
 ### Total Non-Critical issues: 36 instances across 6 issues
 
-### Total Low-severity issues: 17 instances across 8 issues
+### Total Low-severity issues: 18 instances across 8 issues
 
-### Total issues: 53 instances across 14 issues
+### Total issues: 54 instances across 14 issues
 
 ## [N-01] Missing event emission for critical state changes
 
@@ -829,18 +829,20 @@ File: BranchPort.sol
 363:     }
 ```
 
-## [L-08] Double entries in `strategyTokens`, `portStrategies` and `bridgeAgents` arrays are not prevented
+## [L-08] Double entries in `strategyTokens`, `portStrategies`, `bridgeAgents` and `bridgeAgentFactories` arrays are not prevented
 
-There are 3 instances of this issue:
+There are 4 instances of this issue:
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L362C1-L380C1
 
-1. Double entry of a strategy token
+### 1. Double entry of a strategy token
 
 Let's look at the execution path of how strategy tokens are managed:
-Root chain to EP:
+
+**Root chain to EP:**
 manageStrategyToken => callOut => _performCall => send
-EP to Branch chain:
+
+**EP to Branch chain:**
 receivePayload => lzReceive => lzReceiveNonBlocking => _execute => executeNoSettlement (Executor) => executeNoSettlement (Router) => _manageStrategyToken => either toggleStrategyToken or addStrategyToken
 
 As we can see in the chain of calls above, when toggling off a strategy token we reach the function toggleStrategyToken(), which toggles of the token as below:
@@ -872,12 +874,14 @@ File: BranchPort.sol
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L382C1-L401C1
 
-2. Double entry of a Port Strategy
+### 2. Double entry of a Port Strategy
 
 Let's look at the execution path of how Port Strategies are managed:
-Root chain to EP:
+
+**Root chain to EP:**
 managePortStrategy() => callOut => _performCall => send
-EP to Branch chain:
+
+**EP to Branch chain:**
 receivePayload => lzReceive => lzReceiveNonBlocking => _execute => executeNoSettlement (Executor) => executeNoSettlement (Router) => _managePortStrategy => either addPortStrategy or togglePortStrategy (excluding updatePortStrategy since not important here)
 
 As we can see in the chain of calls above, when toggling off a port strategy we reach the function togglePortStrategy(), which toggles of the strategy as below:
@@ -910,12 +914,14 @@ File: BranchPort.sol
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L414C1-L424C6
 
-3. Double entry of a Core Branch Bridge Agent
+### 3. Double entry of a Core Branch Bridge Agent
 
 Let's look at the execution path of how a Core Branch Router is set:
-Root chain to EP:
+
+**Root chain to EP:**
 setCoreBranch() => callOut => _performCall => send
-EP to Branch chain:
+
+**EP to Branch chain:**
 receivePayload => lzReceive => lzReceiveNonBlocking => _execute => executeNoSettlement (Executor) => executeNoSettlement (Router) => setCoreBranchRouter (Port)
 
 As we can see in the chain of calls above, when set a Core Branch Router we reach the function setCoreBranchRouter(), which does the following:
@@ -949,4 +955,39 @@ File: BranchPort.sol
 429: 
 430:         emit CoreBranchSet(_coreBranchRouter, _coreBranchBridgeAgent);
 431:     }
+```
+
+### 4. Double entry of a Bridge Agent Factory
+
+Let's look at the execution path of how Bridge Agent Factories are managed:
+
+**Root chain to EP:**
+toggleBranchBridgeAgentFactory() => callOut => _performCall => send
+
+**EP to Branch chain:**
+receivePayload => lzReceive => lzReceiveNonBlocking => _execute => executeNoSettlement (Executor) => executeNoSettlement (Router) => _toggleBranchBridgeAgentFactory => either toggleBridgeAgentFactory or addBridgeAgentFactory
+
+As we can see in the chain of calls above, when toggling off a branch bridge agent factory we reach the function toggleBridgeAgentFactory(), which toggles of the bridge agent factory as below:
+```solidity
+File: BranchPort.sol
+348:     function toggleBridgeAgentFactory(address _newBridgeAgentFactory) external override requiresCoreRouter {
+349:         isBridgeAgentFactory[_newBridgeAgentFactory] = !isBridgeAgentFactory[_newBridgeAgentFactory];
+350: 
+351:         emit BridgeAgentFactoryToggled(_newBridgeAgentFactory);
+352:     }
+
+```
+Now when we try to toggle it back on, according to the chain of calls we reach the function addBridgeAgentFactory(), which does the following:
+ - On Line 342, we push the token to bridgeAgentFactories array again. This is what causes the double entry
+```solidity
+File: BranchPort.sol
+338:     function addBridgeAgentFactory(address _newBridgeAgentFactory) external override requiresCoreRouter {
+339:         if (isBridgeAgentFactory[_newBridgeAgentFactory]) revert AlreadyAddedBridgeAgentFactory();
+340: 
+341:         isBridgeAgentFactory[_newBridgeAgentFactory] = true;
+342:         bridgeAgentFactories.push(_newBridgeAgentFactory);
+343: 
+344:         emit BridgeAgentFactoryAdded(_newBridgeAgentFactory);
+345:     }
+
 ```
