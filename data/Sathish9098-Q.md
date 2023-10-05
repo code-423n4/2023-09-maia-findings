@@ -35,51 +35,19 @@ Add if condition to check getMinimumTokenReserveRatio[_token] . If the value is 
 
 ```
 
+																																								
+																								
 
 
+																		
+																		
 
-
-Excess funds sent via msg.value not refunded	
-
-The code below allows the caller to provide Ether, but does not refund the amount in excess of what's required, leaving funds stranded in the contract. The condition should be changed to check for equality, or the code should refund the excess.	
-
-if (msg.value <= _amount) revert FeeAmountNotSet();																							
-																										
-Contracts are vulnerable to fee-on-transfer accounting-related issues	
-
-The functions below transfer funds from the caller to the receiver via transferFrom(), but do not ensure that the actual number of tokens received is the same as the input amount to the transfer. If the token is a fee-on-transfer token, the balance after the transfer will be smaller than expected, leading to accounting issues. Even if there are checks later, related to a secondary transfer, an attacker may be able to use latent funds (e.g. mistakenly sent by another user) in order to get a free credit. One way to solve this problem is to measure the balance before and after the transfer, and use the difference as the amount, rather than the stated amount.
-
-
-	_paymentToken.transferFrom(, IERC20(token).safeTransferFrom(msg.sender, address(this), amount);																							
-																										
-Unsafe use of transfer()/transferFrom() with IERC20	
-
-Some tokens do not implement the ERC20 standard properly but are still accepted by most code that accepts ERC20 tokens. For example Tether (USDT)'s transfer() and transferFrom() functions on L1 do not return booleans as the specification requires, and instead have no return value. When these sorts of tokens are cast to IERC20, their [function signatures](https://medium.com/coinmonks/missing-return-value-bug-at-least-130-tokens-affected-d67bf08521ca) do not match and therefore the calls made, revert (see this [link](https://gist.github.com/IllIllI000/2b00a32e8f0559e8f386ea4f1800abc5) for a test case). Use OpenZeppelin’s SafeERC20's safeTransfer()/safeTransferFrom() instead	_paymentToken.transferFrom(, paymentToken.transfer(
-
-
-Return values of transfer()/transferFrom() not checked	
-
-Not all IERC20 implementations revert() when there's a failure in transfer()/transferFrom(). The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually making a payment	paymentToken.transfer(, _paymentToken.transferFrom(																							
-																										
-_safeMint() should be used rather than _mint() wherever possible	
-
-_mint() is [discouraged](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d4d8d2ed9798cc3383912a23b5e8d5cb602f7d4b/contracts/token/ERC721/ERC721.sol#L271) in favor of _safeMint() which ensures that the recipient is either an EOA or implements IERC721Receiver. Both [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d4d8d2ed9798cc3383912a23b5e8d5cb602f7d4b/contracts/token/ERC721/ERC721.sol#L238-L250) and [solmate](https://github.com/transmissions11/solmate/blob/4eaf6b68202e36f67cab379768ac6be304c8ebde/src/tokens/ERC721.sol#L180) have versions of this function. In the cases below, _mint() does not call ERC721TokenReceiver.onERC721Received() on the recipient.	
-
-_mint(to, assetId, share);																							
-																										
-Contracts are vulnerable to rebasing accounting-related issues	
-
-Rebasing tokens are tokens that have each holder's balanceof() increase over time. Aave aTokens are an example of such tokens. If rebasing tokens are used, rewards accrue to the contract holding the tokens, and cannot be withdrawn by the original depositor. To address the issue, track 'shares' deposited on a pro-rata basis, and let shares be redeemed for their proportion of the current balance at the time of the withdrawal.
 
 																																															
 
 
 
-Some tokens may revert when  zero value transfers are made	
 
-In spite of the fact that EIP-20 [states](https://github.com/ethereum/EIPs/blob/46b9b698815abbfa628cd1097311deee77dd45c5/EIPS/eip-20.md?plain=1#L116) that zero-valued transfers must be accepted, some tokens, such as LEND will revert if this is attempted, which may cause transactions that involve other tokens (such as batch operations) to fully revert. Consider skipping the transfer if the amount is zero, which will also save gas.	
-
-IERC20(erc20).safeTransferFrom(_fromAddress, address(this), _amount); , IERC20(erc20).safeTransfer(msg.sender, _amount);
 
 Multiplication on the result of a division	
 
