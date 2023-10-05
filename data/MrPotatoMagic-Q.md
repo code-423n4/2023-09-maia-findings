@@ -653,7 +653,7 @@ Do not hardcode address zero (address(0)) as zroPaymentAddress when estimating f
 Check out this recent discussion between the 10xKelly and I on hardcoding _zroPaymentAddress (Note: In our case, the **contracts that would be difficult to handle changes or updates are the BridgeAgent contracts**):
 Check out this transcript in case image fails to render - https://tickettool.xyz/direct?url=https://cdn.discordapp.com/attachments/1155911737397223496/1155911741725757531/transcript-tx-mrpotatomagic.html
 
-![](https://ipfs.filebase.io/ipfs/QmdaySs3uaoiegvF37Nx2U4WmMe5JXZJ8oJa8PMo3n5riH)
+![Imgur](https://i.imgur.com/2AFJWLg.png)
 
 There are 2 instances of this issue:
 
