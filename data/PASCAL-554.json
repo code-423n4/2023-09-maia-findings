@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "PASCAL",
+  "risk": "2",
+  "title": "replenishReserves() in the BranchPort contract does not carry the right modifier ",
+  "issueId": 554,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/554"
+}
