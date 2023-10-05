@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "invitedtea",
+  "risk": "2",
+  "title": "The `_performCall` function in the `ArbitrumBranchBridgeAgent` contract does not check if the `_calldata` parameter is empty. ",
+  "issueId": 483,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/483"
+}
