@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "invitedtea",
+  "risk": "2",
+  "title": "Passing zero addresses to these functions, Missing require statement for _recipient address in `bridgeIn` function and others",
+  "issueId": 484,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/484"
+}
