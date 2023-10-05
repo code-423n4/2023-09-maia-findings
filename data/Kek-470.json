@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Kek",
+  "risk": "2",
+  "title": "BranchPort._checkTimeLimit reverts with an integer underflow, custom error message could be more helpful",
+  "issueId": 470,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/470"
+}
