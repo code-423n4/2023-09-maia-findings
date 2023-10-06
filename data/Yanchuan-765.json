@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Yanchuan",
+  "risk": "3",
+  "title": "An attacker can steal assets from RootPort if assets are deposited by `callOutAndBridge()` or `callOutAndBridgeMultiple()`",
+  "issueId": 765,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/765"
+}
