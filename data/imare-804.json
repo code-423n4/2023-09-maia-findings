@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "imare",
+  "risk": "2",
+  "title": "token that uses bytes32 for the name or symbol cannot be added to the protocol",
+  "issueId": 804,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/804"
+}
