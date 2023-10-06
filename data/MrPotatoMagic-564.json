@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "No deposit cross-chain calls/communication can still originate from a removed branch bridge agent",
+  "issueId": 564,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/564"
+}
