@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Udsen",
+  "risk": "3",
+  "title": "USAGE OF `abi.encodePacked` TO ENCODE DATA COULD LEAD TO `payload` DATA COLLISION IN THE `RootBridgeAgent._createSettlementMultiple` FUNCTION",
+  "issueId": 810,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/810"
+}
