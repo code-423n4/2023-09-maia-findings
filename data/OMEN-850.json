@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "OMEN",
+  "risk": "3",
+  "title": "if lzReceiveNonBlocking failed to execute , they don't send back ,accumulated msg.value . malicious user drain that",
+  "issueId": 850,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/850"
+}
