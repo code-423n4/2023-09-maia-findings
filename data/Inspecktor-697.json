@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "Due to an error in the BranchBridgeAgent.retryDeposit() function, the user can repeat the call to the Omnichain root environment, repeating the deposit without spending on their part",
+  "issueId": 697,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/697"
+}
