@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "2",
+  "title": "There is no possibility to return the fee for excess gas to RootBridgeAgent.sol",
+  "issueId": 646,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/646"
+}
