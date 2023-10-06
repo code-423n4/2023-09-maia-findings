@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "THE RETURN BOOLEAN VALUE OF THE `excessivelySafeCall` FUNCTION IS NOT CHECKED IN THE `BranchBridgeAgent.lzReceive` FUNCTION",
+  "issueId": 821,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/821"
+}
