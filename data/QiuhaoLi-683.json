@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "QiuhaoLi",
+  "risk": "2",
+  "title": "RootBridgeAgentFactory:createBridgeAgent() is vulnerable to reorg attack",
+  "issueId": 683,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/683"
+}
