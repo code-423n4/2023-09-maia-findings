@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "Incorrect data layout when calling _performFallbackCall() function in ArbitrumBranchAgent.sol will result in incorrect operation",
+  "issueId": 626,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/626"
+}
