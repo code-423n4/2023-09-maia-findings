@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Audinarey",
+  "risk": "2",
+  "title": "users may not be able to call retryDeposit(...) for failed deposits",
+  "issueId": 858,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/858"
+}
