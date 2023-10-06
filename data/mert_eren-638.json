@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "mert_eren",
+  "risk": "3",
+  "title": "If payload.length>PARAMS_TKN_SET_SIZE false than users token will stuck in CoreRootRouter.",
+  "issueId": 638,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/638"
+}
