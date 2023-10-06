@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Myd",
+  "risk": "3",
+  "title": "Failure to handle reverts in execute calls could lock deposited assets permanently.",
+  "issueId": 618,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/618"
+}
