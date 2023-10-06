@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Sathish9098",
+  "risk": "2",
+  "title": "The is no check ensures the remoteBranchExecutionGas less than gasLimit As per docs ",
+  "issueId": 783,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/783"
+}
