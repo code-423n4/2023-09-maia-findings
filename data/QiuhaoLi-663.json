@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "QiuhaoLi",
+  "risk": "3",
+  "title": "ArbitrumBranchBridgeAgent.sol:_performFallbackCall() should transfer received ETH to the refundee",
+  "issueId": 663,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/663"
+}
