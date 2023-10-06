@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "QiuhaoLi",
+  "risk": "2",
+  "title": "MulticallRootRouter.sol:executeSigned*/execute should transfer msg.value to the virtual account or revert when funcId == 0x01",
+  "issueId": 739,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/739"
+}
