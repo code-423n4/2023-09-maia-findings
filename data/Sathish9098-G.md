@@ -1,10 +1,39 @@
 # GAS OPTIMIZATIONS
 
-## [G-] State variables can be packed into fewer storage slots	
+## Findings
+
+ - [G-1][ State variables can be packed into fewer storage slots - Saves ``10000 GAS`` , ``5 SLOT``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-1-state-variables-can-be-packed-into-fewer-storage-slots)
+   - [G-1.1][ ``_unlocked`` , ``bridgeAgentExecutorAddress`` can be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-11-_unlocked--bridgeagentexecutoraddress-can-be-packed-same-slot--saves-2000-gas--1-slot)
+   - [G-1.2] [ ``settlementNonce`` and ``_unlocked `` can be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-12-settlementnonce-and-_unlocked--can-be-packed-same-slot--saves-2000-gas--1-slot)
+   - [G-1.3] [ ``coreBranchRouterAddress`` , ``_unlocked `` can be packed with same SLOT : Saves ``2000 GAS`` , 
+``1 SLOT``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-13-corebranchrouteraddress--_unlocked--can-be-packed-with-same-slot--saves-2000-gas--1-slot)
+   - [G-1.4]  [ ``depositNonce`` and ``_unlocked``  should be packed same SLOT : Saves ``2000 GAS`` , 
+``1 SLOT``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-14-depositnonce-and-_unlocked--should-be-packed-same-slot--saves-2000-gas--1-slot)	
+   - [G-1.5][ ``localPortAddress`` and ``_unlocked``  can be packed with same SLOT : Saves ``2000 GAS`` , ``1 SLOT``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-15--localportaddress-and-_unlocked--can-be-packed-with-same-slot--saves-2000-gas--1-slot)
+- [G-2] [ Refactor ``_minimumReserves()`` function to be more gas-efficient- Saves ``800 GAS``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-2-refactor-_minimumreserves-function-to-be-more-gas-efficient)
+- [G-3] [ Storage variables should be cached in stack variables rather than re-reading them from storage- Saves ``1200 GAS`` , ``12 SLOD``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-3-storage-variables-should-be-cached-in-stack-variables-rather-than-re-reading-them-from-storage)
+  - [G-3.1][ ``deposit.hTokens.length``,``deposit.owner``,``executionState[nonce]`` should be cached  : Saves ``900 GAS`` ,``9 SLOD``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-31--deposithtokenslengthdepositownerexecutionstatenonce-should-be-cached---saves-900-gas-9-slod)
+  - [G-3.2][ ``settlementReference.owner`` should be cached  : Saves ``300 GAS`` , ``3 SLOD``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-32-settlementreferenceowner-should-be-cached---saves-300-gas--3-slod)
+- [G-4]][ Remove redundant cache for ``strategyDailyLimitRemaining[msg.sender][_token]`` to save gas - Saves ``113 GAS``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-4-remove-redundant-cache-for-strategydailylimitremainingmsgsender_token-to-save-gas)
+- [G-5][ Cache the state variables outside the loop - Saves ``100 GAS``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-5-cache-the-state-variables-outside-the-loop)
+- [G-6][ <x> += <y> or <x> -= <y> costs more gas than <x> = <x> + <y> or <x> = <x> - <y> for state variables - Saves ``300 GAS``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-6----or-----costs-more-gas-than------or-------for-state-variables)
+- [G-7][ Avoid initializing ``default values`` for state and parameters to save gas - Saves ``65 GAS``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-7-avoid-initializing-default-values-for-state-and-parameters-to-save-gas)
+- [G-8][ Using ``immutable`` directly is more gas-efficient than caching - ``100 GAS``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-8-using-immutable-directly-is-more-gas-efficient-than-caching)
+- [G-9][ Do not ``cache`` variables that are ``only used once`` - Saves ``390 GAS``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-9-do-not-cache-variables-that-are-only-used-once)
+   - [G-9.1][ ``abi.encode`` and ``abi.encodePacked`` are unnecessarily cached : Saves ``350 GAS`` , ``10 Instances ``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-91--abiencode-and-abiencodepacked-are-unnecessarily-cache--saves-350-gas--10-instances-)
+   - [G-9.2][ Unnecessary Cache : Saves ``40 GAS``](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-92-unnecessary-cache--saves-40-gas)
+- [G-10][ Use assembly to perform efficient back-to-back calls - Saves ``4116 GAS`` ](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-10-use-assembly-to-perform-efficient-back-to-back-calls)
+- [G-11][ Use assembly for loops ](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf/edit#g-11-use-assembly-for-loops)
+
+
+
+## [G-1] State variables can be packed into fewer storage slots	
+
+#### Saves ``10000 GAS`` , ``5 SLOTs``
 
 If variables occupying the same slot are both written the same function or by the constructor, avoids a separate Gsset (20000 gas). Reads of the variables can also be cheaper
 
-### ``_unlocked`` , ``bridgeAgentExecutorAddress`` can be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+### [G-1.1] ``_unlocked`` , ``bridgeAgentExecutorAddress`` can be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L73-L80
 
@@ -26,7 +55,7 @@ FILE: 2023-09-maia/src/MulticallRootRouter.sol
 
 ```	
 
-### ``settlementNonce`` and ``_unlocked `` can be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+### [G-1.2] ``settlementNonce`` and ``_unlocked `` can be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L75-L92
 
@@ -59,7 +88,7 @@ FILE: 2023-09-maia/src/RootBridgeAgent.sol
 
 ```	
 
-### ``coreBranchRouterAddress`` , ``_unlocked `` can be packed with same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+### [G-1.3] ``coreBranchRouterAddress`` , ``_unlocked `` can be packed with same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L91
 
@@ -86,7 +115,7 @@ FILE: Breadcrumbs2023-09-maia/src/BranchPort.sol
 
 ```
 
-### ``depositNonce`` and ``_unlocked``  should be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+### [G-1.4] ``depositNonce`` and ``_unlocked``  should be packed same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L84-L101
 
@@ -119,7 +148,7 @@ FILE: 2023-09-maia/src/BranchBridgeAgent.sol
 
 ```
 
-###  localPortAddress and _unlocked  can be packed with same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
+### [G-1.5]  ``localPortAddress`` and ``_unlocked``  can be packed with same SLOT : Saves ``2000 GAS`` , ``1 SLOT``
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L32-L42
 
@@ -146,7 +175,7 @@ FILE: Breadcrumbs2023-09-maia/src/BaseBranchRouter.sol
 
 ##
 
-## [G-2] Function _minimumReserves() can be more optimized
+## [G-2] Refactor ``_minimumReserves()`` function to be more gas-efficient
 
 Saves 800 GAS as per tests . Gas increases as per complexity 
 
@@ -170,39 +199,15 @@ FILE: 2023-09-maia/src/BranchPort.sol
 473:    }
 
 ```
-
 ##
 
-## [G-] Removing Redundant Cache for strategyDailyLimitRemaining[msg.sender][_token] saves gas 
+## [G-3] Storage variables should be cached in stack variables rather than re-reading them from storage
 
-Saves 100 Gas
-
-The ``dailyLimit`` value is not utilized within the ``_checkTimeLimit`` ``IF`` block. The cache strategyDailyLimitRemaining[msg.sender][_token] is redundant.
-
-```diff
-FILE: Breadcrumbs2023-09-maia/src/BranchPort.sol
-
- function _checkTimeLimit(address _token, uint256 _amount) internal {
-        uint256 dailyLimit = strategyDailyLimitRemaining[msg.sender][_token];
-        if (block.timestamp - lastManaged[msg.sender][_token] >= 1 days) {
--            dailyLimit = strategyDailyLimitAmount[msg.sender][_token];
-            unchecked {
-                lastManaged[msg.sender][_token] = (block.timestamp / 1 days) * 1 days;
-            }
-        }
-        strategyDailyLimitRemaining[msg.sender][_token] = dailyLimit - _amount;
-    }
-
-```
-https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L485-L494
-
-##
-
-## [G-] Storage variables should be cached in stack variables rather than re-reading them from storage
+#### Saves ``1200 GAS`` , ``12 SLOD``
 
 The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
 
-### ``deposit.hTokens.length``,``deposit.owner``,``executionState[nonce]`` should be cached  : Saves ``700 GAS`` ,``7 SLOD``
+### [G-3.1]  ``deposit.hTokens.length``,``deposit.owner``,``executionState[nonce]`` should be cached  : Saves ``900 GAS`` ,``9 SLOD``
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L359
 
@@ -367,7 +372,7 @@ FILE: 2023-09-maia/src/BranchBridgeAgent.sol
 
 ```
 
-### ``settlementReference.owner`` should be cached  : Saves ``300 GAS`` , ``3 SLOD``
+### [G-3.2] ``settlementReference.owner`` should be cached  : Saves ``300 GAS`` , ``3 SLOD``
 
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L244
@@ -411,9 +416,32 @@ FILE: 2023-09-maia/src/RootBridgeAgent.sol
         );
 ```
 
+## [G-4] Remove redundant cache for ``strategyDailyLimitRemaining[msg.sender][_token]`` to save gas 
+
+#### Saves ``113 Gas``
+
+The ``dailyLimit`` value is not utilized within the ``_checkTimeLimit`` ``IF`` block. The cache strategyDailyLimitRemaining[msg.sender][_token] is redundant.
+
+```diff
+FILE: Breadcrumbs2023-09-maia/src/BranchPort.sol
+
+ function _checkTimeLimit(address _token, uint256 _amount) internal {
+        uint256 dailyLimit = strategyDailyLimitRemaining[msg.sender][_token];
+        if (block.timestamp - lastManaged[msg.sender][_token] >= 1 days) {
+-            dailyLimit = strategyDailyLimitAmount[msg.sender][_token];
+            unchecked {
+                lastManaged[msg.sender][_token] = (block.timestamp / 1 days) * 1 days;
+            }
+        }
+        strategyDailyLimitRemaining[msg.sender][_token] = dailyLimit - _amount;
+    }
+
+```
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L485-L494
+
 ##
 
-## [G-] Cache the state variables outside the loop
+## [G-5] Cache the state variables outside the loop
 
 Saves ``100 GAS`` for each iterations 
 
@@ -441,9 +469,11 @@ FILE: 2023-09-maia/src/RootBridgeAgent.sol
                 );
             }
 
+```
+
 ##
 																															
-## [G-] <x> += <y> costs more gas than <x> = <x> + <y> for state variables
+## [G-6] <x> += <y> or <x> -= <y> costs more gas than <x> = <x> + <y> or <x> = <x> - <y> for state variables
 
 Saves ``300 GAS	``
 
@@ -463,7 +493,7 @@ https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff5949969
 
 ##
 
-## [G-] Avoid initializing default values for state and parameters to avoid gas
+## [G-7] Avoid initializing default values for state and parameters to save gas
 
 Ethereum smart contracts and gas efficiency, initializing default values can indeed result in unnecessary gas costs. Gas is a limited resource on the Ethereum network, and minimizing gas consumption is crucial to keeping transaction costs low.
 
@@ -491,12 +521,14 @@ https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff5949969
 
 ##
 
-## [G-] Using immutable directly is more gas efficient instead of caching
+## [G-8] Using ``immutable`` directly is more ``gas-efficient`` than caching
 
 Using immutable directly is more gas efficient than caching. This is because caching requires additional gas to store and retrieve the cached data. Saves ``15 Gas`` per instance 
 
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumBranchPort.sol#L57
+
 ```diff
-FILE: https://github.com/code-423n4/2023-09-maia/blob/main/src/ArbitrumCoreBranchRouter.sol
+FILE: 2023-09-maia/src/ArbitrumBranchPort.sol
 
 56: // Save root port address to memory
 -        address _rootPortAddress = rootPortAddress;
@@ -539,11 +571,11 @@ FILE: https://github.com/code-423n4/2023-09-maia/blob/main/src/ArbitrumCoreBranc
 ```
  																							
 		
-## [G-] Don't cache variables only used once	
+## [G-9] Do not ``cache`` variables that are ``only used once``	
 
 If the variable is only accessed once, it's cheaper to use the state variable directly that one time, and save the 3 gas the extra stack assignment would spend . Saves 35 GAS
 
-###  ``abi.encode`` and ``abi.encodePacked`` are unnecessarily cache : Saves ``350 GAS`` , ``10 Instances ``
+### [G-9.1]  ``abi.encode`` and ``abi.encodePacked`` are unnecessarily cache : Saves ``350 GAS`` , ``10 Instances ``
 
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreRootRouter.sol#L167C27-L177
 
@@ -613,7 +645,7 @@ FILE: 2023-09-maia/src/CoreRootRouter.sol
 
 ```
 
-### Unnecessary cache : Saves ``40 GAS``
+### [G-9.2] Unnecessary cache : Saves ``40 GAS``
 
 ```diff
 FILE: 2023-09-maia/src/RootPort.sol
@@ -629,11 +661,11 @@ FILE: 2023-09-maia/src/RootPort.sol
 ```
 ##
 
-## [G-] Use assembly to perform efficient back-to-back calls
+## [G-10] Use assembly to perform efficient back-to-back calls
 
 If a similar external call is performed back-to-back, we can use assembly to reuse any function signatures and function parameters that stay the same. In addition, we can also reuse the same memory space for each function call (``scratch space`` + ``free memory pointer`` + ``zero slot``), which can potentially allow us to avoid memory expansion costs.
 
-```diff
+```solidity
 FILE: 2023-09-maia/src/CoreRootRouter.sol
 
 426: ERC20(_globalAddress).name(),
@@ -643,7 +675,7 @@ FILE: 2023-09-maia/src/CoreRootRouter.sol
 ```																							
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreRootRouter.sol#L426-L428
 
-```diff
+```solidity
 FILE: 2023-09-maia/src/ArbitrumCoreBranchRouter.sol
 
 56: string.concat("Arbitrum Ulysses ", ERC20(_underlyingAddress).name()),
@@ -653,7 +685,7 @@ FILE: 2023-09-maia/src/ArbitrumCoreBranchRouter.sol
 ```
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumCoreBranchRouter.sol#L56-L58
 
-```diff
+```solidity
 FILE: 2023-09-maia/src/BaseBranchRouter.sol
 
 63: localPortAddress = IBridgeAgent(_localBridgeAgentAddress).localPortAddress();
@@ -662,7 +694,7 @@ FILE: 2023-09-maia/src/BaseBranchRouter.sol
 ```																								
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L63-L64
 
-```diff
+```solidity
 FILE: 2023-09-maia/src/factories/ERC20hTokenBranchFactory.sol
 
 66: ERC20(_wrappedNativeTokenAddress).name(),
@@ -673,12 +705,110 @@ FILE: 2023-09-maia/src/factories/ERC20hTokenBranchFactory.sol
 https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenBranchFactory.sol#L66-L68																									
 
 
-##																																											
-																									## Don't emit event 
+## 
 
-Combine events 
+## [G-11] Use assembly for loops 
 
-use assembly for loops 
+#### Saves minimum ``1400 GAS `` 
 
-[G-] Modifiers only called once can be inlined																																																																																												
+Assembly for loops can save gas in Solidity by avoiding the overhead of stack operations. When using a high-level language like Solidity, the compiler generates assembly code that includes stack operations to store and retrieve variables. This can lead to high gas costs, especially if the for loop is iterating over a large number of elements.
+
+To avoid this overhead, you can use an assembly for loop instead. An assembly for loop allows you to explicitly manage the stack, which can lead to significant gas savings.
+
+As per [sample tests](https://gist.github.com/sathishpic22/34b6972901f825a475753e44d39f0faf) in Remix IDE this saves around ``350 Gas`` per iterations. The gas savings may high based on the complexity
+
+```diff
+FILE: 2023-09-maia/src/BaseBranchRouter.sol
+
+- for (uint256 i = 0; i < _hTokens.length;) {
+-            _transferAndApproveToken(_hTokens[i], _tokens[i], _amounts[i], _deposits[i]);
+-
+-            unchecked {
+-                ++i;
+-            }
+
++ assembly {
++  // Initialize the counter variable
++  let i := 0
++
++  // Get the length of the _hTokens array
++  let hTokensLength := mload(_hTokens)
++
++  // Iterate over the _hTokens array
++  for {} i lt hTokensLength {} {
++    // Load the element at index i from the _hTokens array
++    let hToken := mload(add(_hTokens, mul(i, 32)))
++
++    // Load the element at index i from the _tokens array
++    let token := mload(add(_tokens, mul(i, 32)))
++
++    // Load the element at index i from the _amounts array
++    let amount := mload(add(_amounts, mul(i, 32)))
++
++    // Load the element at index i from the _deposits array
++    let deposit := mload(add(_deposits, mul(i, 32)))
++
++    // Call the _transferAndApproveToken function
++    calldatacopy(0, hToken, 32)
++    calldatacopy(32, token, 32)
++    calldatacopy(64, amount, 32)
++    calldatacopy(96, deposit, 32)
++    staticcall(gas, _transferAndApproveToken.address, 0, 128, 0, 0)
++
++    // Increment the counter
++    i := add(i, 1)
++  }
++ }
+
+```
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L192-L197
+
+```solidity
+FILE: 2023-09-maia/src/MulticallRootRouter.sol
+
+ for (uint256 i = 0; i < outputParams.outputTokens.length;) {
+                IVirtualAccount(userAccount).withdrawERC20(outputParams.outputTokens[i], outputParams.amountsOut[i]);
+
+                unchecked {
+                    ++i;
+                }
+            }
+
+```
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L278-L284																																											
+																								
+```solidity
+FILE: 2023-09-maia/src/VirtualAccount.sol
+
+70: for (uint256 i = 0; i < length;) {
+            bool success;
+            Call calldata _call = calls[i];
+
+            if (isContract(_call.target)) (success, returnData[i]) = _call.target.call(_call.callData);
+
+            if (!success) revert CallFailed();
+
+            unchecked {
+                ++i;
+            }
+
+90: for (uint256 i = 0; i < length;) {
+            _call = calls[i];
+            uint256 val = _call.value;
+            // Humanity will be a Type V Kardashev Civilization before this overflows - andreas
+            // ~ 10^25 Wei in existence << ~ 10^76 size uint fits in a uint256
+            unchecked {
+                valAccumulator += val;
+            }
+
+```
+https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L70-L80
+
+
+
+
+
+
+
+																																																																																										
 																																																																																																																	
