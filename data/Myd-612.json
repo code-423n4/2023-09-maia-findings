@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "Insecure Reentrancy Protection in RootBridgeAgent.",
+  "issueId": 612,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/612"
+}
