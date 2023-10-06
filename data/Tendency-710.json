@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Tendency",
+  "risk": "3",
+  "title": "`ArbitrumBranchBridgeAgent::_performFallbackCall` Function Does Not Refund Users Their Excess Native Gas Tokens",
+  "issueId": 710,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/710"
+}
