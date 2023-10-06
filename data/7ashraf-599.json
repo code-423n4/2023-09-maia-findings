@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "7ashraf",
+  "risk": "2",
+  "title": "Toggle function overwrites the create function with potential DOS risks ",
+  "issueId": 599,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/599"
+}
