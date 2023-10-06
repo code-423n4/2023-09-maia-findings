@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "Relies on address(this).balance for value - this could be manipulated by an attacker via selfdestruct() or other means to make it appear the contract has more balance than it does.",
+  "issueId": 780,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/780"
+}
