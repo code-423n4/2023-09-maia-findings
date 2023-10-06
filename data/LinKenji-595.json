@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "LinKenji",
+  "risk": "3",
+  "title": "In `redeemSettlement`, failing to update settlement amounts allows double redemption.",
+  "issueId": 595,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/595"
+}
