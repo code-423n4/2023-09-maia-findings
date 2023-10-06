@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "The RootBridgeAgent._performCall() and _performRetrySettlementCall() functions may not work correctly due to the lack of verification of the success of the transfer of funds",
+  "issueId": 631,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/631"
+}
