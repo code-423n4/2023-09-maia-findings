@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "replenishReserves() will not work with tokens with transfer fees",
+  "issueId": 766,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/766"
+}
