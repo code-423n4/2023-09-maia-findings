@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "Tokens of redeemed borrowed reserves are not taken into account in dailyLimit",
+  "issueId": 751,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/751"
+}
