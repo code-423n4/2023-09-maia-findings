@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "LinKenji",
+  "risk": "3",
+  "title": "Failing to validate the `_minimumReserveRatio` allows critical reserve protection logic to be bypassed. ",
+  "issueId": 593,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/593"
+}
