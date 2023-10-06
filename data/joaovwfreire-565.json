@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "joaovwfreire",
+  "risk": "3",
+  "title": "No access control for VirtualAccount payableCall function",
+  "issueId": 565,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/565"
+}
