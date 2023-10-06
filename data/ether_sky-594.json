@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ether_sky",
+  "risk": "3",
+  "title": "The absence of a modifier in 'Virtual Account' enables the user to execute others' settlements and ultimately acquire the funds.",
+  "issueId": 594,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/594"
+}
