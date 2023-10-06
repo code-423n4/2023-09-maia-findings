@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Kral01",
+  "risk": "3",
+  "title": "A Malicious user can create a `rootBridgeAgent` with a malicious endpoint and execute calls directly with the `rootBridgeAgent`.",
+  "issueId": 874,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/874"
+}
