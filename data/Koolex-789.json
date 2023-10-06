@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Koolex",
+  "risk": "3",
+  "title": "EIP150 not taken into account in RootBridgeAgent which allows an attacker to break the deposit functionality completely from any branch chain to the root",
+  "issueId": 789,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/789"
+}
