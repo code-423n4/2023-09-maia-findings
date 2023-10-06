@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "neumo",
+  "risk": "3",
+  "title": "LayerZero endpoint can get blocked by a malicious user",
+  "issueId": 883,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/883"
+}
