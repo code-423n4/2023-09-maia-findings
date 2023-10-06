@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "2",
+  "title": "RootBridgeAgent.sol, BranchBridgeAgent.sol locks up Ether it receives",
+  "issueId": 647,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/647"
+}
