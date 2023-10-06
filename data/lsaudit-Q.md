@@ -159,6 +159,40 @@ Similar findings have been evaluated as low-risk in the previous Code4rena conte
 
 Instead of creating a toggle-like functions - create two separate functions - first one to enable the state, and the 2nd one - to disable it.
 
+# [QA-04] Lack of following LayerZero Integration Checklist by hardcoding `useZro`
+
+The [LayerZero Integration Checklist](https://layerzero.gitbook.io/docs/evm-guides/layerzero-integration-checklist) states:
+
+```
+Do not hardcode useZro to false when estimating fees and sending messages. Pass it as a parameter instead.
+```
+
+In function `getFeeEstimate()` we're calling `ILayerZeroEndpoint(lzEndpointAddress).estimateFees`, which hardcodes `useZro` to false, instead of passing it as parameter:
+
+[File: RootBridgeAgent.sol](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L146-L152)
+```
+ (_fee,) = ILayerZeroEndpoint(lzEndpointAddress).estimateFees(
+            _dstChainId,
+            address(this),
+            _payload,
+            false,
+            abi.encodePacked(uint16(2), _gasLimit, _remoteBranchExecutionGas, getBranchBridgeAgent[_dstChainId])
+        );
+```
+
+[File: BranchBridgeAgent.sol](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L166-L172)
+```
+        (_fee,) = ILayerZeroEndpoint(lzEndpointAddress).estimateFees(
+            rootChainId,
+            address(this),
+            _payload,
+            false,
+            abi.encodePacked(uint16(2), _gasLimit, _remoteBranchExecutionGas, rootBridgeAgentAddress)
+        );
+```
+
+This seem to intended way of calculating fees - since the protocol does not use ZRO to pay for the messages and does not pose any security threat. Nonetheless, it violates the LayerZero Integration Checklist, thus is had to be mentioned in the QA Report.
+
 # [N-01] Risk of delivery messages across chains
 
 Protocol uses LayerZero to transport messages across different chains. In case of LayerZero being compromised, the worst case scenario might include forges of these messages. This may be causing havoc and possibility of funds loss.
