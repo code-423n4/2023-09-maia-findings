@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "QiuhaoLi",
+  "risk": "2",
+  "title": "ArbitrumCoreBranchRouter.sol:addLocalToken() should send out msg.value or not be payable",
+  "issueId": 669,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/669"
+}
