@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "joaovwfreire",
+  "risk": "2",
+  "title": "The lzReceive function at the BranchBridgeAgent contract does not check the return values of the excessivelySafeCall",
+  "issueId": 566,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/566"
+}
