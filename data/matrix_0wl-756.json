@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "matrix_0wl",
+  "risk": "2",
+  "title": "Initialize function in BaseBranchRouter.sol, BranchPort.sol, CoreRootRouter.sol, MulticallRootRouter.sol, RootPort.sol, ArbitrumBranchBridgeAgentFactory.sol, BranchBridgeAgentFactory.sol, ERC20hTokenBranchFactory.sol, ERC20hTokenRootFactory.sol can be invoked multiple times from the implementation contract",
+  "issueId": 756,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/756"
+}
