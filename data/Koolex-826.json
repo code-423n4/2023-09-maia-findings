@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Koolex",
+  "risk": "2",
+  "title": "addGlobalToken in CoreRootRouter will revert if destChainId is greater than 65535",
+  "issueId": 826,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/826"
+}
