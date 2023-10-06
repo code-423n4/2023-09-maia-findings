@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "The call to RootPort.toggleBridgeAgentFactory() and RootPort.addBridgeAgentFactory() is not accessible to an external call, which will cause CoreBranchRouter._toggleBranchBridgeAgentFactory() to function incorrectly",
+  "issueId": 696,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/696"
+}
