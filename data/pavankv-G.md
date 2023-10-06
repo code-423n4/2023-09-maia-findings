@@ -1,6 +1,6 @@
 ## 1. Refactor for-loop to save some runtime gas :-
 
-In below code snippet we can see for each loop iteration numOfAssets which already declared in line [273](https://github.com/code-423n4/2023-09-maia/blob/main/src/RootBridgeAgentExecutor.sol#L273) as uint8 , but in loop again try to convert to uint8 and again to uint256 bits . So for-loop requires only constant value. So instead of conversion in every loop iteration we can declare variable outside loop and try to call. Which save some conversion operation.
+In below code snippet we can see for each loop iteration numOfAssets which already declared in line [273](https://github.com/code-423n4/2023-09-maia/blob/main/src/RootBridgeAgentExecutor.sol#L273) as uint8 , but in loop again try to type cast to uint8 and again to uint256 bits . So for-loop requires only constant value. So instead of conversion in every loop iteration we can declare variable outside loop and try to call. Which save some type cast operation.
 
 **Before**
 ```solidity
@@ -160,3 +160,162 @@ After
 |---|---|---|---|---|---|
 |  callOutAndBridgeMultiple | 462810  | 462810  | 462810  | 462810  | 6  |
 
+## 4. TypeCast can be done in if-else instead of memory variable :-
+In below function calldata argument can type cast directly in if-else to save some gas .
+
+
+**Before**
+```solidity
+  function execute(bytes calldata _encodedData, uint16) external payable override requiresExecutor {
+        // Parse funcId
+        bytes1 funcId = _encodedData[0]; //@audit
+
+        /// FUNC ID: 1 (_addGlobalToken)
+        if (funcId == 0x01) {//@audit
+            (address refundee, address globalAddress, uint16 dstChainId, GasParams[2] memory gasParams) =
+                abi.decode(_encodedData[1:], (address, address, uint16, GasParams[2]));
+
+            _addGlobalToken(refundee, globalAddress, dstChainId, gasParams);
+
+            /// Unrecognized Function Selector
+        } else {
+            revert UnrecognizedFunctionId();
+        }
+    }
+```
+Please look into `//@audit` comment in above function
+
+**After**
+```solidity
+function execute(bytes calldata _encodedData, uint16) external payable override requiresExecutor {
+               
+        /// FUNC ID: 1 (_addGlobalToken)
+        if (bytes1(_encodedData[0]) == 0x01) { //@audit changed here
+            (address refundee, address globalAddress, uint16 dstChainId, GasParams[2] memory gasParams) =
+                abi.decode(_encodedData[1:], (address, address, uint16, GasParams[2]));
+
+            _addGlobalToken(refundee, globalAddress, dstChainId, gasParams);
+
+            /// Unrecognized Function Selector
+        } else {
+            revert UnrecognizedFunctionId();
+        }
+    }
+```
+Please look into `//@audit changed here` comment in above function.
+
+**Foundry Gas BenchMark**
+Before
+|Function Name   | Min | avg   | median   | max   | calls  |
+|---|---|---|---|---|---|
+|  execute | 1025  | 1025  | 1025  | 1025  | 5  |
+
+
+After
+|Function Name   | Min | avg   | median   | max   | calls  |
+|---|---|---|---|---|---|
+|  execute | 1014  | 1014  | 1014 | 1014  | 5  |
+
+This is exact gas benchmark.
+
+code snippet :-
+https://github.com/code-423n4/2023-09-maia/blob/main/src/CoreRootRouter.sol#L297C4-L307C30
+
+
+Scenario 2 :-
+In below function we can type cast to bytes1() in if-else only to save some runtime gas . 
+
+**Before**
+```solidity
+ function executeResponse(bytes calldata _encodedData, uint16 _srcChainId)
+        external
+        payable
+        override
+        requiresExecutor
+    {
+        // Parse funcId
+        bytes1 funcId = _encodedData[0];//@audit
+
+        ///  FUNC ID: 2 (_addLocalToken)
+        if (funcId == 0x02) {//@audit
+            (address underlyingAddress, address localAddress, string memory name, string memory symbol, uint8 decimals)
+            = abi.decode(_encodedData[1:], (address, address, string, string, uint8));
+
+            _addLocalToken(underlyingAddress, localAddress, name, symbol, decimals, _srcChainId);
+
+            /// FUNC ID: 3 (_setLocalToken)
+        } else if (funcId == 0x03) {//@audit
+            (address globalAddress, address localAddress) = abi.decode(_encodedData[1:], (address, address));
+
+            _setLocalToken(globalAddress, localAddress, _srcChainId);
+
+            /// FUNC ID: 4 (_syncBranchBridgeAgent)
+        } else if (funcId == 0x04) {//@audit
+            (address newBranchBridgeAgent, address rootBridgeAgent) = abi.decode(_encodedData[1:], (address, address));
+
+            _syncBranchBridgeAgent(newBranchBridgeAgent, rootBridgeAgent, _srcChainId);
+
+            /// Unrecognized Function Selector
+        } else {
+            revert UnrecognizedFunctionId();
+        }
+    }
+```
+Please look into `//@audit` comment in above function
+
+**After**
+```solidity
+    function executeResponse(bytes calldata _encodedData, uint16 _srcChainId)
+        external
+        payable
+        override
+        requiresExecutor
+    {
+        // Parse funcId
+        ///  FUNC ID: 2 (_addLocalToken)
+        if (bytes1(_encodedData[0]) == 0x02) {//@audit changed here
+            (address underlyingAddress, address localAddress, string memory name, string memory symbol, uint8 decimals)
+            = abi.decode(_encodedData[1:], (address, address, string, string, uint8));
+
+            _addLocalToken(underlyingAddress, localAddress, name, symbol, decimals, _srcChainId);
+
+            /// FUNC ID: 3 (_setLocalToken)
+        } else if (bytes1(_encodedData[0]) == 0x03) {//@audit changed here
+            (address globalAddress, address localAddress) = abi.decode(_encodedData[1:], (address, address));
+
+            _setLocalToken(globalAddress, localAddress, _srcChainId);
+
+            /// FUNC ID: 4 (_syncBranchBridgeAgent)
+        } else if (bytes1(_encodedData[0]) == 0x04) {//@audit changed here
+            (address newBranchBridgeAgent, address rootBridgeAgent) = abi.decode(_encodedData[1:], (address, address));
+
+            _syncBranchBridgeAgent(newBranchBridgeAgent, rootBridgeAgent, _srcChainId);
+
+            /// Unrecognized Function Selector
+        } else {
+            revert UnrecognizedFunctionId();
+        }
+    }
+```
+Please look into the `//@audit changed here` comment in above function .
+
+**Foundry Gas BenchMark**
+Before
+|Function Name   | Min | avg   | median   | max   | calls  |
+|---|---|---|---|---|---|
+|  executeResponse | 5909  | 887221  | 1102009 | 1102009  | 10  |
+
+
+After
+|Function Name   | Min | avg   | median   | max   | calls  |
+|---|---|---|---|---|---|
+|  executeResponse | 5898  | 887202  | 1101984 | 1101984  | 10  |
+
+code snippet:-
+https://github.com/code-423n4/2023-09-maia/blob/main/src/CoreRootRouter.sol#L297C3-L329C6
+
+Scenario 3 :-
+In below we can directly type cast the `encodedData` argument into bytes1() in if-else check statement in order to save some run time gas like scenario 2 situtions.
+
+code snippet:-
+https://github.com/code-423n4/2023-09-maia/blob/main/src/MulticallRootRouter.sol#L137C5-L200C6
