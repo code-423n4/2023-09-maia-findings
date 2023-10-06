@@ -1,4 +1,4 @@
-# Ensure a check for new local token that is being added in `CoreBranchRouter.addLocalToken()`
+# [01] Ensure a check for new local token that is being added in `CoreBranchRouter.addLocalToken()`
 
 ## Details 
 
@@ -181,3 +181,31 @@ function _addLocalToken(
   ``` 
 - Have it on the `BranchPort`
 - And Finally implement this check everytime a new local token is being created.  
+
+# [02] Implement mappings correctly in `RootBranchChain`
+
+## Details
+if we look closely at these mappings defined in the `RootBranchChain`
+
+```solidity
+    /// @notice ChainId -> Local Address -> Global Address
+    mapping(address chainId => mapping(uint256 localAddress => address globalAddress)) public getGlobalTokenFromLocal;
+
+    /// @notice ChainId -> Global Address -> Local Address
+    mapping(address chainId => mapping(uint256 globalAddress => address localAddress)) public getLocalTokenFromGlobal;
+
+    /// @notice ChainId -> Underlying Address -> Local Address
+    mapping(address chainId => mapping(uint256 underlyingAddress => address localAddress)) public getLocalTokenFromUnderlying;
+
+    /// @notice Mapping from Local Address to Underlying Address.
+    mapping(address chainId => mapping(uint256 localAddress => address underlyingAddress)) public
+getUnderlyingTokenFromLocal;
+```
+
+Their code comments wanted them to be `uint chain -> Address -> Address`, but these implementation are in the form `Address -> uint chainID -> Address` and even in the naming convention we can clearly see that there's a slight mistake, it should have been `uint chainId` instead of `address chainId` and `address localAddress` / `address globalAddress` instead of `uint256 localAddress`. 
+
+## Impact 
+There's no harmful consequences to these as the code works well but it can be **confusing** for the readers or developers who want to build their protocol on top of these contracts. 
+
+## Suggestion 
+Just simply implement it in the way as it is in the code comments and re-test it.    
