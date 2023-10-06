@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "LinKenji",
+  "risk": "3",
+  "title": "The `payableCall` function doesn't check for excess ETH, enabling exploitation.",
+  "issueId": 591,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/591"
+}
