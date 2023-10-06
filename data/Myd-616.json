@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "The contract's `settlementNonce` can overflow, causing nonce reset and potential collisions. Mitigate with SafeMath's add.",
+  "issueId": 616,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/616"
+}
