@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Tendency",
+  "risk": "3",
+  "title": "Loss of Native Gas Deposits in ArbitrumBranchBridgeAgent due to the Availability of Unused retrySettlement Function",
+  "issueId": 719,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/719"
+}
