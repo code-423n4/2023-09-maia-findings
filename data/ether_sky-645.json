@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ether_sky",
+  "risk": "2",
+  "title": "Once users retrieve their deposits, they cannot retry the deposit process.",
+  "issueId": 645,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/645"
+}
