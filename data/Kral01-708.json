@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Kral01",
+  "risk": "2",
+  "title": "Attacker can create `RootBridgeAgent` with custom port address that can bypass checks in Settlement external functions. ",
+  "issueId": 708,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/708"
+}
