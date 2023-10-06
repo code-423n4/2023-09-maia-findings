@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "jasonxiale",
+  "risk": "3",
+  "title": "protocol might not work for functions require multiple cross-chain messages",
+  "issueId": 736,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/736"
+}
