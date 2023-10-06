@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "No address validation allows attackers to craft malicious recipients, steal tokens.",
+  "issueId": 587,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/587"
+}
