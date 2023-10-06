@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "Functions `_addGlobalToken` and `_addLocalToken` lack proper validation, risking incorrect data.",
+  "issueId": 624,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/624"
+}
