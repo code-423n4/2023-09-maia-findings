@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "An attacker can steal gas refunds by repeating an unsuccessful transaction to the root chain",
+  "issueId": 698,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/698"
+}
