@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "tank",
+  "risk": "3",
+  "title": "an attacker can take control of `VirtualAccount` (can steal assets in `VirtualAccount`",
+  "issueId": 750,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/750"
+}
