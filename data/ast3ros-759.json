@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ast3ros",
+  "risk": "2",
+  "title": "Missing setCoreBranchRouter Functionality in ArbitrumCoreBranchRouter",
+  "issueId": 759,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/759"
+}
