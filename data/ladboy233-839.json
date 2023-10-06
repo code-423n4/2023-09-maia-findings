@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ladboy233",
+  "risk": "3",
+  "title": "User can selectively turn on the fallback flag to take all ETH on the agent contract as layerzero fee refund",
+  "issueId": 839,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/839"
+}
