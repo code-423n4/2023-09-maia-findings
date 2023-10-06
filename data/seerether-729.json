@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "There is no check that the settlement is actually in a \"failed\" state before retrying in the retrySettlement function. This could allow an attacker to cause it to fallback multiple times when it should only fallback once.",
+  "issueId": 729,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/729"
+}
