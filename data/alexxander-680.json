@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "alexxander",
+  "risk": "2",
+  "title": " Not signed deposits to the RootBridgeAgent can be stolen if they miss Router instructions.",
+  "issueId": 680,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/680"
+}
