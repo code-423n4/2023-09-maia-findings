@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ether_sky",
+  "risk": "3",
+  "title": "When using BaseBranchRouter as a router on the 'Arbitrum' branch, we are unable to invoke the 'callOutAndBridge' function.",
+  "issueId": 744,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/744"
+}
