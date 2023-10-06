@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "Inability to complete a transaction due to lack of gas",
+  "issueId": 632,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/632"
+}
