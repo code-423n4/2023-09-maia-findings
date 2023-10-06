@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "QiuhaoLi",
+  "risk": "2",
+  "title": "BranchBridgeAgent:lzReceive() should check if _srcChainId is rootChainId",
+  "issueId": 706,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/706"
+}
