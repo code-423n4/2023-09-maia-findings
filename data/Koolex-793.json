@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Koolex",
+  "risk": "3",
+  "title": "Mismatch of decimals for some underlying tokens across chains could cause a huge loss of funds",
+  "issueId": 793,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/793"
+}
