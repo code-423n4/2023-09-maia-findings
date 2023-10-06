@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "SanketKogekar",
+  "risk": "2",
+  "title": "Unnecessary usage of `payable` or failing to send back remaining/unused ether might result in stuck funds. ",
+  "issueId": 838,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/838"
+}
