@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ether_sky",
+  "risk": "3",
+  "title": "Settlements can be created by anyone whenever the multicall root router has funds available.",
+  "issueId": 603,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/603"
+}
