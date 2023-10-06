@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "NoTechBG",
+  "risk": "2",
+  "title": "`toggleStrategyToken` doesn't validate a possible debt when toggling off",
+  "issueId": 690,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/690"
+}
