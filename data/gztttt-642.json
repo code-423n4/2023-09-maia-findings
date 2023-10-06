@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "gztttt",
+  "risk": "3",
+  "title": "Lack of access control for `payableCall()` of  VirtualAccount.sol",
+  "issueId": 642,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/642"
+}
