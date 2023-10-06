@@ -5,6 +5,7 @@
 | [L-01](#l-01-payablecall-dont-support-target-is-eoas) | payableCall don't support target is EOAs|
 | [L-02](#l-02-addbridgeagentfactory-bridgeagentfactories--may-be-duplicated) | addBridgeAgentFactory bridgeAgentFactories  may be duplicated|
 | [L-03](#l-03-virtualaccount-miss-supportsinterface) | VirtualAccount miss supportsInterface|
+| [L-04](#l-04-branchbridgeagentlzreceivenonblocking-lock-of-check-_srcchainid--rootchainid) | BranchBridgeAgent.lzReceiveNonBlocking() lock of check `_srcChainId == rootChainId`|
 
 ## [L-01] payableCall don't support target is EOAs
 The `payableCall()` can be used to execute the code and transfer eth to the `target`.
@@ -51,3 +52,20 @@ contract VirtualAccount is IVirtualAccount, ERC1155Receiver {
 +          return interfaceId == type(IERC721Receiver).interfaceId || super.supportsInterface(interfaceId);
 +     }   
 ```
+
+##  [L-04] BranchBridgeAgent.lzReceiveNonBlocking() lock of check `_srcChainId == rootChainId`
+Currently `BranchBridgeAgent._requiresEndpoint()` is used to determine the illegality of the source
+```solidity
+    function _requiresEndpoint(address _endpoint, bytes calldata _srcAddress) internal view virtual {
+        //Verify Endpoint
+        if (msg.sender != address(this)) revert LayerZeroUnauthorizedEndpoint();
+        if (_endpoint != lzEndpointAddress) revert LayerZeroUnauthorizedEndpoint();
+
+        //Verify Remote Caller
+        if (_srcAddress.length != 40) revert LayerZeroUnauthorizedCaller();
+        if (rootBridgeAgentAddress != address(uint160(bytes20(_srcAddress[20:])))) revert LayerZeroUnauthorizedCaller();
+    }
+```
+We know from the above code that currently it only determines whether `rootBridgeAgentAddress` is legitimate or not, and does not determine whether the `_srcChainId` of the source is equal to `rootChainId` or not.
+If the deployed code can be replayed to generate the same `rootBridgeAgentAddress` address in different chains, then it can be manipulated and other chains can put information to this `BranchBridgeAgent` as well
+Suggest to add `_srcChainId == rootChainId`.
