@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "`CoreRootRouter._setLocalToken` FUNCTION COULD OVERWRITE THE EXISTING VALUES OF THE `getLocalTokenFromGlobal` MAPPING VALUES DUE TO LACK OF CONDITIONAL CHECKS",
+  "issueId": 822,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/822"
+}
