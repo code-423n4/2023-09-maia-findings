@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ladboy233",
+  "risk": "3",
+  "title": "_performFallbackCall can revert sliently when there is insufficient ETH remaining to pay for the Layerzero fee",
+  "issueId": 732,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/732"
+}
