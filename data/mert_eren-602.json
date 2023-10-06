@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "mert_eren",
+  "risk": "3",
+  "title": "VirtualAccount's payable function can be callable by anyone",
+  "issueId": 602,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/602"
+}
