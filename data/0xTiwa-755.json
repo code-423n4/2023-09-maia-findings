@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xTiwa",
+  "risk": "3",
+  "title": "No access control check in payableCall()",
+  "issueId": 755,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/755"
+}
