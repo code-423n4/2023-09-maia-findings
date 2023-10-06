@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "NoTechBG",
+  "risk": "2",
+  "title": "Inconsistency when creating deposit will lead to loss of funds",
+  "issueId": 688,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/688"
+}
