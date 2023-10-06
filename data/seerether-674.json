@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "Setting settlement.owner to address(0) in retrieveSettlement could be premature and allow the settlement to be retrieved before it is fully completed.",
+  "issueId": 674,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/674"
+}
