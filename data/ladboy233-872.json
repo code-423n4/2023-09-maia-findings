@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Smart Contract calling callOutSignedAndBridge via BranchBridgeAgent can cause loss of fund",
+  "issueId": 872,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/872"
+}
