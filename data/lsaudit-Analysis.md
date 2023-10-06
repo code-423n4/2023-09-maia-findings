@@ -31,7 +31,7 @@ Protocol does not use LayerZero's Omnichain Fungible Token implementation.
 
 * `Do not hardcode address zero (address(0)) as zroPaymentAddress when estimating fees and sending messages. Pass it as a parameter instead.`
 
-In every `ILayerZeroEndpoint(lzEndpointAddress).send()` call, `zroPaymentAddress` is set to `_refundee`, which is passed by the caller.
+In every `ILayerZeroEndpoint(lzEndpointAddress).send()` call, `zroPaymentAddress` is hardcoded to address(0). This issue was reported in QA report.
 
 * `Do not hardcode useZro to false when estimating fees and sending messages. Pass it as a parameter instead.`
 
@@ -120,6 +120,8 @@ Since `deposit.hTokens`, `deposit.tokens`, `deposit.amounts`, `deposit.deposits`
 # Conclusion
 
 LayerZero integration passed most of the requirements from the above checklist. The elements which were not passed do not pose any security risk. This implies that LayerZero has been integrated correctly.
+
+
 
 ### Time spent:
 20 hours
