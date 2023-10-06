@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "potential vulnerability where retrieving a settlement can drain unrelated funds from the contract.",
+  "issueId": 709,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/709"
+}
