@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Audinarey",
+  "risk": "3",
+  "title": "users funds will be stuck in the ```BaseBranchRouter``` when making deposit",
+  "issueId": 825,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/825"
+}
