@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "Checking the return value may result in loss of user funds in the BranchBridgeAgent.lzReceive() function",
+  "issueId": 634,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/634"
+}
