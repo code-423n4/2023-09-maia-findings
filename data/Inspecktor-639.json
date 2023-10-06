@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "2",
+  "title": "Tokens with a transfer fee will lead to incorrect functioning of ArbitrumBranchPort.sol in the amount of mint tokens _globalToken",
+  "issueId": 639,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/639"
+}
