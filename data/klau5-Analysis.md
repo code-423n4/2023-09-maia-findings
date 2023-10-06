@@ -1,18 +1,12 @@
-# Analysis
+# Analysis of the code base
 
-Severity: Analysis
-
-# Analysis
-
-## **Analysis of the code base**
-
-### Branch vs Root
+## Branch vs Root
 
 Root chain is the virtual chain that manages the whole bridging service. Branch is EVM-based chain that uses the bridging service.
 
 Root is operated at Arbitrum chain, but ‘Root chain’ doesn’t mean Arbitrum chain. Arbitrum chain also treats as one of its branches and is separate from the management features.
 
-### hToken
+## hToken
 
 hToken is a token for managing bridged assets, which is matched 1:1 with the underlying token deposited in the bridge. 
 
@@ -32,13 +26,13 @@ Branch hTokens do not need to exist on every chain. If you want to move Polygon'
 
 Arbitrum does not have a branch hToken, but uses the Root hToken(global token) directly. Because it operates on the same chain, it can be minted/burned directly without going through LZ.
 
-### Virtual Account
+## Virtual Account
 
 One Virtual Account contract per user address is assigned to the root chain. For example, if you use an EOA to bridge tokens to the root chain, it transfers or mints global token to the Virtual Account contract owned by that EOA.
 
 The Virtual Account can only be accessed by a preregistered Router contract or EOA. By putting a payload into the virtual account, you can make contract do arbitrary contract call and send/receive NFTs.
 
-### Contract relationship
+## Contract relationship
 
 ![https://user-images.githubusercontent.com/70058709/273310276-6cfd7c5b-86ef-48b3-b0c1-e1db9d30fd3f.png](https://user-images.githubusercontent.com/70058709/273310276-6cfd7c5b-86ef-48b3-b0c1-e1db9d30fd3f.png)
 
