@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Limbooo",
+  "risk": "2",
+  "title": "Unchecked `_srcChainId` Vulnerability in BranchBridgeAgent for Cross-Chain Communication",
+  "issueId": 771,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/771"
+}
