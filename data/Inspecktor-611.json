@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "If lzReceive() fails to send a message, the user will lose the funds sent via msg.value",
+  "issueId": 611,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/611"
+}
