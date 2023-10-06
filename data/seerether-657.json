@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "If either amount or deposit is 0, it reverts. But this prevents \"deposit-only\" or \"withdraw-only\" actions which may be valid ",
+  "issueId": 657,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/657"
+}
