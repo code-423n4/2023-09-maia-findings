@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Udsen",
+  "risk": "3",
+  "title": "`msg.value` IS PASSED INTO THE `IRouter.executeResponse` FUNCTION THUS LOCKING THE FUNDS IN THE `RootBridgeAgentExecutor` CONTRACT",
+  "issueId": 813,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/813"
+}
