@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "bin2chen",
+  "risk": "3",
+  "title": "payableCall lack of access control",
+  "issueId": 606,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/606"
+}
