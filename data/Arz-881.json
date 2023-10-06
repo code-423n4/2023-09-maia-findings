@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Arz",
+  "risk": "2",
+  "title": "The governance will fail to add an ecosystem token if someone creates a hToken that uses that ecosystem token",
+  "issueId": 881,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/881"
+}
