@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "`settlementNonce` IN THE `RootBridgeAgent` IS DECLARED AS A `uint32` WHICH COULD GET CONSUMED VERY QUICKLY THUS BREAKING THE PROTOCOL, SINCE THE `RootBridgeAgent` IS COMMUNICATING WITH MULTIPLE BLOCKCHAINS AND THE NUMBER IS EXPECTED TO GROW",
+  "issueId": 834,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/834"
+}
