@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "peritoflores",
+  "risk": "3",
+  "title": "## [H1] An overflow can be used to drain ETH in VirtualAccount ",
+  "issueId": 687,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/687"
+}
