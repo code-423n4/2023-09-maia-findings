@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Myd",
+  "risk": "3",
+  "title": "External token calls in RootPort can be exploited through reentrancy vulnerabilities.",
+  "issueId": 620,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/620"
+}
