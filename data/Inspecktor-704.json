@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "2",
+  "title": "Possibility of reentrancy attack in VirtualAccount.sol",
+  "issueId": 704,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/704"
+}
