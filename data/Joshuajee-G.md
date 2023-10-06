@@ -28,7 +28,7 @@ if (_hTokenAmount > 0) {
 
 
 Affected codes
- https://github.com/code-423n4/2023-09-maia/blob/main/src/BaseBranchRouter.sol#L164C2-L170C10
+https://github.com/code-423n4/2023-09-maia/blob/main/src/BaseBranchRouter.sol#L164C2-L170C10
 
 https://github.com/code-423n4/2023-09-maia/blob/main/src/ArbitrumBranchPort.sol#L132C1-L136C10
 
@@ -38,7 +38,13 @@ https://github.com/code-423n4/2023-09-maia/blob/main/src/RootBridgeAgent.sol#L11
 
 https://github.com/code-423n4/2023-09-maia/blob/main/src/RootPort.sol#L284C1-L288C10
 
-## G-02: Use customer errors instead of revert to save gas;
+https://github.com/code-423n4/2023-09-maia/blob/main/src/BranchPort.sol#L259C1-L263C14
+
+
+
+## G-02: Use custom errors instead of strings to save gas;
+
+Custom errors are cheaper both for deployment and reverts, since strings take up lots of bytes code while custom reverts just a single byt
 
 Affected codes:
 https://github.com/code-423n4/2023-09-maia/blob/main/src/ArbitrumBranchPort.sol#L39
