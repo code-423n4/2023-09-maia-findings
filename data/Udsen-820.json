@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "ARITHMETIC UNDERFLOW CAN REVERT THE TRANSACTION THUS `DoS` THE SUBSEQUENT LOGIC EXECUTION OF THE `BranchBridgeAgent._clearToken` FUNCTION, WHICH IS NOT THE INTENDED BEHAVIOUR OF THE FUNCTION",
+  "issueId": 820,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/820"
+}
