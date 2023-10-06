@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "DUPLICATE `_bridgeAgent` ADDRESSES CAN BE ADDED TO `bridgeAgents` ARRAY IN THE `BranchPort` CONTRACT BY CALLING THE `BranchPort.toggleBridgeAgent` FUNCTION",
+  "issueId": 836,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/836"
+}
