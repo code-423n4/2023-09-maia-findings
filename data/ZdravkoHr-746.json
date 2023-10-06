@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ZdravkoHr",
+  "risk": "3",
+  "title": "Settlements cannot be created when using CoreRootRouter",
+  "issueId": 746,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/746"
+}
