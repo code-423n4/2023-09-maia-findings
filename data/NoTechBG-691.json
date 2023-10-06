@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "NoTechBG",
+  "risk": "2",
+  "title": "`_checkTimeLimit` doesn't serve as the intended logic",
+  "issueId": 691,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/691"
+}
