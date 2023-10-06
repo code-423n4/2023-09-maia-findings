@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "LayerZeroModule incorrectly calculates gas, which can lead to loss of funds",
+  "issueId": 637,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/637"
+}
