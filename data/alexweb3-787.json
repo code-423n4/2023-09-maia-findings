@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "alexweb3",
+  "risk": "2",
+  "title": "The addToken function might revert for some tokens",
+  "issueId": 787,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/787"
+}
