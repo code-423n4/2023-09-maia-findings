@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "nobody2018",
+  "risk": "2",
+  "title": "BranchBridgeAgent.callOutSignedAndBridge/callOutSignedAndBridgeMultiple maybe revert on ArbitrumBranch",
+  "issueId": 699,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/699"
+}
