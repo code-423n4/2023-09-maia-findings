@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Noro",
+  "risk": "3",
+  "title": "payableCall in VirtualAccount isn’t protected by requiresApprovedCaller modifier ",
+  "issueId": 818,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/818"
+}
