@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xblackskull",
+  "risk": "2",
+  "title": " `payableCall()` may be used to steal the funds because no AccessControl",
+  "issueId": 655,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/655"
+}
