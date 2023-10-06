@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Soul22",
+  "risk": "2",
+  "title": "If the callOutAndBridge or callOutAndBridgeMultiple functions are not used correctly, user funds can be drained or locked.",
+  "issueId": 661,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/661"
+}
