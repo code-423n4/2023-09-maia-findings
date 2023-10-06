@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Limbooo",
+  "risk": "3",
+  "title": "Lack of Access Control in public function `VirtualAccount.payableCall`",
+  "issueId": 788,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/788"
+}
