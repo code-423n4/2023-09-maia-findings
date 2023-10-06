@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "Lack of access check in VirtualAccount.payableCall() may result in funds being stolen",
+  "issueId": 628,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/628"
+}
