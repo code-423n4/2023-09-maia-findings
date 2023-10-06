@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Arz",
+  "risk": "2",
+  "title": "Gas that was sent by LayerZero can get stuck in the contract in some cases",
+  "issueId": 867,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/867"
+}
