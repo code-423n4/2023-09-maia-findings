@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "NoTechBG",
+  "risk": "2",
+  "title": "`replenishReserves` doesn't refresh the strategy daily limit",
+  "issueId": 694,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/694"
+}
