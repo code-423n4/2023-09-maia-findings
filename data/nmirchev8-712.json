@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "nmirchev8",
+  "risk": "2",
+  "title": "Depositing rebasing tokens could result in locked funds and unpredictable behaviour",
+  "issueId": 712,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/712"
+}
