@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "LinKenji",
+  "risk": "3",
+  "title": "Lack of proper input validation on `_depositNonce` leads to the bug where tokens can be stolen by passing a fake nonce.",
+  "issueId": 588,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/588"
+}
