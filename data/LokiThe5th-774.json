@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "LokiThe5th",
+  "risk": "2",
+  "title": "Fee-on-transfer tokens are not accounted for correctly",
+  "issueId": 774,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/774"
+}
