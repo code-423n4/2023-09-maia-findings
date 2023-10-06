@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "albertwh1te",
+  "risk": "2",
+  "title": "When calling retrySettlement with an excessively large _params at RootBridgeAgent.retrySettlement, user funds will be locked forever",
+  "issueId": 601,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/601"
+}
