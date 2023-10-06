@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "LinKenji",
+  "risk": "3",
+  "title": "`_performFallbackCall` forwards all ether balance. If ETH is sent to the contract accidentally, it could be lost.",
+  "issueId": 596,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/596"
+}
