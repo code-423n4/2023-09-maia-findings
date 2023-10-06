@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "No validation for minimum capital when creating branch routers; insecurity risk.",
+  "issueId": 621,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/621"
+}
