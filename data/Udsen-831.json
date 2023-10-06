@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "LACK OF INPUT VALIDATION ON THE `_recipient` ADDRESS IN THE `RootBridgeAgent.retrySettlement` FUNCTION CAN LEAD TO LOSS OF FUNDS TO THE USER",
+  "issueId": 831,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/831"
+}
