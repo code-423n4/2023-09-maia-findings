@@ -1,3 +1,7 @@
+[[01] Ensure a check for new local token that is being added in `CoreBranchRouter.addLocalToken()`](#[01]-Ensure-a-check-for-new-local-token-that-is-being-added-in-`CoreBranchRouter.addLocalToken()`)
+
+[[02] Implement mappings correctly in `RootBranchChain`](#[02]-Implement-mappings-correctly-in-`RootBranchChain`)
+
 # [01] Ensure a check for new local token that is being added in `CoreBranchRouter.addLocalToken()`
 
 ## Details 
