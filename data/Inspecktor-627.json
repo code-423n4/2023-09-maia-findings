@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "Failure to call the mint/burn function in ArbitrumBranchPort will result in a contract malfunction",
+  "issueId": 627,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/627"
+}
