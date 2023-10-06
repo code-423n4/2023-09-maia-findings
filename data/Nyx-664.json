@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Nyx",
+  "risk": "3",
+  "title": "The multi-call parameters have an incorrect offset in the executeSignedWithDepositMultiple function",
+  "issueId": 664,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/664"
+}
