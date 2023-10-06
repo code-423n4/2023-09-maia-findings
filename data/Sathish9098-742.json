@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Sathish9098",
+  "risk": "2",
+  "title": "``isBridgeAgentFactory[_newBridgeAgentFactory]`` this check can be by passed when BridgeAgentFactory toggled. This will allow even toggled BridgeAgentFactory in the setter functions once BridgeAgentFactory toggled",
+  "issueId": 742,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/742"
+}
