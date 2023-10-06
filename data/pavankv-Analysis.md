@@ -477,7 +477,9 @@ This function is used to bridge out the assets to root chain , here interesting 
 67 hours .
 
 Note :-
-It is primary data.
+This is primary data.
+
+
 
 
 
