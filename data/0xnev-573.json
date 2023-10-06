@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xnev",
+  "risk": "2",
+  "title": "[M-03] `BranchBridgeAgent.lzReceive()`: Low level call for local `lzReceive()` call not checked for revert",
+  "issueId": 573,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/573"
+}
