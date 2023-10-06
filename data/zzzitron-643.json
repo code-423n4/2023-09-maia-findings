@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "zzzitron",
+  "risk": "3",
+  "title": "Due to lack of access control in `VirtualAccount.payableCall()` an attacker can steal user funds from failed settlements",
+  "issueId": 643,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/643"
+}
