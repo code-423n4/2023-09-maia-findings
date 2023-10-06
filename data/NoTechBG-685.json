@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "NoTechBG",
+  "risk": "2",
+  "title": "Protocol allows non-signed deposits contrary to specs, and these deposits can be stolen",
+  "issueId": 685,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/685"
+}
