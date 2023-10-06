@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "nmirchev8",
+  "risk": "2",
+  "title": "If number of settlements reach 2^32 the whole system will stop working",
+  "issueId": 726,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/726"
+}
