@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "_performFallbackCall can revert sliently when refundee is not capable of taking ETH refund from layerzero side",
+  "issueId": 740,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/740"
+}
