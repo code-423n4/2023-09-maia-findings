@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "John_Femi",
+  "risk": "3",
+  "title": "Attacker can drain user virtual account",
+  "issueId": 579,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/579"
+}
