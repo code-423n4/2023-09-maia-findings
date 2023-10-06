@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "web3skid",
+  "risk": "3",
+  "title": "Creation of a malicious root router allows hijacking of virtual wallets tokens and funds",
+  "issueId": 768,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/768"
+}
