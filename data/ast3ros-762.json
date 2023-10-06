@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ast3ros",
+  "risk": "2",
+  "title": "Incorrect Fallback Flag in _createSettlementMultiple Function",
+  "issueId": 762,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/762"
+}
