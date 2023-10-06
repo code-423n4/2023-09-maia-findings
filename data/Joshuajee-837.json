@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Joshuajee",
+  "risk": "3",
+  "title": "The `rootChainId` was hardcoded and made Immutable this goes against the layerzero best practices,  which states that \"Do not hardcode LayerZero chain Ids. Use admin restricted setters instead\".",
+  "issueId": 837,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/837"
+}
