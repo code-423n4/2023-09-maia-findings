@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "QiuhaoLi",
+  "risk": "2",
+  "title": "RootBridgeAgentExecutor.sol: executeWith* and executeSignedWith* should transfer msg.value to router if there is no router calldata",
+  "issueId": 844,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/844"
+}
