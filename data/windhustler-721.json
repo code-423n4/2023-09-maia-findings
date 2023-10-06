@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "windhustler",
+  "risk": "3",
+  "title": "Attacker can block LayerZero channel on the root chain due to execution outside of try/catch",
+  "issueId": 721,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/721"
+}
