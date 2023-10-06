@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Aymen0909",
+  "risk": "3",
+  "title": "`RootBridgeAgent.retrieveSettlement` doesn't check if settlement is in FAILED state",
+  "issueId": 845,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/845"
+}
