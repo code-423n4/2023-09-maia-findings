@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "its_basu",
+  "risk": "3",
+  "title": "'VirtualAccount.payableCall()' lacks proper Access Control checks which can get funds stolen.  ",
+  "issueId": 675,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/675"
+}
