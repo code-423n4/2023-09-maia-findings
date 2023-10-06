@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "Doesn't check for partial redemptions. Could allow duplicate redemptions",
+  "issueId": 754,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/754"
+}
