@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "ihtishamsudo",
+  "risk": "2",
+  "title": "Lack of Implementation of `ILayerZeroUserApplicationConfig` in LayerZero Section in `RootBridgeAgent.sol` & `BranchBridgeAgent.sol`",
+  "issueId": 609,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/609"
+}
