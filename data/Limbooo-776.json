@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Limbooo",
+  "risk": "2",
+  "title": "Inappropriate Extraction of Remote Address from LayerZero's `_srcAddress` Bytes Object",
+  "issueId": 776,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/776"
+}
