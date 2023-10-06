@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "0xTheC0der",
+  "risk": "3",
+  "title": "All tokens can be stolen from `VirtualAccount` due to missing access modifier",
+  "issueId": 885,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/885"
+}
