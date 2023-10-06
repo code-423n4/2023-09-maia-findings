@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "`VirtualAccount.sol` CONTRACT DOES NOT CORRECTLY IMPLEMENT THE `eip1155` STANDARD WHILE INHERITING THE `ERC1155Receiver`",
+  "issueId": 889,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/889"
+}
