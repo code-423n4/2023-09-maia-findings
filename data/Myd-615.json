@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "`bridgeInMultiple` and `bridgeOutMultiple` functions lack array length validation, potentially causing incorrect token bridging.",
+  "issueId": 615,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/615"
+}
