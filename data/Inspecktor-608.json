@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "Inspecktor",
+  "risk": "3",
+  "title": "When deploying the ArbitrumBranchBridgeAgent.sol contract, the BranchBridgeAgent.sol contract appears with incorrect values, resulting in incorrect functioning.",
+  "issueId": 608,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/608"
+}
