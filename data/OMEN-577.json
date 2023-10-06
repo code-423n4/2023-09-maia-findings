@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "OMEN",
+  "risk": "2",
+  "title": "there's lack of 0 address check at addNewChain ",
+  "issueId": 577,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/577"
+}
