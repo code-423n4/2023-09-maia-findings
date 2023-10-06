@@ -1,0 +1,8 @@
+{
+  "contest": 287,
+  "handle": "btk",
+  "risk": "3",
+  "title": "VirtualAccount::payableCall is missing access control",
+  "issueId": 824,
+  "issueUrl": "https://github.com/code-423n4/2023-09-maia-findings/issues/824"
+}
